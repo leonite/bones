@@ -112,6 +112,41 @@ function bones_gallery_style($css) {
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 }
 
+	/**
+	* L_RemoteFileExists - check file exist via https connection
+	* @param string $url 
+	* @return bool 
+	**/
+ 
+	function L_RemoteFileExists($url) {
+
+		$curl = curl_init($url);
+
+		//don't fetch the actual page, you only want to check the connection is ok
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); 
+		curl_setopt($curl, CURLOPT_NOBODY, true);
+
+		//do request
+		$result = curl_exec($curl);
+		$ret = false;
+
+		//if request did not fail
+		if ($result !== false) {
+			
+			//if request was ok, check response code
+			$statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);  
+
+			if ($statusCode == 200) {
+				$ret = true;   
+			}
+		}
+
+		curl_close($curl);
+
+		return $ret;
+	
+	}
+
 
 /*********************
 SCRIPTS & ENQUEUEING
