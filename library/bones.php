@@ -112,6 +112,47 @@ function bones_gallery_style($css) {
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 }
 
+
+	/**
+	* L_FileVersion - return md5 hash if file exist
+	* @param string $filename
+	* @param string $flag
+	* @return string 
+	**/
+	
+	function L_FileVersion($filename, $flag) {
+		
+		// get the absolute path to the file
+		if ($flag == 'css') {
+			
+			$pathToFile = THEME_URI . '/library/css/' . $filename;
+	
+		} else if ($flag == 'js') {
+	
+		$pathToFile = THEME_URI . '/library/js/' . $filename;
+	
+		}
+
+		//check if the file exists
+		if (file_exists($pathToFile)) {
+			
+			// return hash of file
+			return hash_file('md5', $pathToFile);
+		
+		}
+		
+		else
+		
+		{
+			
+			// let them know the file wasn't found
+			return time();
+		
+		}
+	
+	}
+
+
 	/**
 	* L_RemoteFileExists - check file exist via https connection
 	* @param string $url 
@@ -160,10 +201,10 @@ SCRIPTS & ENQUEUEING
 		if (!is_admin()) {
 
 			// modernizr (without media query polyfill)
-			wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+			wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), fileVersion('modernizr.custom.min.js','js'), false );
 
 			// register main stylesheet
-			wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+			wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), fileVersion('style.css','css'), 'all' );
 
 			// ie-only style sheet
 			wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -176,7 +217,7 @@ SCRIPTS & ENQUEUEING
 			}
 
 			//adding scripts file in the footer
-			wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+			wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), fileVersion('scripts.js','js'), true );
 
 			// enqueue styles and scripts
 			wp_enqueue_script( 'bones-modernizr' );
@@ -206,6 +247,12 @@ SCRIPTS & ENQUEUEING
 			}
 		
 			wp_enqueue_script( 'bones-js' );
+			
+			//adding local vars
+			
+			$jsvars = array( 'template_url' => get_bloginfo('template_url'), 'homeurl' => get_option('home'), 'currenturl' => $_SERVER['REQUEST_URI'], 'pageid' => (int)get_the_ID(), 'ajaxurl' => admin_url('admin-ajax.php') );
+		
+			wp_localize_script( 'core-js', 'jsvars', $jsvars );
 
 		}
 	

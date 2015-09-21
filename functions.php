@@ -1,12 +1,23 @@
 <?php
 /*
-Author: Eddie Machado
-URL: http://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, etc.
+Author: Leonite
 */
+
+//DEFINE GLOBALS
+
+//define path's
+
+define( 'HOME_URI', home_url() ); //http://test1.ru/wp1 
+define( 'THEME_URI', get_stylesheet_directory_uri() ); //http://test1.ru/wp1/wp-content/themes/inffi 
+define( 'THEME_ROOT', get_theme_root() ); //Z:\home\test1.ru\www\wp1/wp-content/themes 
+define( 'THEME_IMAGES', THEME_URI . '/library/images/' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/images 
+define( 'THEME_CSS', THEME_URI . '/library/css/' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/css 
+define( 'THEME_JS', THEME_URI . '/library/js/' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/js 
+
+//compiled
+define( 'THEME_CSS_C', THEME_URI . '/library/css/compiled' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/css/compiled 
+define( 'THEME_JS_C', THEME_URI . '/library/js/compiled' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/js/compiled 
+
 
 // LOAD BONES CORE (if you remove this, the theme will break)
 require_once( 'library/bones.php' );
