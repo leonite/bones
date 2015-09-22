@@ -24,6 +24,21 @@ Digging into WP - http://digwp.com/2010/10/customize-wordpress-dashboard/
 
 /************* DASHBOARD WIDGETS *****************/
 
+//disable auto save
+function disableAutoSave(){
+    wp_deregister_script('autosave');
+}
+add_action( 'wp_print_scripts', 'disableAutoSave' );
+
+define( 'AUTOSAVE_INTERVAL', 999999 ); // autosave 1x per year
+define( 'EMPTY_TRASH_DAYS',  0 ); // zero days
+
+/* disable post-revisioning nonsense */ 
+define('WP_POST_REVISIONS', FALSE);
+
+//disable code editor
+define('DISALLOW_FILE_EDIT', true);
+
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
 	global $wp_meta_boxes;
@@ -42,7 +57,8 @@ function disable_default_dashboard_widgets() {
 	unset($wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget']);           // Yoast's SEO Plugin Widget
 	unset($wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard']);        // Gravity Forms Plugin Widget
 	unset($wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now']);   // bbPress Plugin Widget
-
+	unset($wp_meta_boxes['dashboard']['normal']['core']['quick_count_dashboard_widget']);   // quick_count_dashboard_widget
+	
 	/*
 	have more plugin widgets you'd like to remove?
 	share them with us so we can get a list of
@@ -136,12 +152,89 @@ are a few funtions which you can choose to use if
 you like.
 */
 
-// Custom Backend Footer
-function bones_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.', 'bonestheme' );
-}
+	// Custom Backend Footer
+	function l_custom_admin_footer() {
+		
+		_e( '<span id="footer-thankyou">Developed by <a href="http://leonite.ru" target="_blank">leonite.ru</a></span>.', 'leonite-theme' );
+	
+	}
 
-// adding it to the admin area
-add_filter( 'admin_footer_text', 'bones_custom_admin_footer' );
+	// adding it to the admin area
+	add_filter( 'admin_footer_text', 'l_custom_admin_footer' );
+
+
+	//FIX CATEGORY WP BUG	
+	require_once( 'classes/class.categoty-checklist.php' );
+
+		Category_Checklist::init();
+
+	//disable google fonts
+	require_once( 'classes/class.disable-gfonts.php' );
+	
+	/* Although it would be preferred to do this on hook,
+	* load early to make sure Open Sans is removed
+	*/
+		$disable_google_fonts = new Disable_Google_Fonts;
+		
+	
+	//custom logout url
+	add_filter( 'logout_url', 'l_custom_logout_url', 10, 2 );
+	add_action( 'wp_loaded', 'l_custom_logout_action' );
+	//add_action('wp_logout', 'l_custom_logout_action');
+ 
+	/**
+	* Replace default log-out URL.
+	*
+	* @wp-hook logout_url
+	* @param string $logout_url
+	* @param string $redirect
+	* @return string
+	*/
+	function l_custom_logout_url( $logout_url, $redirect ) {
+	
+		global $wp;
+		
+		//get redirect link
+		$temp = home_url('/'); 
+	
+		if ( is_page('profile') or is_admin() ) {
+	
+			$redirect = home_url('/'); 
+	
+		} else {
+		
+			$redirect = trailingslashit(home_url( $wp->request ));
+		
+		}
+	
+		$url = add_query_arg( array('dologout' => '1'), $temp );
+		$url = add_query_arg( array('redirect' => $redirect), $url );
+	
+		return $url;
+	
+	}
+ 
+	/**
+	* Log the user out.
+	*
+	* @wp-hook wp_loaded
+	* @return void
+	*/
+
+	function l_custom_logout_action() {
+	
+		if ( ! isset ( $_GET['dologout'] ) )
+			return;
+	
+		wp_logout();
+	
+		global $wp;
+	
+		$redirect = trailingslashit(home_url( $wp->request ));
+		$loc = isset ( $_GET['redirect'] ) ? $_GET['redirect'] : $redirect;
+		wp_redirect( $loc, 302 );
+		exit;
+	
+	}
 
 ?>

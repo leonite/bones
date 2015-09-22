@@ -1,29 +1,42 @@
 <?php
-/*
-Author: Leonite
-*/
+	
+	/*
+	*
+	*
+	* @Author: Leonite
+	* @Since 1.0
+	*
+	*/
 
-//DEFINE GLOBALS
+	//DEFINE GLOBALS
 
-//define path's
+	//define path's\
+	define( 'HOME_URI', home_url() ); //http://test1.ru/wp1 
+	define( 'THEME_URI', get_stylesheet_directory_uri() ); //http://test1.ru/wp1/wp-content/themes/themename
+	define( 'THEME_ROOT', get_theme_root() ); //Z:\home\test1.ru\www\wp1/wp-content/themename
+	define( 'THEME_IMAGES', THEME_URI . '/library/images/' ); //http://test1.ru/wp1/wp-content/themes/themename/library/images 
+	define( 'THEME_CSS', THEME_URI . '/library/css/' ); //http://test1.ru/wp1/wp-content/themes/themename/library/css 
+	define( 'THEME_JS', THEME_URI . '/library/js/' ); //http://test1.ru/wp1/wp-content/themes/themename/library/js 
+	define( 'THEME_CLASS', THEME_URI . '/library/classes/' ); //http://test1.ru/wp1/wp-content/themes/themename/library/classes
+	
+	//compiled
+	define( 'THEME_CSS_C', THEME_URI . '/library/css/compiled' ); //http://test1.ru/wp1/wp-content/themes/themename/library/css/compiled 
+	define( 'THEME_JS_C', THEME_URI . '/library/js/compiled' ); //http://test1.ru/wp1/wp-content/themes/themename/library/js/compiled 
 
-define( 'HOME_URI', home_url() ); //http://test1.ru/wp1 
-define( 'THEME_URI', get_stylesheet_directory_uri() ); //http://test1.ru/wp1/wp-content/themes/inffi 
-define( 'THEME_ROOT', get_theme_root() ); //Z:\home\test1.ru\www\wp1/wp-content/themes 
-define( 'THEME_IMAGES', THEME_URI . '/library/images/' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/images 
-define( 'THEME_CSS', THEME_URI . '/library/css/' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/css 
-define( 'THEME_JS', THEME_URI . '/library/js/' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/js 
 
-//compiled
-define( 'THEME_CSS_C', THEME_URI . '/library/css/compiled' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/css/compiled 
-define( 'THEME_JS_C', THEME_URI . '/library/js/compiled' ); //http://test1.ru/wp1/wp-content/themes/inffi/library/js/compiled 
+	// load core functions
+	require_once( 'library/core.php' );
 
-
-// LOAD BONES CORE (if you remove this, the theme will break)
-require_once( 'library/bones.php' );
-
-// CUSTOMIZE THE WORDPRESS ADMIN (off by default)
-// require_once( 'library/admin.php' );
+	// wp admin customization
+	require_once( 'library/admin.php' );
+	
+	
+	// load theme settings page
+	if ( L_RemoteFileExists( THEME_URI . '/library/themesettings/classes/class.my-theme-options.php' , false ) ) {
+	
+		require_once( 'library/themesettings/classes/class.my-theme-options.php' );
+	
+	}
 
 /*********************
 LAUNCH BONES
@@ -248,11 +261,11 @@ twentythirteen theme where we can declare some
 external fonts. If you're using Google Fonts, you
 can replace these fonts, change it in your scss files
 and be up and running in seconds.
-*/
+
 function bones_fonts() {
   wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
 }
 
-add_action('wp_enqueue_scripts', 'bones_fonts');
+add_action('wp_enqueue_scripts', 'bones_fonts');*/
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

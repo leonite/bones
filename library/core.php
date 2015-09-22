@@ -1,13 +1,5 @@
 <?php
-/* Welcome to Bones :)
-This is the core Bones file where most of the
-main functions & features reside. If you have
-any custom functions, it's best to put them
-in the functions.php file.
-
-Developed by: Eddie Machado
-URL: http://themble.com/bones/
-
+/* 
   - head cleanup (remove rsd, uri links, junk css, ect)
   - enqueueing scripts & styles
   - theme support functions
@@ -99,18 +91,24 @@ function bones_remove_wp_widget_recent_comments_style() {
 	}
 }
 
-// remove injected CSS from recent comments widget
-function bones_remove_recent_comments_style() {
-	global $wp_widget_factory;
-	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
-		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
+	// remove injected CSS from recent comments widget
+	function bones_remove_recent_comments_style() {
+		
+		global $wp_widget_factory;
+		
+		if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
+			
+			remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
+		
 	}
 }
 
-// remove injected CSS from gallery
-function bones_gallery_style($css) {
+	// remove injected CSS from gallery
+	function bones_gallery_style($css) {
+		
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
-}
+	
+	}
 
 
 	/**
@@ -125,11 +123,11 @@ function bones_gallery_style($css) {
 		// get the absolute path to the file
 		if ($flag == 'css') {
 			
-			$pathToFile = THEME_URI . '/library/css/' . $filename;
-	
+			$pathToFile = THEME_CSS . $filename;
+			
 		} else if ($flag == 'js') {
 	
-		$pathToFile = THEME_URI . '/library/js/' . $filename;
+			$pathToFile = THEME_JS . $filename;
 	
 		}
 
@@ -152,21 +150,54 @@ function bones_gallery_style($css) {
 	
 	}
 
+	/* Hide WP version strings from scripts and styles and adding hash to all
+	* @return {string} $src
+	* @filter script_loader_src
+	* @filter style_loader_src
+	*/
+	function remove_wp_version_strings_and_hash( $src ) {
+    
+		global $wp_version;
+	
+		if (strpos($src,'api-maps.yandex.ru') == false) { //yandex maps can't work with custom parameters
+    
+			parse_str(parse_url($src, PHP_URL_QUERY), $query);
+			// if ( !empty($query['ver']) && $query['ver'] === $wp_version ) {
+	
+			if ( !empty($query['ver']) ) {
+	
+				$src = remove_query_arg('ver', $src);
+				$hash = @hash_file('md5', $src);
+				$src = $src . '?vhid=' . $hash;  //set version hash id
+		
+			}
+		
+		}
+     
+		return $src;
+	
+	}
+
+	add_filter( 'script_loader_src', 'remove_wp_version_strings_and_hash' );
+	add_filter( 'style_loader_src', 'remove_wp_version_strings_and_hash' );
 
 	/**
-	* L_RemoteFileExists - check file exist via https connection
+	* L_RemoteFileExists - check file exist via http or https connection
 	* @param string $url 
+	* @param bool $usehttps / default = true
 	* @return bool 
 	**/
  
-	function L_RemoteFileExists($url) {
+	function L_RemoteFileExists($url, $usehttps = true) {
 
 		$curl = curl_init($url);
 
 		//don't fetch the actual page, you only want to check the connection is ok
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); 
+		if ($usehttps)
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		
 		curl_setopt($curl, CURLOPT_NOBODY, true);
-
+		
 		//do request
 		$result = curl_exec($curl);
 		$ret = false;
@@ -201,10 +232,10 @@ SCRIPTS & ENQUEUEING
 		if (!is_admin()) {
 
 			// modernizr (without media query polyfill)
-			wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), fileVersion('modernizr.custom.min.js','js'), false );
+			wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), L_FileVersion('modernizr.custom.min.js','js'), true );
 
 			// register main stylesheet
-			wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), fileVersion('style.css','css'), 'all' );
+			wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
 			// ie-only style sheet
 			wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -217,7 +248,7 @@ SCRIPTS & ENQUEUEING
 			}
 
 			//adding scripts file in the footer
-			wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), fileVersion('scripts.js','js'), true );
+			wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), L_FileVersion('scripts.js','js'), true );
 
 			// enqueue styles and scripts
 			wp_enqueue_script( 'bones-modernizr' );
