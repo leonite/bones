@@ -22,6 +22,23 @@ Digging into WP - http://digwp.com/2010/10/customize-wordpress-dashboard/
 
 */
 
+
+	/*Filters */
+	/* add section */
+	
+	//add shortcodes to excerpt
+	add_filter('the_excerpt', 'do_shortcode');
+	
+	//images jpeg quality
+	add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
+	
+	/* remove section */
+	
+	//Remove paragraph tags around content and excerpt
+	remove_filter( 'the_content', 'wpautop' );
+	remove_filter( 'the_excerpt', 'wpautop' );
+
+
 /************* DASHBOARD WIDGETS *****************/
 
 //disable auto save
@@ -161,7 +178,29 @@ you like.
 
 	// adding it to the admin area
 	add_filter( 'admin_footer_text', 'l_custom_admin_footer' );
+	
+	//WE REMOVE ADMIN BAR IF USER NOT ADMIN PRIVILEGIES
+	function remove_admin_bar() {
+		
+		if (!current_user_can('administrator') && !is_admin()) {
+		
+			show_admin_bar(false);
+	
+		}
+	
+	}
+	
+	add_action('after_setup_theme', 'remove_admin_bar');
 
+	//Remove the WordPress Logo from the WordPress Admin Bar   
+    function remove_wp_logo() {  
+		
+		global $wp_admin_bar;  
+		$wp_admin_bar->remove_menu('wp-logo');  
+    
+	}  
+    
+	add_action( 'wp_before_admin_bar_render', 'remove_wp_logo' );  
 
 	//FIX CATEGORY WP BUG	
 	require_once( 'classes/class.categoty-checklist.php' );
