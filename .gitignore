@@ -1,5 +1,14 @@
 # folders and files to be ignored by git
 
+#git
+
+.gitignore
+
+#node
+
+node_modules
+npm-debug.log
+
 ############
 ## Bones
 ############
