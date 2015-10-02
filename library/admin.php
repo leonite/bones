@@ -217,63 +217,64 @@ you like.
 		
 	
 	//custom logout url
-	add_filter( 'logout_url', 'l_custom_logout_url', 10, 2 );
-	add_action( 'wp_loaded', 'l_custom_logout_action' );
-	//add_action('wp_logout', 'l_custom_logout_action');
- 
-	/**
+	
+	add_filter( 'logout_url', 'leonite_custom_logout_url');
+	add_action( 'wp_loaded', 'leonite_custom_logout_action' );
+	
+	/*
 	* Replace default log-out URL.
 	*
 	* @wp-hook logout_url
-	* @param string $logout_url
-	* @param string $redirect
 	* @return string
 	*/
-	function l_custom_logout_url( $logout_url, $redirect ) {
-	
+
+	function leonite_custom_logout_url() {
+		
 		global $wp;
 		
-		//get redirect link
-		$temp = home_url('/'); 
-	
-		if ( is_page('profile') or is_admin() ) {
-	
-			$redirect = home_url('/'); 
-	
+		if ( is_admin() ) {
+		
+			$redirect = urlencode( home_url ( '/' ) );
+		
 		} else {
 		
-			$redirect = trailingslashit(home_url( $wp->request ));
+			$redirect = urlencode( trailingslashit( home_url( $wp->request ) ) );
 		
 		}
-	
-		$url = add_query_arg( array('dologout' => '1'), $temp );
-		$url = add_query_arg( array('redirect' => $redirect), $url );
-	
+		
+		$url = add_query_arg( array( 'dologout' => '1' ),  home_url( '/' ) );
+		$url = add_query_arg( array( 'redirect' => $redirect ), $url );
+		
 		return $url;
 	
 	}
- 
-	/**
+	
+	/*
 	* Log the user out.
 	*
 	* @wp-hook wp_loaded
 	* @return void
 	*/
 
-	function l_custom_logout_action() {
+	function leonite_custom_logout_action() {
+		
+		if ( isset ( $_GET['dologout'] ) ) {
+			
+			if ( isset ( $_GET['redirect'] ) ) {
+			
+				wp_redirect( $_GET['redirect'] );
+			
+			}
+			
+			wp_logout();
+			exit;
+		
+		} else {
 	
-		if ( ! isset ( $_GET['dologout'] ) )
 			return;
 	
-		wp_logout();
-	
-		global $wp;
-	
-		$redirect = trailingslashit(home_url( $wp->request ));
-		$loc = isset ( $_GET['redirect'] ) ? $_GET['redirect'] : $redirect;
-		wp_redirect( $loc, 302 );
-		exit;
-	
-	}
+		}
 
+	}
+	
 ?>
