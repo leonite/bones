@@ -2,7 +2,6 @@
 	
 	/*
 	*
-	*
 	* @Author: Leonite
 	* @Since 1.0
 	*
@@ -26,7 +25,10 @@
 
 	// load core functions
 	require_once( 'library/core.php' );
-
+	
+	// load backend functions
+	require_once( 'library/backend/backend-functions.php' );
+	
 	// wp admin customization
 	require_once( 'library/admin.php' );
 	
@@ -267,5 +269,16 @@ function leonite_fonts() {
 }
 
 add_action('wp_enqueue_scripts', 'leonite_fonts');*/
+
+	//Small security tweak
+
+	if (strpos($_SERVER['REQUEST_URI'], "eval(") ||	strpos($_SERVER['REQUEST_URI'], "CONCAT") || strpos($_SERVER['REQUEST_URI'], "UNION+SELECT") ||	strpos($_SERVER['REQUEST_URI'], "base64")) {
+		
+		@header("HTTP/1.1 400 Bad Request");
+		@header("Status: 400 Bad Request");
+		@header("Connection: Close");
+		@exit;
+	
+	}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
