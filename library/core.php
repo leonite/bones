@@ -252,10 +252,10 @@ SCRIPTS & ENQUEUEING
 			wp_register_script( 'leonite-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), L_FileVersion('modernizr.custom.min.js','js'), true );
 
 			// register main stylesheet
-			wp_register_style( 'leonite-stylesheet', get_stylesheet_directory_uri() . '/library/css/compiled/build.css', array(), '', 'all' );
+			wp_register_style( 'leonite-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
 			// ie-only style sheet
-			//wp_register_style( 'leonite-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+			wp_register_style( 'leonite-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
 
 			// comment reply script for threaded comments
 			if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -270,7 +270,7 @@ SCRIPTS & ENQUEUEING
 			// enqueue styles and scripts
 			wp_enqueue_script( 'leonite-modernizr' );
 			wp_enqueue_style( 'leonite-stylesheet' );
-			//wp_enqueue_style( 'leonite-ie-only' );
+			wp_enqueue_style( 'leonite-ie-only' );
 
 			$wp_styles->add_data( 'leonite-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
