@@ -220,12 +220,12 @@ you like.
 		Category_Checklist::init();
 
 	//disable google fonts
-	require_once( 'classes/class.disable-gfonts.php' );
+	//require_once( 'classes/class.disable-gfonts.php' );
 	
 	/* Although it would be preferred to do this on hook,
 	* load early to make sure Open Sans is removed
 	*/
-		$disable_google_fonts = new Disable_Google_Fonts;
+	//	$disable_google_fonts = new Disable_Google_Fonts;
 		
 	
 	//custom logout url
