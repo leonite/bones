@@ -166,37 +166,57 @@ need.
 		}
 	
 	}
+	
+	// Remove Open Sans that WP adds from frontend
 
-	/* Hide WP version strings from scripts and styles and adding hash to all
-	* @return {string} $src
-	* @filter script_loader_src
-	* @filter style_loader_src
-	*/
-	function remove_wp_version_strings_and_hash( $src ) {
-    
-		global $wp_version;
-	
-		if (strpos($src,'api-maps.yandex.ru') == false) { //yandex maps can't work with custom parameters
-    
-			parse_str(parse_url($src, PHP_URL_QUERY), $query);
-			// if ( !empty($query['ver']) && $query['ver'] === $wp_version ) {
-	
-			if ( !empty($query['ver']) ) {
-	
-				$src = remove_query_arg('ver', $src);
-				$hash = @hash_file('md5', $src);
-				$src = $src . '?vhid=' . $hash;  //set version hash id
+	if (!function_exists('remove_wp_open_sans')) :
 		
+		function remove_wp_open_sans() {
+			
+			wp_deregister_style( 'open-sans' );
+			wp_register_style( 'open-sans', false );
+		
+		}
+		
+		add_action('wp_enqueue_scripts', 'remove_wp_open_sans');
+		
+		// Uncomment below to remove from admin
+		//add_action('admin_enqueue_scripts', 'remove_wp_open_sans');
+	
+	endif;
+
+
+	/* Hide WP version strings from scripts and styles and adding hash to links
+		
+		* @param {string} $src 
+		* @return {string} $src
+		* @filter script_loader_src
+		* @filter style_loader_src
+	
+	*/
+	
+	function remove_wp_version_strings_and_hash_it( $src ) {
+	
+		if ( ( strpos( $src, 'api-maps.yandex.ru' ) == false ) && ( strpos( $src, 'fonts.googleapis.com' ) == false ) ) { //if yandex maps or google fonts, don't parse url
+    
+			parse_str( parse_url( $src, PHP_URL_QUERY), $query );
+	
+			if ( !empty( $query['ver'] ) ) {
+	
+				$src = remove_query_arg( 'ver', $src );
+				
 			}
+				
+			$hash = md5( @file_get_contents( $src ) );
+			$src = $src . '?vhid=' . $hash;			
 		
 		}
      
 		return $src;
 	
 	}
-
-	add_filter( 'script_loader_src', 'remove_wp_version_strings_and_hash' );
-	add_filter( 'style_loader_src', 'remove_wp_version_strings_and_hash' );
+	add_filter( 'script_loader_src', 'remove_wp_version_strings_and_hash_it' );
+	add_filter( 'style_loader_src', 'remove_wp_version_strings_and_hash_it' );
 
 	/**
 	* L_RemoteFileExists - check file exist via http or https connection
@@ -251,6 +271,9 @@ SCRIPTS & ENQUEUEING
 			// modernizr (without media query polyfill)
 			wp_register_script( 'leonite-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), L_FileVersion('modernizr.custom.min.js','js'), true );
 
+			//font enqueue
+			//wp_enqueue_style( 'leonite-font', get_stylesheet_directory_uri() . '/library/css/', array( 'leonite-open-sans', 'leonite-pt-serif' ), '' );
+			
 			// register main stylesheet
 			wp_register_style( 'leonite-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
@@ -268,6 +291,10 @@ SCRIPTS & ENQUEUEING
 			wp_register_script( 'leonite-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), L_FileVersion('scripts.js','js'), true );
 
 			// enqueue styles and scripts
+			// @todo: allow subsets via i18n.
+			wp_enqueue_style( 'leonite-pt-serif', '//fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic' );
+			wp_enqueue_style( 'leonite-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic' );
+			
 			wp_enqueue_script( 'leonite-modernizr' );
 			wp_enqueue_style( 'leonite-stylesheet' );
 			wp_enqueue_style( 'leonite-ie-only' );

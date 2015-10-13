@@ -41,19 +41,6 @@ FONT FACE (IN YOUR FACE)
 */
 
 
-//Open sans font begin, need to replace open sans light to google static link
-@font-face {font-family: "Open Sans";font-style: normal;font-weight: 300;src: local("Open Sans Light"), local("OpenSans-Light"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
-}
-
-@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans'),local('OpenSans'),url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
-}
-
-@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzInF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
-}
-
-//PT Sans begin here, we use it for article headers
-@font-face{font-family:'PT Serif';font-style:normal;font-weight:400;src:local('PT Serif'),local('PTSerif-Regular'),url(https://fonts.gstatic.com/s/ptserif/v8/EgBlzoNBIHxNPCMwXaAhYPesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
-}
 
 /*
 The following is based of Typebase:

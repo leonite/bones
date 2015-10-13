@@ -272,13 +272,14 @@ you like.
 		
 		if ( isset ( $_GET['dologout'] ) ) {
 			
+			wp_logout();
+			
 			if ( isset ( $_GET['redirect'] ) ) {
 			
 				wp_redirect( $_GET['redirect'] );
 			
 			}
 			
-			wp_logout();
 			exit;
 		
 		} else {
