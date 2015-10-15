@@ -32,6 +32,9 @@
 	// wp admin customization
 	require_once( 'library/admin.php' );
 	
+	//wp menu walker
+	require_once('library/classes/class.wp-bootstrap-navwalker.php');
+	
 	
 	// load theme settings page
 	if ( L_RemoteFileExists( THEME_URI . '/library/themesettings/classes/class.my-theme-options.php' , false ) ) {

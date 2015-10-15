@@ -55,23 +55,53 @@
 					<?php // if you'd like to use the site description you can un-comment it below ?>
 					<?php // bloginfo('description'); ?>
 
+					
+					<nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						
+						<div class="container-fluid">
+						
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							
+							</button>
+						
+						<a class="navbar-brand" href="<?php echo home_url(); ?>">
+							
+							<?php bloginfo('name'); ?>
+						
+						</a>
+						
+						</div>
 
-					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<?php wp_nav_menu(array(
-    					         'container' => false,                           // remove nav container
-    					         'container_class' => 'menu cf',                 // class of container (should you choose to use it)
-    					         'menu' => __( 'The Main Menu', 'leonitetheme' ),  // nav name
-    					         'menu_class' => 'nav top-nav cf',               // adding custom nav class
-    					         'theme_location' => 'main-nav',                 // where it's located in the theme
-    					         'before' => '',                                 // before the menu
-        			               'after' => '',                                  // after the menu
-        			               'link_before' => '',                            // before each link
-        			               'link_after' => '',                             // after each link
-        			               'depth' => 0,                                   // limit the depth of the nav
-    					         'fallback_cb' => ''                             // fallback function (if there is one)
-						)); ?>
-
+					<?php
+						
+						wp_nav_menu( array(
+                
+							'menu' => __( 'The Main Menu', 'leonite' ),  // nav name
+							'theme_location'    => 'main-nav',
+							'depth'             => 2,
+							'container'         => 'div',
+							'container_class'   => 'collapse navbar-collapse',
+							'container_id'      => 'bs-example-navbar-collapse-1',
+							'menu_class'        => 'nav navbar-nav',
+							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+							'walker'            => new wp_bootstrap_navwalker())
+						
+						);
+					?>
+					
+						</div>
+				
 					</nav>
+
+					
 
 				</div>
 

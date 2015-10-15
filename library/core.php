@@ -267,40 +267,7 @@ SCRIPTS & ENQUEUEING
 		global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
 		if (!is_admin()) {
-
-			// modernizr (without media query polyfill)
-			wp_register_script( 'leonite-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), L_FileVersion('modernizr.custom.min.js','js'), true );
-
-			//font enqueue
-			//wp_enqueue_style( 'leonite-font', get_stylesheet_directory_uri() . '/library/css/', array( 'leonite-open-sans', 'leonite-pt-serif' ), '' );
 			
-			// register main stylesheet
-			wp_register_style( 'leonite-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
-
-			// ie-only style sheet
-			wp_register_style( 'leonite-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
-
-			// comment reply script for threaded comments
-			if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-			
-				wp_enqueue_script( 'comment-reply' );
-			
-			}
-
-			//adding scripts file in the footer
-			wp_register_script( 'leonite-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), L_FileVersion('scripts.js','js'), true );
-
-			// enqueue styles and scripts
-			// @todo: allow subsets via i18n.
-			wp_enqueue_style( 'leonite-pt-serif', '//fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic' );
-			wp_enqueue_style( 'leonite-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic' );
-			
-			wp_enqueue_script( 'leonite-modernizr' );
-			wp_enqueue_style( 'leonite-stylesheet' );
-			wp_enqueue_style( 'leonite-ie-only' );
-
-			$wp_styles->add_data( 'leonite-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-
 			/*JS
 			adding scripts file in the footer
 			including jquery firstly
@@ -320,11 +287,62 @@ SCRIPTS & ENQUEUEING
 				wp_enqueue_script( 'jquery' );
 			
 			}
-		
+			
+			// modernizr (without media query polyfill)
+			wp_register_script( 'leonite-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), L_FileVersion('modernizr.custom.min.js','js'), true );
+
+			//adding scripts file in the footer
+			wp_register_script( 'leonite-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), L_FileVersion('scripts.js','js'), true );
+			//bootstrap
+			wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri()  . '/library/js/bootstrap.min.js', array('jquery'), true );
+			
+			
+			// comment reply script for threaded comments
+			if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+			
+				wp_enqueue_script( 'comment-reply' );
+			
+			}
+	
+			
+			//enqueue scripts	
+			wp_enqueue_script( 'leonite-modernizr' );
 			wp_enqueue_script( 'leonite-js' );
+			wp_enqueue_script( 'bootstrap-js' );
 			
-			//adding local vars
+			/*
 			
+			CSS
+			
+			*/
+			
+			//bootstrap
+			wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri()  . '/library/css/bootstrap.min.css', array(), '', 'all' );
+			
+			// register main stylesheet
+			wp_register_style( 'leonite-css', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+
+			// ie-only style sheet
+			wp_register_style( 'leonite-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+
+			
+			// enqueue styles and scripts
+			// @todo: allow subsets via i18n.
+			wp_enqueue_style( 'leonite-pt-serif', '//fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic', false );
+			wp_enqueue_style( 'leonite-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic', false );
+			
+			wp_enqueue_style( 'bootstrap-css' );
+			wp_enqueue_style( 'leonite-css' );
+			wp_enqueue_style( 'leonite-ie-only' );
+			
+			$wp_styles->add_data( 'leonite-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+
+			
+			/*
+			
+			adding local vars
+			
+			*/
 			$jsvars = array( 'template_url' => get_bloginfo('template_url'), 'homeurl' => get_option('home'), 'currenturl' => $_SERVER['REQUEST_URI'], 'pageid' => (int)get_the_ID(), 'ajaxurl' => admin_url('admin-ajax.php') );
 		
 			wp_localize_script( 'core-js', 'jsvars', $jsvars );
@@ -383,8 +401,8 @@ function leonite_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'The Main Menu', 'leonitetheme' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'leonitetheme' ) // secondary nav in footer
+			'main-nav' => __( 'The Main Menu', 'leonite' ),   // main nav in header
+			'footer-links' => __( 'Footer Links', 'leonite' ) // secondary nav in footer
 		)
 	);
 
