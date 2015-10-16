@@ -317,10 +317,10 @@ SCRIPTS & ENQUEUEING
 			*/
 			
 			//bootstrap
-			wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri()  . '/library/css/bootstrap.min.css', array(), '', 'all' );
+			//wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri()  . '/library/css/bootstrap.min.css', array(), '', 'all' );
 			
 			// register main stylesheet
-			wp_register_style( 'leonite-css', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+			wp_register_style( 'leonite-css', get_stylesheet_directory_uri() . '/library/css/theme.css', array(), '', 'all' );
 
 			// ie-only style sheet
 			wp_register_style( 'leonite-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -331,7 +331,7 @@ SCRIPTS & ENQUEUEING
 			wp_enqueue_style( 'leonite-pt-serif', '//fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic', false );
 			wp_enqueue_style( 'leonite-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic', false );
 			
-			wp_enqueue_style( 'bootstrap-css' );
+			//wp_enqueue_style( 'bootstrap-css' );
 			wp_enqueue_style( 'leonite-css' );
 			wp_enqueue_style( 'leonite-ie-only' );
 			

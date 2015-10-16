@@ -15,8 +15,15 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 
+html {
+
+font-family: $open-sans;
+font-size: 100%;
+
+}
+
 body {
-	font-family: $sans-serif;
+	font-family: $open-sans;
 	font-size: 100%;
 	line-height: 1.5;
 	color: $text-color;
