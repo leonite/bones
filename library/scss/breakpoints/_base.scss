@@ -130,7 +130,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 
 h1, .h1 {
 	font-size: $fs8;
-	line-height: 1.333em;
+	line-height: $fs3;
 	font-family: "PT Serif",Helvetica,Arial,sans-serif;
 };
 
@@ -171,7 +171,11 @@ HEADER STYLES
 		a {
 			color: $white;
 		}
+		
 	}
+	
+	
+
 
 /*********************
 NAVIGATION STYLES

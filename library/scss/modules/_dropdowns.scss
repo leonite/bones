@@ -32,8 +32,9 @@
   position: absolute;
   top: 100%;
   left: 0;
+  top:35px;
   z-index: $zindex-dropdown;
-  display: none; // none by default, but block on "open" of the menu
+  //display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: 160px;
   padding: 5px;
@@ -47,11 +48,16 @@
   //border-radius: $border-radius-base;
   @include box-shadow(0 0px 3px rgba(0,0,0,.175));
   background-clip: padding-box;
+  opacity: 0;
+  visibility: hidden;
   
-  transform: translateZ(0);
-   transform: translateY(10%);
-   transition: all 0.5s ease 0s, visibility 0s linear 0.5s; /* the last value is the transition-delay for visibility */
-
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  
+  
   // Aligns the dropdown menu to right
   //
   // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
@@ -147,13 +153,11 @@
 }
 
 .dropdown:hover .dropdown-menu {
-display: block;
+//display: block;
 
-transform: translateY(10%);
-transition-delay: 0s; /* this removes the transition delay so the menu will be visible while the other styles transition */
-transition: all 0.5s ease 0s, visibility 0s linear 0.5s;
- visibility: visible; /* shows sub-menu */
 opacity: 1;
+top: 50px;
+visibility: visible;
 }
 
 // Open state for the dropdown
