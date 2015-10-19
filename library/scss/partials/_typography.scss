@@ -50,8 +50,34 @@ I've edited it a bit, but it's a nice starting point.
 
 
 // font stacks
+
 $open-sans:        "Open Sans", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+
+//font sizes
+//http://www.modularscale.com/?1&em&1.125&web&text
+
+//plus
+
+$fs0: 1em;
+$fs1: 1.125em;
+$fs2: 1.266em;
+$fs3: 1.424em;
+$fs4: 1.602em;
+$fs5: 1.802em;
+$fs6: 2.027em;
+$fs7: 2.281em;
+$fs8: 2.566em;
+
+//minus
+
+$fs1m: 0.889em;
+$fs2m: 0.79em;
+$fs3m: 0.702em;
+$fs4m: 0.624em;
+$fs5m: 0.555em;
+$fs6m: 0.493em;
 
 /*
  i imported this one in the functions file so bones would look sweet.

@@ -129,12 +129,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: $fs8;
 	line-height: 1.333em;
-}
+	font-family: "PT Serif",Helvetica,Arial,sans-serif;
+};
 
 h2, .h2 {
-	font-size: 1.75em;
+	font-size: $fs7;
 	line-height: 1.4em;
 	margin-bottom: 0.375em;
 	font-family: "PT Serif",Helvetica,Arial,sans-serif;
@@ -187,6 +188,11 @@ and more scalable.
 .nav {
 	border-bottom: 0;
 	margin: 0;
+	
+	ul {
+		background-color: $white;
+		margin-top:0;
+	}
 
 	li {
 
@@ -194,7 +200,7 @@ and more scalable.
 			display: block;
 			color: $white;
 			text-decoration: none;
-			padding: 0.75em;
+			//padding: 0.75em;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -308,7 +314,7 @@ POSTS & CONTENT STYLES
 		/* post meta */
 		.byline {
 			color: $meta-gray;
-			font-style: italic;
+			font-size: $fs2m;
 			margin: 0;
 
 			time {}
@@ -866,8 +872,9 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $black;
+	background-color: $footerbg;
 	color: $light-gray;
+	border-top: 1px solid #e8e8e8;
 }
 
 	/*

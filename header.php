@@ -74,7 +74,7 @@
 						
 						<a class="navbar-brand" href="<?php echo home_url(); ?>">
 							
-							<?php bloginfo('name'); ?>
+							<img src="<? echo THEME_IMAGES ?>leonite_logo.jpg" class="headerlogo" alt="Information Fidelity" title="<?php bloginfo('name'); ?>"/>
 						
 						</a>
 						
