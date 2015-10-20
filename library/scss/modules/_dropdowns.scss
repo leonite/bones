@@ -8,12 +8,12 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 2px;
+  margin-left: 4px;
   vertical-align: middle;
-  border-top:   $caret-width-base dashed;
-  border-top:   $caret-width-base solid \9; // IE8
-  border-right: $caret-width-base solid transparent;
-  border-left:  $caret-width-base solid transparent;
+  border-top:   6px dashed;
+  border-top:   6px solid \9; // IE8
+  border-right: 6px solid transparent;
+  border-left:  6px solid transparent;
 }
 
 // The dropdown wrapper (div)
@@ -32,22 +32,30 @@
   position: absolute;
   top: 100%;
   left: 0;
-  top:35px;
+  display:none;
   z-index: $zindex-dropdown;
   //display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: 160px;
-  padding: 5px;
+  padding: 25px;
   margin: 2px 0 0; // override default ul
   list-style: none;
-  font-size: $fs2;
+  //font-size: $fs2;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   background-color: #fff; //$dropdown-bg;
   border: 1px solid $dropdown-fallback-border; // IE8 fallback
   border: 1px solid $dropdown-border;
+  border-width: 1px 1px 1px 3px;
+  border-color: rgba(0, 0, 0, 0.15)  rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #337ab7;
   //border-radius: $border-radius-base;
-  @include box-shadow(0 0px 3px rgba(0,0,0,.175));
+  @include box-shadow(1px 1px 1px rgba(0,0,0,.1));
   background-clip: padding-box;
+  
+  
+  @media (min-width: $grid-float-breakpoint) {
+  
+  display:block;
+  top:30px;
   opacity: 0;
   visibility: hidden;
   
@@ -57,6 +65,7 @@
   -o-transition: all .25s ease;
   transition: all .25s ease;
   
+  }
   
   // Aligns the dropdown menu to right
   //
@@ -78,17 +87,17 @@
     clear: both;
     font-weight: normal;
     line-height: $line-height-base;
-    color: $dropdown-link-color;
+    //color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
   }
 }
 
-
+ @media (min-width: $grid-float-breakpoint) {
 //add arrow to menu
 .dropdown-menu:before {
   position: absolute;
   top: -13px;
-  left: 15px;
+  left: 5%;
   display: inline-block;
   border-right: 12px solid transparent;
   border-bottom: 12px solid #ccc;
@@ -100,12 +109,14 @@
 .dropdown-menu:after {
   position: absolute;
   top: -12px;
-  left: 15px;
+  left: 5%;
   display: inline-block;
   border-right: 12px solid transparent;
   border-bottom: 12px solid #ffffff;
   border-left: 12px solid transparent;
   content: '';
+}
+
 }
 
 // Hover/Focus state
@@ -114,7 +125,8 @@
   &:focus {
     text-decoration: none;
     color: $dropdown-link-hover-color;
-    background-color: $dropdown-link-hover-bg;
+    background-color: $white;
+	background-image: none;
   }
 }
 
@@ -123,10 +135,10 @@
   &,
   &:hover,
   &:focus {
-    color: $dropdown-link-active-color;
+    color: #000;
     text-decoration: none;
     outline: 0;
-    background-color: $dropdown-link-active-bg;
+    background-color: #f7f7f7;
   }
 }
 
@@ -152,6 +164,8 @@
   }
 }
 
+ @media (min-width: $grid-float-breakpoint) {
+ 
 .dropdown:hover .dropdown-menu {
 //display: block;
 
@@ -160,12 +174,16 @@ top: 50px;
 visibility: visible;
 }
 
+}
+
 // Open state for the dropdown
 .open {
   // Show the menu
   > .dropdown-menu {
     display: block;
-	
+	opacity: 1;
+top: 50px;
+visibility: visible;
 	
 
 	

@@ -162,7 +162,8 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+	background-color: $white;
+	border-bottom:1px solid #f7f7f7;
 }
 
 	#logo {
@@ -202,8 +203,7 @@ and more scalable.
 
 		a {
 			display: block;
-			color: $white;
-			text-decoration: none;
+			text-decoration: underline;
 			//padding: 0.75em;
 
 			/*
