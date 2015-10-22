@@ -135,8 +135,8 @@ h1, .h1 {
 };
 
 h2, .h2 {
-	font-size: $fs7;
-	line-height: 1.4em;
+	font-size: $fs5;
+	line-height: $fs3;
 	margin-bottom: 0.375em;
 	font-family: "PT Serif",Helvetica,Arial,sans-serif;
 }
@@ -195,16 +195,20 @@ and more scalable.
 	margin: 0;
 	
 	ul {
-		background-color: $white;
+		//background-color: $white;
 		margin-top:0;
 	}
 
 	li {
 
 		a {
+			color: #55606c;
 			display: block;
-			text-decoration: underline;
+			text-decoration: none;
+			transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
 			//padding: 0.75em;
+			font-weight: 600;
+			text-shadow: none;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -329,7 +333,7 @@ POSTS & CONTENT STYLES
 			padding: 1.5em 1.5em 0;
 
 			p {
-				margin: 0 0 1.5em;
+				margin: 1em 0;
 			}
 
 
@@ -395,7 +399,7 @@ POSTS & CONTENT STYLES
 			}
 
 			blockquote {
-				margin: 0 0 1.5em 0.75em;
+				margin: 1.5em 0 1.5em 0.75em;
 				padding: 0 0 0 0.75em;
 				border-left: 3px solid $blue;
 				font-style: italic;
@@ -879,6 +883,7 @@ FOOTER STYLES
 	background-color: $footerbg;
 	color: $light-gray;
 	border-top: 1px solid #e8e8e8;
+	padding: 2.8125em 1.25em;
 }
 
 	/*

@@ -36,20 +36,22 @@
   z-index: $zindex-dropdown;
   //display: none; // none by default, but block on "open" of the menu
   float: left;
-  min-width: 160px;
-  padding: 25px;
+  min-width: 220px;
+  border-radius: 6px;
+  padding: 15px;
   margin: 2px 0 0; // override default ul
   list-style: none;
-  //font-size: $fs2;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-  background-color: #fff; //$dropdown-bg;
-  border: 1px solid $dropdown-fallback-border; // IE8 fallback
-  border: 1px solid $dropdown-border;
-  border-width: 1px 1px 1px 3px;
-  border-color: rgba(0, 0, 0, 0.15)  rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #337ab7;
+  background-color: #f3f4f5; //$dropdown-bg;
+  //border: 1px solid $dropdown-fallback-border; // IE8 fallback
+  //border: 1px solid $dropdown-border;
+  //border-width: 1px 1px 1px 3px;
+  //border-color: rgba(0, 0, 0, 0.15)  rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #337ab7;
   //border-radius: $border-radius-base;
-  @include box-shadow(1px 1px 1px rgba(0,0,0,.1));
+  //@include box-shadow(1px 1px 1px rgba(0,0,0,.1));
+  //font-size: $fs2;
   background-clip: padding-box;
+
   
   
   @media (min-width: $grid-float-breakpoint) {
@@ -59,11 +61,11 @@
   opacity: 0;
   visibility: hidden;
   
-  -webkit-transition: all .25s ease;
-  -moz-transition: all .25s ease;
-  -ms-transition: all .25s ease;
-  -o-transition: all .25s ease;
-  transition: all .25s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
   
   }
   
@@ -84,6 +86,7 @@
   > li > a {
     display: block;
     padding: 10px 20px;
+	margin: 5px 0;
     clear: both;
     font-weight: normal;
     line-height: $line-height-base;
@@ -96,17 +99,16 @@
 //add arrow to menu
 .dropdown-menu:before {
   position: absolute;
-  top: -13px;
+  top: -11px;
   left: 5%;
   display: inline-block;
   border-right: 12px solid transparent;
-  border-bottom: 12px solid #ccc;
+  border-bottom: 12px solid #f3f4f5;
   border-left: 12px solid transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
   content: '';
 }
 
-.dropdown-menu:after {
+/*.dropdown-menu:after {
   position: absolute;
   top: -12px;
   left: 5%;
@@ -115,7 +117,7 @@
   border-bottom: 12px solid #ffffff;
   border-left: 12px solid transparent;
   content: '';
-}
+}*/
 
 }
 
@@ -123,10 +125,12 @@
 .dropdown-menu > li > a {
   &:hover,
   &:focus {
-    text-decoration: none;
-    color: $dropdown-link-hover-color;
-    background-color: $white;
+    text-decoration: underline;
+    color: #55606c; //$dropdown-link-hover-color;
+    background-color: rgba(202, 206, 209, 0.5);
 	background-image: none;
+	border-radius:4px;
+	
   }
 }
 
@@ -135,10 +139,11 @@
   &,
   &:hover,
   &:focus {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     outline: 0;
-    background-color: #f7f7f7;
+    background-color: #95a5a6;
+	border-radius:4px;
   }
 }
 
@@ -217,10 +222,12 @@ visibility: visible;
 // Dropdown section headers
 .dropdown-header {
   display: block;
-  padding: 3px 20px;
-  font-size: $font-size-small;
+  padding: 5px 20px;
+  font-size: 13px;
   line-height: $line-height-base;
-  color: $dropdown-header-color;
+  color: #888;
+  font-weight:600;
+  text-transform: uppercase;
   white-space: nowrap; // as with > li > a
 }
 
