@@ -296,6 +296,8 @@ SCRIPTS & ENQUEUEING
 			//bootstrap
 			wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri()  . '/library/js/bootstrap.min.js', array('jquery'), true );
 			
+			//thirdparty scripts
+			wp_register_script( 'thirdparty-js', get_stylesheet_directory_uri()  . '/library/js/thirdparty.js', array('jquery'), true );
 			
 			// comment reply script for threaded comments
 			if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -309,6 +311,7 @@ SCRIPTS & ENQUEUEING
 			wp_enqueue_script( 'leonite-modernizr' );
 			wp_enqueue_script( 'leonite-js' );
 			wp_enqueue_script( 'bootstrap-js' );
+			wp_enqueue_script( 'thirdparty-js' );
 			
 			/*
 			
