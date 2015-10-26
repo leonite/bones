@@ -87,6 +87,7 @@ LINK STYLES
 *********************/
 
 a, a:visited {
+	transition: color 0.5s linear 0s;
 	color: $link-color;
 
 	/* on hover */
@@ -124,14 +125,24 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 
 	/* removing text decoration from all headline links */
 	a {
+	
 		text-decoration: none;
+	
 	}
+	
 }
 
 h1, .h1 {
 	font-size: $fs8;
 	line-height: $fs3;
 	font-family: "PT Serif",Helvetica,Arial,sans-serif;
+	
+	a:visited {
+	
+	color:#337ab7;
+	
+	}
+	
 };
 
 h2, .h2 {
@@ -191,8 +202,16 @@ and more scalable.
 */
 
 .nav {
-	border-bottom: 0;
-	margin: 0;
+	
+	border:5px solid #16a085;
+	margin:25px 10px 10px;
+	
+	@media (min-width: $grid-float-breakpoint) {
+	
+		border: none;
+		margin: 0;
+		
+	}
 	
 	ul {
 		//background-color: $white;
@@ -915,6 +934,7 @@ FOOTER STYLES
 		padding-right: 0px;
 		transition: all .25s linear;
 		color:#2980b9;
+		padding-left: 1.1em !important;
 	
 	}
 	
@@ -925,3 +945,46 @@ FOOTER STYLES
 		color:#2980b9;
 		
 	}
+	
+//headroom css
+	
+.site-header-fixed {
+    left: 0;
+   // position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.site-header-fixed {
+    background-color: #fff;
+}
+	
+	.slide {
+    transition: all 0.25s ease-in-out 0s;
+}
+.slide--reset {
+    transform: translateY(0px);
+	position:fixed;
+	/*border-bottom:3px solid #30abe2;*/
+	
+}
+.slide--up {
+    transform: translateY(-300%);
+
+}
+
+.headroom--top {
+border:none;
+-webkit-transition: all 1s ease 0s !important;
+	-moz-transition: all 1s ease 0s !important;
+	transition: all 1s ease 0s !important;
+	opacity:1;
+}
+
+.headroom--not-top {
+	-webkit-box-shadow: 0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+-moz-box-shadow:    0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+box-shadow:         0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+transition: all 0.25s ease-in-out 0s;
+border-bottom: 3px solid #3ab7ed;
+}

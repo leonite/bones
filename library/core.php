@@ -287,17 +287,19 @@ SCRIPTS & ENQUEUEING
 				wp_enqueue_script( 'jquery' );
 			
 			}
-			
+						
 			// modernizr (without media query polyfill)
-			wp_register_script( 'leonite-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), L_FileVersion('modernizr.custom.min.js','js'), true );
+			wp_register_script( 'leonite-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '', true );
 
-			//adding scripts file in the footer
-			wp_register_script( 'leonite-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), L_FileVersion('scripts.js','js'), true );
 			//bootstrap
-			wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri()  . '/library/js/bootstrap.min.js', array('jquery'), true );
+			wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri()  . '/library/js/bootstrap.min.js', array('jquery'), '', true );
 			
 			//thirdparty scripts
-			wp_register_script( 'thirdparty-js', get_stylesheet_directory_uri()  . '/library/js/thirdparty.js', array('jquery'), true );
+			wp_register_script( 'thirdparty-js', get_stylesheet_directory_uri()  . '/library/js/thirdparty.js', array('jquery'), '', true );
+			
+			//adding scripts file in the footer
+			wp_register_script( 'leonite-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array('jquery'), '', true );
+			
 			
 			// comment reply script for threaded comments
 			if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -309,9 +311,10 @@ SCRIPTS & ENQUEUEING
 			
 			//enqueue scripts	
 			wp_enqueue_script( 'leonite-modernizr' );
-			wp_enqueue_script( 'leonite-js' );
 			wp_enqueue_script( 'bootstrap-js' );
 			wp_enqueue_script( 'thirdparty-js' );
+			wp_enqueue_script( 'leonite-js' );
+		
 			
 			/*
 			

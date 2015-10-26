@@ -29,45 +29,44 @@
 
 // The dropdown menu (ul)
 .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display:none;
-  z-index: $zindex-dropdown;
-  //display: none; // none by default, but block on "open" of the menu
-  float: left;
-  min-width: 220px;
-  border-radius: 6px;
-  padding: 15px;
-  margin: 2px 0 0; // override default ul
-  list-style: none;
-  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-  background-color: #f3f4f5; //$dropdown-bg;
-  //border: 1px solid $dropdown-fallback-border; // IE8 fallback
-  //border: 1px solid $dropdown-border;
-  //border-width: 1px 1px 1px 3px;
-  //border-color: rgba(0, 0, 0, 0.15)  rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #337ab7;
-  //border-radius: $border-radius-base;
-  //@include box-shadow(1px 1px 1px rgba(0,0,0,.1));
-  //font-size: $fs2;
-  background-clip: padding-box;
-
+	
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display:none;
+	z-index: $zindex-dropdown;
+	//display: none; // none by default, but block on "open" of the menu
+	float: left;
+	min-width: 220px;	
+	padding: 15px;
+	margin: 2px 0 0; // override default ul
+	list-style: none;
+	text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+	background-color: #f3f4f5; //$dropdown-bg;
+	//border: 1px solid $dropdown-fallback-border; // IE8 fallback
+	//border: 1px solid $dropdown-border;
+	//border-width: 1px 1px 1px 3px;
+	//border-color: rgba(0, 0, 0, 0.15)  rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #337ab7;
+	//border-radius: $border-radius-base;
+	//@include box-shadow(1px 1px 1px rgba(0,0,0,.1));
+	//font-size: $fs2;
+	background-clip: padding-box;
   
+	@media (min-width: $grid-float-breakpoint) {
+	
+		border-radius: 6px;
+		display:block;
+		top:30px;
+		opacity: 0;
+		visibility: hidden;
   
-  @media (min-width: $grid-float-breakpoint) {
+		-webkit-transition: all .5s ease;
+		-moz-transition: all .5s ease;
+		-ms-transition: all .5s ease;
+		-o-transition: all .5s ease;
+		transition: all .5s ease;
   
-  display:block;
-  top:30px;
-  opacity: 0;
-  visibility: hidden;
-  
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
-  
-  }
+	}
   
   // Aligns the dropdown menu to right
   //
@@ -90,9 +89,16 @@
     clear: both;
     font-weight: normal;
     line-height: $line-height-base;
+	font-size: 0.889em;
     //color: $dropdown-link-color;
-    white-space: nowrap; // prevent links from randomly breaking onto new lines
-  }
+	
+	@media (min-width: $grid-float-breakpoint) {
+    
+		white-space: nowrap; // prevent links from randomly breaking onto new lines
+	
+	}
+
+	}
 }
 
  @media (min-width: $grid-float-breakpoint) {
@@ -221,14 +227,24 @@ visibility: visible;
 
 // Dropdown section headers
 .dropdown-header {
-  display: block;
-  padding: 5px 20px;
-  font-size: 13px;
-  line-height: $line-height-base;
-  color: #1abc9c;
-  font-weight:600;
-  text-transform: uppercase;
-  white-space: nowrap; // as with > li > a
+  
+	display: block;
+	padding: 0;
+	
+  
+	@media (min-width: $grid-float-breakpoint) {
+	  
+		padding: 5px 0px;	
+	  
+	}
+  
+	font-size: 13px;
+	line-height: $line-height-base;
+	color: #1abc9c;
+	font-weight:600;
+	text-transform: uppercase;
+	white-space: nowrap; // as with > li > a
+
 }
 
 // Backdrop to catch body clicks on mobile, etc.

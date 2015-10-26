@@ -7,29 +7,41 @@
 // --------------------------------------------------
 
 .nav {
-  margin-bottom: 0;
-  padding-left: 0; // Override default ul/ol
-  list-style: none;
-  @include clearfix;
+	
+	margin-bottom: 0;
+	padding-left: 0; // Override default ul/ol
+	list-style: none;
+	@include clearfix;
 
-  > li {
-    position: relative;
-    display: block;
-	margin-right:10px;
-	background-color:#1abc9c;
-	border-radius: 60px;
-
-    > a {
-      position: relative;
-      display: block;
-      //padding: $nav-link-padding;
-	  color: #000;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: $nav-link-hover-bg;
-      }
-    }
+	> li {
+		
+		position: relative;
+		display: block;
+		background-color:#1abc9c;
+		
+		@media (min-width: $grid-float-breakpoint) {
+		
+			border-radius: 60px;
+			margin-right:10px;
+		
+		}
+		
+		> a {
+		
+			position: relative;
+			display: block;
+			//padding: $nav-link-padding;
+			color: #000;
+		
+			&:hover,
+			&:focus {
+			
+				text-decoration: none;
+				background-color: $nav-link-hover-bg;
+			
+			}
+		
+		}
 
     // Disabled state sets text to gray and nukes hover/tab effects
     &.disabled > a {

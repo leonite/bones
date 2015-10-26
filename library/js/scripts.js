@@ -109,24 +109,45 @@ function loadGravatars() {
  * Put all your regular jQuery in here.
 */
 jQuery(document).ready(function($) {
+	
+	// simple as this!
+	// NOTE: init() is implicitly called with the plugin
+	
+	$("#header").headroom({
+	
+		"offset": 50,
+		"tolerance": 5,
+		"classes": {
+    
+			"initial": "slide",
+			"pinned": "slide--reset",
+			"unpinned": "slide--up"
+		
+		}
+	
+	});
 
-  /*
-   * Let's fire off the gravatar function
-   * You can remove this if you don't need it
-  */
-  loadGravatars();
+
+	/*
+	* Let's fire off the gravatar function
+	* You can remove this if you don't need it
+	*/
+	
+	loadGravatars();
 
   
 	//anchors
 		
-		anchors.options = {
+	anchors.options = {
 			
-			placement: 'left'
-			//visible: 'always'
-			//icon: '§'
-		};
+	placement: 'right'
+	//visible: 'always'
+	//icon: '§'
+	
+	};
 		
-		//anchors.add('h1');
-		anchors.add('h2');
+	//anchors.add('h1');
+	anchors.add('h2');
+	
 
 }); /* end of as page load scripts */
