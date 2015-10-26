@@ -155,7 +155,7 @@
   &,
   &:hover,
   &:focus {
-    color: $dropdown-link-disabled-color;
+    color: #c8c8c8; //$dropdown-link-disabled-color;
   }
 
   // Nuke hover/focus effects
@@ -225,7 +225,7 @@ visibility: visible;
   padding: 5px 20px;
   font-size: 13px;
   line-height: $line-height-base;
-  color: #888;
+  color: #1abc9c;
   font-weight:600;
   text-transform: uppercase;
   white-space: nowrap; // as with > li > a

@@ -97,9 +97,10 @@
 						</div>
 				
 					</nav>
-<div style="float:right;"><input type="text"></div>
+
 					
 
 				</div>
 
+<?php if (function_exists('ll_breadcrumb')) ll_breadcrumb(); ?>
 			</header>

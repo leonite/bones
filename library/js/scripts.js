@@ -116,5 +116,17 @@ jQuery(document).ready(function($) {
   */
   loadGravatars();
 
+  
+	//anchors
+		
+		anchors.options = {
+			
+			placement: 'left'
+			//visible: 'always'
+			//icon: '§'
+		};
+		
+		//anchors.add('h1');
+		anchors.add('h2');
 
 }); /* end of as page load scripts */
