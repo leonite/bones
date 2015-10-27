@@ -112,10 +112,11 @@ jQuery(document).ready(function($) {
 	
 	// simple as this!
 	// NOTE: init() is implicitly called with the plugin
-	
+	var hheight = $("#header").height();
+	console.log(hheight);
 	$("#header").headroom({
 	
-		"offset": 50,
+		"offset": hheight,
 		"tolerance": 5,
 		"classes": {
     

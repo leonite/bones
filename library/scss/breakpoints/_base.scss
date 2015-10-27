@@ -175,6 +175,7 @@ HEADER STYLES
 .header {
 	background-color: $white;
 	border-bottom:1px solid #f7f7f7;
+	padding: 20px 0;
 }
 
 	#logo {
@@ -798,7 +799,8 @@ COMMENT FORM STYLES
 .comment-respond {
 	@extend .cf;
 	padding: 1.5em;
-	border-top: 1px solid $light-gray;
+	border: 1px solid $light-gray;
+	text-align:center;
 }
 
 	#reply-title {
@@ -947,44 +949,59 @@ FOOTER STYLES
 	}
 	
 //headroom css
+
+.site-header {
 	
-.site-header-fixed {
-    left: 0;
-   // position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 10;
-}
-.site-header-fixed {
-    background-color: #fff;
-}
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 10;
 	
-	.slide {
-    transition: all 0.25s ease-in-out 0s;
 }
+
+.slide {
+	
+	transition: all 0.25s ease-in-out 0s;
+	
+}
+
 .slide--reset {
-    transform: translateY(0px);
-	position:fixed;
+	
+	transform: translateY(0px);
 	/*border-bottom:3px solid #30abe2;*/
 	
 }
+
 .slide--up {
-    transform: translateY(-300%);
 
-}
+	transform: translateY(-1000%);
+	//opacity:0;
 
-.headroom--top {
-border:none;
--webkit-transition: all 1s ease 0s !important;
-	-moz-transition: all 1s ease 0s !important;
-	transition: all 1s ease 0s !important;
-	opacity:1;
 }
 
 .headroom--not-top {
-	-webkit-box-shadow: 0px 3px 2px 0px rgba(50, 50, 50, 0.2);
--moz-box-shadow:    0px 3px 2px 0px rgba(50, 50, 50, 0.2);
-box-shadow:         0px 3px 2px 0px rgba(50, 50, 50, 0.2);
-transition: all 0.25s ease-in-out 0s;
-border-bottom: 3px solid #3ab7ed;
+
+	padding:10px 0;
+
 }
+
+/*.headroom--top {
+
+	-webkit-transition: all 1s ease 0s !important;
+	-moz-transition: all 1s ease 0s !important;
+	transition: all 1s ease 0s !important;
+	opacity:1;
+
+}
+
+.headroom--not-top {
+	
+	position:fixed;
+	-webkit-box-shadow: 0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+	box-shadow:         0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+	transition: all 0.25s ease-in-out 0s;
+	padding:0px;
+	//border-bottom: 3px solid #3ab7ed;
+}*/

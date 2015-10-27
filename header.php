@@ -45,7 +45,7 @@
 
 		<div id="container">
 
-			<header id="header" class="header site-header-fixed" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+			<header id="header" class="header site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
 				<div id="inner-header" class="wrap cf">
 					
@@ -102,5 +102,5 @@
 
 				</div>
 
-<?php if (function_exists('ll_breadcrumb')) ll_breadcrumb(); ?>
+<?php // if (function_exists('ll_breadcrumb')) ll_breadcrumb(); ?>
 			</header>

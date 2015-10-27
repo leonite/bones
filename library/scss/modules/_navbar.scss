@@ -12,8 +12,8 @@
   
 	position: relative;
 	min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-	margin-bottom: $navbar-margin-bottom;
-	margin-top: $navbar-margin-bottom;
+	//margin-bottom: $navbar-margin-bottom;
+	//margin-top: $navbar-margin-bottom;
 	//border: 1px solid transparent;
 
 	// Prevent floats from breaking the navbar
@@ -376,7 +376,7 @@
 
 // Menu position and menu carets
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 15px;
+  margin-top: 5px;
   
   //@include border-top-radius(0);
 }
