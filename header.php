@@ -43,37 +43,51 @@
 
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 
-		<div id="container">
-
+			
+			<div id="container">
 			<header id="header" class="header site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
 				<div id="inner-header" class="wrap cf">
 					
 					<nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 						
-						<div class="container-fluid">
+
 						
 						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
+						
+						<div class="header-logo"> <!--logo-->
+						
+						<a href="<?php echo home_url(); ?>">
 							
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="headerpic" itemscope itemtype="http://schema.org/Organization">
+							<img src="<? echo THEME_IMAGES ?>leonite_logo.jpg" alt="Information Fidelity" title="<?php bloginfo('name'); ?>"/>
+							</span>
+						
+						</a>
+						
+						</div>
+						
+						
+						
+						<div class="mobile-b-container"><!--search & mobile menu-->	
+						
+						<!--mobile menu here-->
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 								
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							
-							</button>
+						</button>
+						<!--mobile menu end-->
 						
-						<a class="navbar-brand" href="<?php echo home_url(); ?>">
-							
-							<span class="header-logo" itemscope itemtype="http://schema.org/Organization">
-							<img src="<? echo THEME_IMAGES ?>leonite_logo.jpg" class="headerlogo" alt="Information Fidelity" title="<?php bloginfo('name'); ?>"/>
-							</span>
-						
-						</a>
+						<div class="searchb">search</div>
 						
 						</div>
+					
+						
+						<div class="header-menu"> <!--menu-->
 
 					<?php
 						
@@ -92,15 +106,18 @@
 						);
 					?>
 					
+					</div>
 					
-					
-						</div>
+						</nav>
+						
+					</div>
 				
-					</nav>
-
 					
 
-				</div>
 
 <?php // if (function_exists('ll_breadcrumb')) ll_breadcrumb(); ?>
 			</header>
+
+
+			
+			

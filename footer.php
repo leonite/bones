@@ -1,6 +1,6 @@
 			<footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 
-				<div id="inner-footer" class="wrap cf">
+				<div id="inner-footer" style="width:80%;margin:0 auto;">
 
 					<nav role="navigation">
 						<?php wp_nav_menu(array(

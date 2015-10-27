@@ -116,8 +116,8 @@ jQuery(document).ready(function($) {
 	console.log(hheight);
 	$("#header").headroom({
 	
-		"offset": hheight,
-		"tolerance": 5,
+		"offset": 100,
+		"tolerance": 20,
 		"classes": {
     
 			"initial": "slide",
