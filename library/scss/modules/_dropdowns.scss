@@ -44,7 +44,7 @@
 	text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
 	background-color: #f3f4f5; //$dropdown-bg;
 	//border: 1px solid $dropdown-fallback-border; // IE8 fallback
-	//border: 1px solid $dropdown-border;
+	border: 1px solid #e8e8e8;
 	//border-width: 1px 1px 1px 3px;
 	//border-color: rgba(0, 0, 0, 0.15)  rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #337ab7;
 	//border-radius: $border-radius-base;
@@ -106,25 +106,25 @@
 //add arrow to menu
 .dropdown-menu:before {
   position: absolute;
-  top: -11px;
+  top: -13px;
   left: 5%;
   display: inline-block;
   border-right: 12px solid transparent;
-  border-bottom: 12px solid #f3f4f5;
+  border-bottom: 12px solid #e8e8e8;
   border-left: 12px solid transparent;
   content: '';
 }
 
-/*.dropdown-menu:after {
+.dropdown-menu:after {
   position: absolute;
   top: -12px;
   left: 5%;
   display: inline-block;
   border-right: 12px solid transparent;
-  border-bottom: 12px solid #ffffff;
+  border-bottom: 12px solid 	#f3f4f5;
   border-left: 12px solid transparent;
   content: '';
-}*/
+}
 
 }
 
