@@ -1,7 +1,14 @@
 
+body {
+
+	font-size:83.3333%;
+
+}
+
+
 #content {
 	
-	margin-top: 10em;
+	margin-top: 8em;
 	
 }
 
@@ -9,6 +16,7 @@
 
 	float:none;
 	text-align:center;
+	display:none;
 
 }
 
@@ -16,6 +24,13 @@
 
     float: left;
     width: 100%;
+	padding:0;
+
+}
+
+.searchb {
+
+	//margin:0;
 
 }
 

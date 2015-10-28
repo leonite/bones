@@ -4,23 +4,24 @@
 
 				<div id="inner-content" class="wrap cf">
 
-					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<article id="post-not-found" class="hentry cf">
 
 							<header class="article-header">
 
-								<h1><?php _e( 'Epic 404 - Article Not Found', 'leonitetheme' ); ?></h1>
+								<h1 style="text-align:center;"><?php _e( 'Epic 404 - Article Not Found', 'leonitetheme' ); ?></h1>
 
 							</header>
 
 							<section class="entry-content">
 
-								<p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'leonitetheme' ); ?></p>
+								<p style="text-align:center;"><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'leonitetheme' ); ?></p>
+								<div class="grumpycat"><img src="<? echo THEME_IMAGES ?>404.jpg" alt="leonite.ru" title="<?php bloginfo('name'); ?>" class="notfound" /></div>
 
 							</section>
 
-							<section class="search">
+							<section class="search" style="text-align:center;">
 
 									<p><?php get_search_form(); ?></p>
 
@@ -28,7 +29,7 @@
 
 							<footer class="article-footer">
 
-									<p><?php _e( 'This is the 404.php template.', 'leonitetheme' ); ?></p>
+<!-- nothing here-->
 
 							</footer>
 

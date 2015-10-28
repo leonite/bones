@@ -303,7 +303,7 @@ if (is_home() || is_front_page()) {
 // no need for breadcrumbs in homepage
 }
 else {
-echo '<div id="mpbreadcrumbs">';
+echo '<div id="breadcrumbs">';
 // main breadcrumbs lead to homepage
 if (!is_single()) {
 echo 'You are here: ';
@@ -416,9 +416,9 @@ echo '</div>';
 }
 }
 
+/*
 function l_breadcrumbs() {
 
-  /* === ОПЦИИ === */
   $text['home'] = __('Главная'); // текст ссылки "Главная"
   $text['category'] = 'Архив рубрики "%s"'; // текст для страницы рубрики
   $text['search'] = 'Результаты поиска по запросу "%s"'; // текст для страницы с результатами поиска
@@ -438,7 +438,7 @@ function l_breadcrumbs() {
   $show_current = 1; // 1 - показывать название текущей страницы, 0 - не показывать
   $before = '<span class="current">'; // тег перед текущей "крошкой"
   $after = '</span>'; // тег после текущей "крошки"
-  /* === КОНЕЦ ОПЦИЙ === */
+
 
   global $post;
   $home_link = home_url('/');
@@ -597,7 +597,7 @@ function l_breadcrumbs() {
 
   }
 } // end of breadcrumbs
-	
+*/
 	
 	
 ?>

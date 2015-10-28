@@ -209,18 +209,44 @@ HEADER STYLES
 
 }
 
+.logom {
+
+	margin: 0 25% auto;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 50%;
+
+}
+
 .mobile-b-container {
 
 	//background: #cdc none repeat scroll 0 0;
     float: right;
     width: auto;
+	padding:0 10px;
 
 }
 
 .searchb {
 
-	padding: 18px;
-	float: right;
+	background: #1abc9c none repeat scroll 0 0;
+    border-radius: 60px;
+    color: #fff;
+	font-size:16px;
+    float: right;
+    margin: 10px;
+    padding: 8px;
+	cursor: pointer;
+	transition:border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+	
+	&:hover,
+      &:focus {
+	  
+		background: #48c9b0 none repeat scroll 0 0;
+	  
+	  }
 
 }
 
@@ -329,6 +355,36 @@ and more scalable.
 	}  /* end current highlighters */
 
 } /* end .nav */
+
+@media (max-width: $grid-float-breakpoint) {
+
+//add arrow to menu
+		.nav:before {
+  
+			position: absolute;
+			top: 60px;
+			left: 47%;
+			display: inline-block;
+			border-right: 12px solid transparent;
+			border-bottom: 12px solid #16a085;
+			border-left: 12px solid transparent;
+			content: '';
+		
+		}
+		
+}
+
+
+/**********************
+BREADCRUMBS
+**********************/
+
+#breadcrumbs {
+
+	margin: 0 auto;
+    padding: 1.5em 0 0;
+
+}
 
 
 /*********************
@@ -950,7 +1006,7 @@ FOOTER STYLES
 .footer {
 	clear: both;
 	background-color: $footerbg;
-	color: $light-gray;
+	color: #999;//$light-gray;
 	border-top: 1px solid #e8e8e8;
 	padding: 2.8125em 1.25em;
 	margin-top:1.5em;
@@ -1064,3 +1120,83 @@ FOOTER STYLES
 	padding:0px;
 	//border-bottom: 3px solid #3ab7ed;
 }*/
+
+
+/**************404************/
+
+.notfound {
+	
+	border-radius:360px;
+    width: 300px;
+    -webkit-animation-name: rotation;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: rotation;
+    -moz-animation-duration: 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -o-animation-name: rotation;
+    -o-animation-duration: 10s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;
+    animation-name: rotation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotation {
+    0% {-webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);}
+}
+@-moz-keyframes rotation {
+    0% {-webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);}
+}
+@-o-keyframes rotation {
+    0% {-webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);}
+}
+@keyframes rotation {
+    0% {-webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);
+        -moz-transform:rotate(720deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);}
+}
+
+.grumpycat {
+
+	text-align:center;
+	padding:2em;
+
+}
+
+.grumpycat img {
+
+	margin:0;
+	max-width:80%;
+
+}

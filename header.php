@@ -60,7 +60,7 @@
 						<a href="<?php echo home_url(); ?>">
 							
 							<span class="headerpic" itemscope itemtype="http://schema.org/Organization">
-							<img src="<? echo THEME_IMAGES ?>leonite_logo.jpg" alt="Information Fidelity" title="<?php bloginfo('name'); ?>"/>
+							<img src="<? echo THEME_IMAGES ?>leonite_logo.jpg" alt="leonite.ru" title="<?php bloginfo('name'); ?>"/>
 							</span>
 						
 						</a>
@@ -82,7 +82,13 @@
 						</button>
 						<!--mobile menu end-->
 						
-						<div class="searchb">search</div>
+						<div class="searchb"><span class="glyphicon glyphicon-search" style="margin: 0px 4px;"></span></div>
+						
+						<a href="<?php echo home_url(); ?>">
+							
+							<div class="logom"><img src="<? echo THEME_IMAGES ?>logom.jpg" alt="leonite.ru" title="<?php bloginfo('name'); ?>"/></div>
+						
+						</a>
 						
 						</div>
 					
@@ -115,7 +121,7 @@
 					
 
 
-<?php // if (function_exists('ll_breadcrumb')) ll_breadcrumb(); ?>
+
 			</header>
 
 

@@ -110,13 +110,13 @@ function loadGravatars() {
 */
 jQuery(document).ready(function($) {
 	
-	// simple as this!
-	// NOTE: init() is implicitly called with the plugin
+	//headroom js here
 	var hheight = $("#header").height();
-	console.log(hheight);
+	//console.log(hheight);
+	
 	$("#header").headroom({
 	
-		"offset": 100,
+		"offset": hheight,
 		"tolerance": 20,
 		"classes": {
     
@@ -127,6 +127,25 @@ jQuery(document).ready(function($) {
 		}
 	
 	});
+	
+	//hamburder primary menu
+	
+	$(".navbar-toggle").on("click", function () {
+	
+		$(this).toggleClass("active");
+	
+	});
+	
+	/*
+	var hamburger = $('#hamburger-icon');
+	
+	hamburger.click(function() {
+		
+		hamburger.toggleClass('active');
+		return false;
+	
+	});
+	*/
 
 
 	/*
@@ -137,13 +156,13 @@ jQuery(document).ready(function($) {
 	loadGravatars();
 
   
-	//anchors
+	//anchors links
 		
 	anchors.options = {
 			
-	placement: 'right'
-	//visible: 'always'
-	//icon: '§'
+		placement: 'right'
+		//visible: 'always'
+		//icon: '§'
 	
 	};
 		

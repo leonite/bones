@@ -17,7 +17,7 @@
 
 								<header class="entry-header article-header">
 
-									<h3 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+									<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<p class="byline entry-meta vcard">
 										<?php printf( __( 'Posted', 'leonitetheme' ).' %1$s %2$s',
                   							     /* the time the post was published */
