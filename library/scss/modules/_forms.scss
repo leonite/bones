@@ -48,11 +48,11 @@ textarea,
   border-radius: 3px;
   vertical-align: middle;
   box-shadow: none;
-  border: 0;
+  border: 2px solid #eee;
   width: 100%;
   max-width: 400px;
   font-family: $open-sans;
-  background-color: $gray;
+  background-color: #fff;
   @include transition(background-color 0.24s ease-in-out);
 
   // a focused input (or hovered on)

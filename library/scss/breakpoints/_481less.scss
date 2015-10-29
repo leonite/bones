@@ -5,6 +5,20 @@ body {
 
 }
 
+.entry-content {
+
+	padding: 0 0.5em;
+
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 100%;
+}
+
 
 #content {
 	
@@ -28,9 +42,9 @@ body {
 
 }
 
-.searchb {
+.logom {
 
-	//margin:0;
+	display:block;
 
 }
 

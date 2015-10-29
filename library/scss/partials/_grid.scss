@@ -218,6 +218,7 @@ them however you see fit.
   .d-5of7 {
     @include grid-col;
     width: 71.4285715%;
+	border-left: 1px solid #f3f4f5;
   }
 
   .d-6of7 {

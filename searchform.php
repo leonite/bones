@@ -3,6 +3,6 @@
         <label for="s" class="screen-reader-text"><?php _e('Search for:','leonitetheme'); ?></label>
         <input type="search" id="s" name="s" value="" style="margin:1.5em auto;width:80%;" />
 
-        <button type="submit" id="searchsubmit" ><?php _e('Search','leonitetheme'); ?></button>
+        <button type="submit" id="searchsubmit" class="blue-btn"><?php _e('Search','leonitetheme'); ?></button>
     </div>
 </form>

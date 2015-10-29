@@ -236,7 +236,7 @@
   background-color: #1abc9c;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 0 none;
-  border-radius:60px;
+  border-radius:100%;
   transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
   //border-radius: $border-radius-base;
 

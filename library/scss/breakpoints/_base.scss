@@ -32,6 +32,20 @@ body {
   	-moz-osx-font-smoothing: grayscale;
 }
 
+
+::selection {
+
+	background: #d6edff; /* WebKit/Blink Browsers */
+
+}
+
+::-moz-selection {
+
+	background: #d6edff; /* Gecko Browsers */
+
+}
+
+
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -93,6 +107,7 @@ a, a:visited {
 	/* on hover */
 	&:hover, &:focus {
 		color: $link-hover;
+		
 	}
 
 	/* on click */
@@ -127,6 +142,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	a {
 	
 		text-decoration: none;
+		
+		&:hover, &:active {
+		
+			text-decoration:none;
+		
+		}
 	
 	}
 	
@@ -217,6 +238,7 @@ HEADER STYLES
     text-align: center;
     top: 0;
     width: 50%;
+	display:none;
 
 }
 
@@ -232,7 +254,7 @@ HEADER STYLES
 .searchb {
 
 	background: #1abc9c none repeat scroll 0 0;
-    border-radius: 60px;
+    border-radius: 100%;
     color: #fff;
 	font-size:16px;
     float: right;
@@ -383,6 +405,20 @@ BREADCRUMBS
 
 	margin: 0 auto;
     padding: 1.5em 0 0;
+	font-size: $fs1m;
+	color:#9fa6b4;
+	
+	a  {
+	
+		color:#9fa6b4;
+	
+		&:hover {
+	
+			color:#3498db;
+	
+		}
+	
+	}
 
 }
 
@@ -402,7 +438,7 @@ POSTS & CONTENT STYLES
 			margin-bottom: 1.5em 1em;
 
 			header {
-				padding: 1.5em 1em;
+				padding: 1.5em; //1em;
 			}
 
 			footer {
@@ -411,21 +447,21 @@ POSTS & CONTENT STYLES
 				padding: 1.5em;
 
 				p {
-					margin: 0;
+					//margin: 0;
 				}
 			}
 
 		} /* end .hentry */
 
 		.single-title,
-		.page-title,
+		//.page-title,
 		.entry-title {
 			margin: 0;
 		}
 
 		.single-title {}
 
-		.page-title {}
+		.page-title { margin: 0; }
 
 		.entry-title {}
 
@@ -453,8 +489,11 @@ POSTS & CONTENT STYLES
 		/* entry content */
 		.entry-content {
 		
-			padding: 0 1em;
+			padding: 0 1.5em;
 			word-wrap: break-word;
+			 font-size: 1.125em;
+    letter-spacing: 0.01rem;
+    line-height: 1.602em;
 			
 			p {
 				margin: 1em 0;
@@ -525,9 +564,9 @@ POSTS & CONTENT STYLES
 			blockquote {
 				margin: 1.5em 0 1.5em 0.75em;
 				padding: 0.5em 0 0.5em 0.75em;
-				border-left: 5px solid #3498db;
+				border-left: 5px solid #ccc;
 				color: $meta-gray;
-				font-size:$fs0;
+				font-size:$fs1m;
 				
 				&:before {}
 
@@ -627,7 +666,24 @@ POSTS & CONTENT STYLES
 
 	// the tag output
 	.tags {
-		margin: 0;
+		margin: 1em 0;
+		
+		
+		a {
+		
+			padding:6px 12px;
+			background-color:#95a5a6;
+			border-radius:6px;
+			color:#fff;
+			
+			&:hover {
+			
+				background-color:#7f8c8d;
+				text-decoration:none;
+			
+			}
+		
+		}
 	}
 
 /******************************************************************
@@ -903,8 +959,11 @@ COMMENT FORM STYLES
 .comment-respond {
 	@extend .cf;
 	padding: 1.5em;
-	border: 1px solid $light-gray;
+	margin: 1.5em;
+	border: 1px solid transparent; //$light-gray;
 	text-align:center;
+	background: #f7f7f7 none repeat scroll 0 0;
+    border-radius: 6px;
 }
 
 	#reply-title {
@@ -1126,7 +1185,7 @@ FOOTER STYLES
 
 .notfound {
 	
-	border-radius:360px;
+	border-radius:100%;
     width: 300px;
     -webkit-animation-name: rotation;
     -webkit-animation-duration: 10s;

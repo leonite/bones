@@ -289,21 +289,34 @@ you like.
 		}
 
 	}
+
 	
-	
+//remove links from images
+add_filter( 'the_content', 'attachment_image_link_remove_filter' );
+
+function attachment_image_link_remove_filter( $content ) {
+    $content =
+        preg_replace(
+            array('{<a(.*?)(wp-att|wp-content\/uploads)[^>]*><img}',
+                '{ wp-image-[0-9]*" /></a>}'),
+            array('<img','" />'),
+            $content
+        );
+    return $content;
+}
 	
 	function ll_breadcrumb() {
 global $post;
 //schema link
 $schema_link = 'http://data-vocabulary.org/Breadcrumb';
 $home = 'Главная';
-$delimiter = ' &raquo; ';
+$delimiter = ' &raquo; '; //'<span style="margin:0 4px" class="glyphicon glyphicon-arrow-right"></span>';
 $homeLink = get_bloginfo('url');
 if (is_home() || is_front_page()) {
 // no need for breadcrumbs in homepage
 }
 else {
-echo '<div id="breadcrumbs">';
+echo '<div id="breadcrumbs"><span style="color: #f3f4f5;margin: 0 4px 0 0" class="glyphicon glyphicon-share-alt"></span>';
 // main breadcrumbs lead to homepage
 if (!is_single()) {
 echo 'You are here: ';
