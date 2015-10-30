@@ -260,6 +260,16 @@ function leonite_comments( $comment, $args, $depth ) {
 } // don't remove this bracket!
 
 
+//tinyMCE adding style button
+// Add the Style Dropdown Menu to the second row of visual editor buttons
+function my_mce_buttons_2($buttons)
+{
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+add_filter('mce_buttons_2', 'my_mce_buttons_2');
+
+
 /*
 This is a modification of a function found in the
 twentythirteen theme where we can declare some

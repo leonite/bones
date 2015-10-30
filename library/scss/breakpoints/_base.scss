@@ -170,6 +170,7 @@ h2, .h2 {
 	font-size: $fs5;
 	line-height: $fs3;
 	margin-bottom: 0.675em;
+	margin-top:2em;
 	font-family: "PT Serif",Helvetica,Arial,sans-serif;
 }
 
@@ -502,21 +503,47 @@ POSTS & CONTENT STYLES
 
 			ul, ol, table, dl {}
 
-			ul, ol {
-
-				li {}
-
-			}
-
 			ul {
+			
+			
+				padding:0 1em;
+				list-style: none;
 
-				li {}
+					li { 
+					
+						padding:2px 0;	
+						
+						
+						&:before {
+						
+							content: "\f192";
+							font-family: FontAwesome;
+							color: #3a4145; /* or whatever color you prefer */
+							margin-right: 4px;
+						
+						}
+						
+					}
 
 			}
 
 			ol {
+			
+			padding:0 2em;
+			list-style-type: decimal;
 
-				li {}
+				li {
+				
+				padding:2px 0;	
+				
+				&:before {
+				
+					//content: ")";
+					//margin-right: 4px;
+				
+				}
+				
+				}
 
 			}
 

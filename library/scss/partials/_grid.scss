@@ -220,6 +220,11 @@ them however you see fit.
     width: 71.4285715%;
 	border-left: 1px solid #f3f4f5;
   }
+  
+  .d-5of7m {
+    @include grid-col;
+    width: 71.4285715%;
+  }
 
   .d-6of7 {
     @include grid-col;
