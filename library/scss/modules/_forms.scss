@@ -41,7 +41,7 @@ textarea,
   display: block;
   height: 40px;
   line-height: 1em;
-  padding: 0 12px;
+  padding: 12px;
   margin-bottom: 14px;
   font-size: 1em;
   color: $text-color;
@@ -101,6 +101,12 @@ textarea,
   } // end disabled input
 
 } // end input defaults
+
+input[type="search"] {
+
+	padding: 0 12px;
+
+}
 
 // spacing out the password (thx @murtaugh)
 input[type="password"] {

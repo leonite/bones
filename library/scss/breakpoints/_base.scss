@@ -831,7 +831,7 @@ COMMENT STYLES
 
 	/* vcard */
 	.vcard {
-		margin-left: 50px;
+		margin-left: 35px;
 
 		cite.fn {
 			font-weight: 700;
@@ -986,11 +986,12 @@ COMMENT FORM STYLES
 .comment-respond {
 	@extend .cf;
 	padding: 1.5em;
-	margin: 1.5em;
+	/*margin: 1.5em;
 	border: 1px solid transparent; //$light-gray;
-	text-align:center;
 	background: #f7f7f7 none repeat scroll 0 0;
     border-radius: 6px;
+	*/
+	text-align:center;
 }
 
 	#reply-title {
@@ -1094,8 +1095,14 @@ FOOTER STYLES
 	background-color: $footerbg;
 	color: #999;//$light-gray;
 	border-top: 1px solid #e8e8e8;
-	padding: 2.8125em 1.25em;
+	padding: 2em;
 	margin-top:1.5em;
+
+	.p {
+	
+		font-size:$fs1m;
+	
+	}
 }
 
 	/*
@@ -1108,17 +1115,64 @@ FOOTER STYLES
 	view.
 	*/
 	.footer-links {
-
+	
+		float:left;
+		margin:1em 2em;
+		
 		ul {
+		
+			max-width:760px;
+			margin:0;
+			overflow:hidden;
 
-			li {}
+				li {
+				
+					//font-size:$fs1m;
+					line-height:1.5em;
+					padding: 2px 0;
+					
+					
+					a {
+					
+						//text-decoration:underline;
+					
+					}
+					
+				}
 
 		}
 
-	} /* end .footer-links */
+	} 
+	
+	.double li  { width:50%;}
+	.triple li  { width:33.333%; }
+	.quad li    { width:25%; }
+	.six li     { width:16.666%; }
+	
+	/* end .footer-links */
 
-
-	.copyright {}
+	.copyright {
+	
+		border-top:1px solid #c9c9c9;
+		font-size:$fs1m;
+		margin:1em auto;
+		width:75%;
+	
+	 p {
+	 
+		margin-top:2em;
+		text-align:center;
+	 
+	 }
+	
+	}
+	
+	.footer-header {
+	
+		font-weight:500;
+		font-style:italic;
+	
+	}
 	
 	//anchor js
 	
@@ -1173,7 +1227,7 @@ FOOTER STYLES
 
 .headroom--not-top {
 
-	padding:5px 0;
+	padding:0; //5px 0;
 	border-bottom: 1px solid #f7f7f7;
     box-shadow: 0 0 2px #999;
 	
