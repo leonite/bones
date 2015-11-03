@@ -46,7 +46,7 @@ EOF;
 		if (!preg_match('/class\s*=\s*"/i', $matches[0])) {
 			$class_attr = 'class="" ';
 		}
-		$replacement = $matches[1] . $class_attr . 'src="' . THEME_IMAGES . 'transparent.gif' . '" data-original' . substr($matches[2], 3) . $matches[3];
+		$replacement = $matches[1] . $class_attr . 'src="' . THEME_IMAGES . 'noimage.gif' . '" data-original' . substr($matches[2], 3) . $matches[3];
 		//$replacement = '<div '. $class_attr . ' data-original' . substr($matches[2], 3) . $matches[3] . '></div>';
 
 		// add "lazy" class to existing class attribute

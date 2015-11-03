@@ -492,12 +492,12 @@ POSTS & CONTENT STYLES
 		
 			padding: 0 1.5em;
 			word-wrap: break-word;
-			 font-size: 1.125em;
-    letter-spacing: 0.01rem;
-    line-height: 1.602em;
+			font-size: 1.125em;
+			letter-spacing: 0.01rem;
+			line-height: 1.602em;
 			
 			p {
-				margin: 1em 0;
+				//margin: 1em 0;
 			}
 
 
@@ -550,7 +550,7 @@ POSTS & CONTENT STYLES
 			table {
 				width: 100%;
 				border: 1px solid $gray;
-				margin-bottom: 1.5em;
+				margin: 2em 0;
 
 				caption {
 					margin: 0 0 7px;
@@ -611,7 +611,8 @@ POSTS & CONTENT STYLES
 			}
 
 			img {
-				margin: 0 0 1.5em 0;
+				//margin: 0 0 1.5em 0;
+				//margin: 1em auto;
 				max-width: 100%;
 				height: auto;
 			}
@@ -622,9 +623,31 @@ POSTS & CONTENT STYLES
 			and floating images at the next breakpoint,
 			but it's up to you. Feel free to change it up.
 			*/
-			.alignleft, img.alignleft {}
-			.alignright, img.alignright {}
-			.aligncenter, img.aligncenter {}
+			.alignleft, img.alignleft {
+
+				//border: 1px solid #f3f4f5;
+				margin-bottom: 1em;
+				margin-right: 1em;
+			
+			}
+			.alignright, img.alignright {
+			
+				margin: 1em auto;
+			
+			}
+			
+			.aligncenter, img.aligncenter {
+			
+				margin: 1em auto;
+				//border: 1px solid #f3f4f5;
+			
+			}
+			
+			.alignnone {
+			
+				margin: 1em auto;
+			
+			}
 
 			.size-auto,
 			.size-full,
@@ -634,21 +657,37 @@ POSTS & CONTENT STYLES
 				max-width: 100%;
 				height: auto;
 			}
+			
+			.lazy {
+			
+				border: 1px solid #f3f4f5;
+			
+			}
+			
+			/*img {
+			
+				.lazy {
+			
+				text-align:center;
+				
+				}
+			
+			}*/
 
 			pre {
-				background: $black;
-				color: $light-gray;
+				//background: $black;
+				//color: $light-gray;
 				font-size: 0.9em;
 				padding: 1.5em;
 				margin: 0 0 1.5em;
-				border-radius: 3px;
+				border-radius: 0;
 			}
 
 		} /* end .entry-content */
 
 		.wp-caption {
 			max-width: 100%;
-			padding: 1em;
+			//padding: 1em;
 
 			/* images inside wp-caption */
 			img {
@@ -1153,7 +1192,7 @@ FOOTER STYLES
 
 	.copyright {
 	
-		border-top:1px solid #c9c9c9;
+		border-top:1px solid #e8e8e8;
 		font-size:$fs1m;
 		margin:1em auto;
 		width:75%;
@@ -1169,7 +1208,7 @@ FOOTER STYLES
 	
 	.footer-header {
 	
-		font-weight:500;
+		font-weight:700;
 		font-style:italic;
 	
 	}
