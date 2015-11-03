@@ -295,7 +295,7 @@ SCRIPTS & ENQUEUEING
 			wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri()  . '/library/js/bootstrap.min.js', array('jquery'), '', true );
 			
 			//thirdparty scripts
-			wp_register_script( 'thirdparty-js', get_stylesheet_directory_uri()  . '/library/js/thirdparty.js', array('jquery'), '', true );
+			wp_register_script( 'thirdparty-js', get_stylesheet_directory_uri()  . '/library/js/thirdparty.js', array('jquery'), '', false );
 			
 			//adding scripts file in the footer
 			wp_register_script( 'leonite-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array('jquery'), '', true );
@@ -407,8 +407,10 @@ function leonite_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'The Main Menu', 'leonite' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'leonite' ) // secondary nav in footer
+			'main-nav' => __( 'Primary menu', 'leonite' ),   // main nav in header
+			'footer-nav' => __( 'Footer menu', 'leonite' ), // nav in footer
+			'footer-links-1' => __( 'Footer Links 1', 'leonite' ), // footer links block 1
+			'footer-links-2' => __( 'Footer Links 2', 'leonite' ), // footer links block 2
 		)
 	);
 
