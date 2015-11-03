@@ -28,6 +28,12 @@ body {
 
 }
 
+#content {
+	
+	margin-top: 4.5em;
+	
+}
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -88,12 +94,12 @@ POSTS & CONTENT STYLES
 
 	/* at this larger size, we can start to align images */
 	.alignleft, img.alignleft {
-		margin-right: 1.5em;
+		//margin-right: 1.5em;
 		display: inline;
 		float: left;
 	}
 	.alignright, img.alignright {
-		margin-left: 1.5em;
+		margin:0 0 0.5em 0.5em;
 		display: inline;
 		float: right;
 	}

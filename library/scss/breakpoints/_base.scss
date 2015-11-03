@@ -161,6 +161,7 @@ h1, .h1 {
 	a:visited {
 	
 	color:#337ab7;
+	text-decoration:none;
 	
 	}
 	
@@ -176,6 +177,7 @@ h2, .h2 {
 
 h3, .h3 {
 	font-size: 1.125em;
+	line-height: $fs3;
 }
 
 h4, .h4 {
@@ -430,7 +432,7 @@ POSTS & CONTENT STYLES
 
 #content {
 	
-	margin-top: 6.5em;
+	margin-top: 5em;
 	
 }
 
@@ -448,7 +450,7 @@ POSTS & CONTENT STYLES
 				padding: 1.5em;
 
 				p {
-					//margin: 0;
+					margin: 0.5em 0;
 				}
 			}
 
@@ -497,7 +499,9 @@ POSTS & CONTENT STYLES
 			line-height: 1.602em;
 			
 			p {
-				//margin: 1em 0;
+				
+				margin: 0.5em 0;
+			
 			}
 
 
@@ -626,8 +630,7 @@ POSTS & CONTENT STYLES
 			.alignleft, img.alignleft {
 
 				//border: 1px solid #f3f4f5;
-				margin-bottom: 1em;
-				margin-right: 1em;
+				margin:0 0.5em 0.5em 0;
 			
 			}
 			.alignright, img.alignright {
@@ -648,6 +651,12 @@ POSTS & CONTENT STYLES
 				margin: 1em auto;
 			
 			}
+			
+			.lazy {
+			
+				border: 1px solid #f3f4f5;
+			
+			}
 
 			.size-auto,
 			.size-full,
@@ -658,11 +667,13 @@ POSTS & CONTENT STYLES
 				height: auto;
 			}
 			
-			.lazy {
+			.size-thumbnail {
 			
-				border: 1px solid #f3f4f5;
+				border:0;
 			
 			}
+			
+			
 			
 			/*img {
 			
@@ -679,7 +690,7 @@ POSTS & CONTENT STYLES
 				//color: $light-gray;
 				font-size: 0.9em;
 				padding: 1.5em;
-				margin: 0 0 1.5em;
+				margin: 1.5em 0;
 				border-radius: 0;
 			}
 
@@ -746,6 +757,7 @@ POSTS & CONTENT STYLES
 			
 				background-color:#7f8c8d;
 				text-decoration:none;
+				color:#fff;
 			
 			}
 		

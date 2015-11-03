@@ -104,10 +104,12 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'leonite-thumb-600', 600, 150, true );
+/*add_image_size( 'leonite-thumb-600', 600, 150, true );
 add_image_size( 'leonite-thumb-300', 300, 100, true );
+add_image_size( 'leonite-thumb-150', 150, 150, true );
+add_image_size( 'leonite-thumb-100', 100, 100, true );
 
-/*
+
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you
 upload a "featured image" as large as the biggest
@@ -125,15 +127,48 @@ for the 600 x 150 image:
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
-*/
 
-add_filter( 'image_size_names_choose', 'leonite_custom_image_sizes' );
+
+the_post_thumbnail( 'leonite-thumb-600' );
+the_post_thumbnail( 'leonite-thumb-300' );
+the_post_thumbnail( 'leonite-thumb-150' );
+the_post_thumbnail( 'leonite-thumb-100' );*/
+
+//add_image_size( 'homepage-thumb', 220, 180 ); // Soft Crop Mode
+//add_image_size( 'singlepost-thumb', 590, 9999 ); // Unlimited Height Mode
+
+
+/*add_filter( 'image_size_names_choose', 'leonite_custom_image_sizes' );
 
 function leonite_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'leonite-thumb-600' => __('600px by 150px'),
         'leonite-thumb-300' => __('300px by 100px'),
+		'leonite-thumb-150' => __('150px by 150px'),
+		'leonite-thumb-100' => __('100px by 100px')
     ) );
+}*/
+
+
+//custom image sizes
+
+add_action( 'after_setup_theme', 'setup_images' );
+function setup_images() {
+ 
+    add_theme_support( 'post-thumbnails' );
+    add_image_size( '346x346', 346, 346, true );
+	add_image_size( '700x346', 700, 346, true );
+	
+}
+
+
+add_filter( 'image_size_names_choose', 'leonite_custom_sizes' );
+function leonite_custom_sizes( $sizes ) {
+    $custom_sizes = array(
+       '346x346' => '346x346',
+		'700x346' => '700x346'
+    );
+    return array_merge( $sizes, $custom_sizes );
 }
 
 /*
@@ -293,6 +328,20 @@ function my_mce_buttons_2($buttons)
 }
 add_filter('mce_buttons_2', 'my_mce_buttons_2');
 
+/*
+function set_tinymce_config( $init ) {
+   // Don't remove line breaks
+   $init['remove_linebreaks'] = true; 
+   // Convert newline characters to BR tags
+   $init['convert_newlines_to_brs'] = false; 
+   // Do not remove redundant BR tags
+   $init['remove_redundant_brs'] = true;
+
+   // Pass $init back to WordPress
+   return $init;
+}
+add_filter('tiny_mce_before_init', 'set_tinymce_config');
+*/
 
 /*
 This is a modification of a function found in the
@@ -317,5 +366,7 @@ add_action('wp_enqueue_scripts', 'leonite_fonts');*/
 		@exit;
 	
 	}
+	
+	
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

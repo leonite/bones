@@ -348,7 +348,11 @@ body#tinymce.wp-editor {
   /* @include box-sizing(border-box); */
   /* NOTE: value of "padding-box" is only supported in Gecko. So
   probably best not to use it. I mean, were you going to anyway? */
-  width: 731px;
+  width: 80%;
+  border-left: 1px dashed #ccc;
+  border-right: 1px dashed #ccc;
+  margin: 1em auto;
+  padding: 2em !important;
   font-size: 100%;
   line-height: 1.5;
   color: #3a4145;
@@ -603,17 +607,40 @@ body#tinymce.wp-editor {
     text-transform: uppercase;
     letter-spacing: 2px; }
   body#tinymce.wp-editor p {
-    margin: 0 0 1.5em; }
+    margin: 0.5em 0; }
   body#tinymce.wp-editor table {
     width: 100%;
     border: 1px solid #eaedf2;
-    margin-bottom: 1.5em; }
+    margin: 2em 0; }
     body#tinymce.wp-editor table caption {
       margin: 0 0 7px;
       font-size: 0.75em;
       color: #9fa6b4;
       text-transform: uppercase;
       letter-spacing: 1px; }
+  body#tinymce.wp-editor ol, body#tinymce.wp-editor ul {
+    padding: 0 2em; }
+    body#tinymce.wp-editor ol li, body#tinymce.wp-editor ul li {
+      padding: 2px 0; }
+  body#tinymce.wp-editor ol {
+    list-style-type: decimal; }
+  body#tinymce.wp-editor ul {
+    list-style-type: circle
+    /*li { 
+    
+    	padding:2px 0;	
+    	
+    	
+    	&:before {
+    	
+    		content: "\f192";
+    		font-family: FontAwesome;
+    		color: #3a4145;
+    		margin-right: 4px;
+    	
+    	}
+    	
+    }*/ }
   body#tinymce.wp-editor tr {
     border-bottom: 1px solid #eaedf2; }
     body#tinymce.wp-editor tr:nth-child(even) {
@@ -630,7 +657,7 @@ body#tinymce.wp-editor {
     body#tinymce.wp-editor th:last-child {
       border-right: 0; }
   body#tinymce.wp-editor blockquote {
-    margin: 0 0 1.5em 0.75em;
+    margin: 1.5em 0;
     padding: 0 0 0 0.75em;
     border-left: 3px solid #2980b9;
     font-style: italic;
@@ -641,7 +668,7 @@ body#tinymce.wp-editor {
     color: #787878;
     margin-bottom: 1.5em; }
   body#tinymce.wp-editor img {
-    margin: 0 0 1.5em 0;
+    margin: 1em 0;
     max-width: 100%; }
   body#tinymce.wp-editor .size-auto,
   body#tinymce.wp-editor .size-full,
@@ -651,17 +678,22 @@ body#tinymce.wp-editor {
     max-width: 100%;
     height: auto; }
   body#tinymce.wp-editor pre {
-    background: #cdc;
-    color: #f8f9fa;
-    font-size: 0.9em;
+    border-radius: 0;
+    font-size: 0.889em;
+    margin: 1.5em 0;
     padding: 1.5em;
-    margin: 0 0 1.5em;
-    border-radius: 3px; }
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    color: #333;
+    display: block;
+    line-height: 1.42857;
+    word-break: break-all;
+    word-wrap: break-word; }
   @media only screen and (min-width: 481px) {
     body#tinymce.wp-editor {
       /* at this larger size, we can start to align images */ }
       body#tinymce.wp-editor .alignleft, body#tinymce.wp-editor img.alignleft {
-        margin-right: 1.5em;
+        margin: 0 0.5em 0.5em 0;
         display: inline;
         float: left; }
       body#tinymce.wp-editor .alignright, body#tinymce.wp-editor img.alignright {
