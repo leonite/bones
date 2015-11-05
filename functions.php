@@ -138,37 +138,32 @@ the_post_thumbnail( 'leonite-thumb-100' );*/
 //add_image_size( 'singlepost-thumb', 590, 9999 ); // Unlimited Height Mode
 
 
-/*add_filter( 'image_size_names_choose', 'leonite_custom_image_sizes' );
+add_filter( 'image_size_names_choose', 'leonite_custom_image_sizes' );
 
 function leonite_custom_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'leonite-thumb-600' => __('600px by 150px'),
-        'leonite-thumb-300' => __('300px by 100px'),
-		'leonite-thumb-150' => __('150px by 150px'),
-		'leonite-thumb-100' => __('100px by 100px')
-    ) );
-}*/
+   
+	return array_merge( $sizes, array(
+		
+		'thumb-600' => __('600px by 150px'),
+		'thumb-300' => __('300px by 100px'),
+		'thumb-150' => __('150px by 150px'),
+		'thumb-100' => __('100px by 100px')
+    
+	) );
 
+}
 
 //custom image sizes
 
 add_action( 'after_setup_theme', 'setup_images' );
+
 function setup_images() {
  
-    add_theme_support( 'post-thumbnails' );
-    add_image_size( '346x346', 346, 346, true );
-	add_image_size( '700x346', 700, 346, true );
+    add_image_size( 'thumb-600', 600, 150, true );
+	add_image_size( 'thumb-300', 300, 100, true );
+	add_image_size( 'thumb-150', 150, 150, true );
+	add_image_size( 'thumb-100', 100, 100, true );
 	
-}
-
-
-add_filter( 'image_size_names_choose', 'leonite_custom_sizes' );
-function leonite_custom_sizes( $sizes ) {
-    $custom_sizes = array(
-       '346x346' => '346x346',
-		'700x346' => '700x346'
-    );
-    return array_merge( $sizes, $custom_sizes );
 }
 
 /*

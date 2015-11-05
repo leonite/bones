@@ -502,7 +502,109 @@ function leonite_theme_support() {
 		
 		echo '</nav>';
 	
-	} /* end page navi */
+	}
+
+	/*
+	
+	function inffi_page_navi() {
+	
+	global $wp_query;
+	$total = $wp_query->max_num_pages;
+	
+	// only bother with the rest if we have more than 1 page!
+	if ( $total > 1 )  {
+	
+	// get the current page
+    if ( !$current_page = get_query_var('paged') ) {
+		
+		$current_page = 1;
+    
+	}   
+	
+	$bignum = 9999999;
+	
+	//if ( $wp_query->max_num_pages <= 1 )
+	//	return;
+	
+	if (is_handheld()) {
+		
+		// structure of "format" depends on whether we're using pretty permalinks
+		$format = 'page/%#%/';
+		$linkarray = paginate_links(array(
+		'base' => str_replace( 'page/9999999/', '%_%', esc_url( get_pagenum_link( $bignum ) ) ),
+		'format' => $format,
+		'current' => 0,
+		'show_all' => True,
+		'total' => $total,
+		'mid_size' => 4,
+		'prev_next' => False,
+		'type' => 'array'
+		));
+	
+		$urlarray = array();
+	
+		foreach($linkarray as $value) {
+			
+			$pieces = explode('\'',$value);
+			
+			foreach($pieces as $piece){
+				
+				if (substr(strtolower($piece),0,4) == 'http'){
+				
+					$urlarray[] = $piece;
+					
+				}
+				
+			}
+		
+		}
+	
+		echo '<div class="pagination_search" style="width: 100%; text-align: center">';
+		echo '<select id="paginationpageselectcontrol" name="paginationpageselectcontrol" data-placeholder="Перейти" class="selectpicker show-tick show-menu-arrow" data-hidden="true" data-live-search="true" date-size="auto" data-width="50%" data-none-selected-text="Страница" data-header="Перейти на страницу" title="Страница">' . "\n";
+		
+		$pagecounter = 1;
+		
+		foreach($urlarray as $url) {
+		
+			echo '<option value="' .  $url . '"' . (($pagecounter == $current_page)?' selected':'') . '>' . $pagecounter . '</option>' . "\n";
+			$pagecounter = $pagecounter + 1;
+		
+		}
+		
+		echo '</select>' . "\n";
+		echo _e( ' of ', 'inffi' ) . $total . '</div>';
+		
+	} else {
+	
+		$format = 'page/%#%/';
+		echo '<nav class="pagination">';
+		
+		echo paginate_links( array(
+			
+			'base' 			=> str_replace( 'page/9999999/', '%_%', esc_url( get_pagenum_link( $bignum ) ) ),
+			'format' 		=> $format,
+			'current' 		=> max( 1, get_query_var('paged') ),
+			'total' 		=> $total,
+			'prev_text' 	=> '',
+			'next_text' 	=> '',
+			'type'			=> 'list',
+			'end_size'		=> 2,
+			'mid_size'		=> 2
+		
+		) );
+		
+		echo '</nav>';
+		
+		}
+	
+	}
+	
+	}
+	
+	*/
+
+
+	/* end page navi */
 
 	/*********************
 	RANDOM CLEANUP ITEMS

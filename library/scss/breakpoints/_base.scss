@@ -627,6 +627,13 @@ POSTS & CONTENT STYLES
 			and floating images at the next breakpoint,
 			but it's up to you. Feel free to change it up.
 			*/
+			
+			.lazy {
+			
+				border: 0;
+			
+			}
+			
 			.alignleft, img.alignleft {
 
 				//border: 1px solid #f3f4f5;
@@ -648,15 +655,11 @@ POSTS & CONTENT STYLES
 			
 			.alignnone {
 			
-				margin: 1em auto;
+				margin: 1em 0;
 			
 			}
 			
-			.lazy {
 			
-				border: 1px solid #f3f4f5;
-			
-			}
 
 			.size-auto,
 			.size-full,
@@ -709,7 +712,8 @@ POSTS & CONTENT STYLES
 
 			p.wp-caption-text {
 				font-size: $fs2m;
-				margin: 7px 0 0;
+				margin: 0;
+				padding:5px;
 				text-align: left;
 				color:#777;
 			}
