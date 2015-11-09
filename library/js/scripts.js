@@ -105,10 +105,50 @@ function loadGravatars() {
 } // end function
 
 
+//показать/скрыть элемент
+	function toggle_visibility( id ) {
+		
+		var e = document.getElementById( id );
+		
+		if( e.style.display == 'block' )
+			e.style.display = 'none'; 
+			else
+			e.style.display = 'block';
+			
+	}
+	
+	
+
+
 /*
  * Put all your regular jQuery in here.
 */
 jQuery(document).ready(function($) {
+	
+	var w = $( window ).width();
+	
+	var h = ($('#header').innerHeight() / 16);// - 32;
+		$('#content').css('margin-top',h + 'em');
+	
+	$( window ).resize( function() {
+		
+		var w = $( window ).width();
+		
+		if ( w >= 481 ) {  
+		
+			//set main
+			var h = ($('#header').innerHeight() / 16);// - 32;
+			$('#content').css('margin-top',h + 'em');
+		
+		} else {
+			
+			//set main
+			var h = ($('#header').innerHeight() / 16);// - 32;
+			$('#content').css('margin-top',h + 1+ 'em');
+			
+		}
+	
+	});
 	
 	//headroom js here
 	var hheight = $("#header").height();
@@ -135,6 +175,58 @@ jQuery(document).ready(function($) {
 		$(this).toggleClass("active");
 	
 	});
+	
+	//search primary menu
+	
+	$("#search-primary-toggle").click(function() {
+		
+		
+		
+		/*if $(this).hasClass("opened") {
+			
+			$(this).removeClass("opened");
+			
+		} else {
+			
+			$(this).addClass("opened");
+			
+		}*/
+		$(this).toggleClass("opened");
+		
+		
+		
+		$("#search-container-top").slideToggle("fast");
+		
+		if ($(this).hasClass("opened")) {
+			
+			var search = $("#sq");
+			
+			search.focus();
+			
+		}
+		
+		return false;
+	
+	});
+	
+	$("#content").mouseup(function (e)
+{
+    var container = $("#search-container-top");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.slideToggle("fast");
+    }
+})
+	
+   
+	 /*$("#search-primary-toggle").on("click", function () {
+                    
+		$("#search-container-top").slideToggle();
+		return false;
+	
+	}); */
 	
 	/*
 	var hamburger = $('#hamburger-icon');
@@ -170,4 +262,5 @@ jQuery(document).ready(function($) {
 	anchors.add('h2');
 	
 
-}); /* end of as page load scripts */
+}); /* end of as page load scripts*/
+

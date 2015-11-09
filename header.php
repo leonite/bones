@@ -82,7 +82,11 @@
 						</button>
 						<!--mobile menu end-->
 						
-						<div class="searchb"><span class="glyphicon glyphicon-search" style="margin: 0px 4px;"></span></div>
+						
+						<!--search block-->
+						<div id="search-primary-toggle" class="search-button"><span class="glyphicon glyphicon-search" style="margin: 0px 4px;"></span></div>
+						<!--end of search block-->
+						
 						
 						<a href="<?php echo home_url(); ?>">
 							
@@ -114,7 +118,35 @@
 					
 					</div>
 					
+					<!--search block
+						<div class="searchb1">
+						 <form class="searchbox">
+							
+							<input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+							<input type="submit" class="searchbox-submit" value="GO">
+							<span class="searchbox-icon"><span class="glyphicon glyphicon-search" style="margin: 0px 4px;"></span></span>
+						
+						</form>-->
+						<!--</div>
+						<span class="glyphicon glyphicon-search" style="margin: 0px 4px;"></span>
+						end of search block-->
+						
+						
+					
+					
 						</nav>
+						
+						<div id="search-container-top">
+					
+						<form class="searchform-top">
+						
+						<label class="screen-reader-text" for="sq">Искать:</label>
+						<input id="sq" type="search" class="search-top" value="" name="sq">
+						<button id="searchsubmit" class="blue-btn" type="submit">Search</button>
+						
+						</form>
+					
+					</div>
 						
 					</div>
 				
