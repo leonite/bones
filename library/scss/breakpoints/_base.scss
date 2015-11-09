@@ -254,7 +254,7 @@ HEADER STYLES
 
 }
 
-.searchb {
+.search-button {
 
 	background: #1abc9c none repeat scroll 0 0;
     border-radius: 100%;
@@ -432,7 +432,7 @@ POSTS & CONTENT STYLES
 
 #content {
 	
-	margin-top: 5em;
+	//margin-top: 5em;
 	
 }
 
@@ -1303,7 +1303,7 @@ FOOTER STYLES
 
 .headroom--not-top {
 
-	padding:0; //5px 0;
+	padding:10px; //5px 0;
 	border-bottom: 1px solid #f7f7f7;
     box-shadow: 0 0 2px #999;
 	
@@ -1414,5 +1414,36 @@ FOOTER STYLES
 
 	margin:0;
 	max-width:80%;
+
+}
+
+//test search
+
+#search-container-top {
+
+	display:none;
+	
+
+}
+
+.searchform-top {
+
+    margin: 1em auto;
+    text-align: center;
+    width: 100%;
+
+}
+
+.search-top {
+
+	margin: 0 auto;
+	width: 90% !important;
+	max-width:100% !important;
+
+}
+
+.label {
+
+	margin:5px;
 
 }
