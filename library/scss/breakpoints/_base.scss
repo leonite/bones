@@ -436,12 +436,18 @@ POSTS & CONTENT STYLES
 	
 }
 
+	.article-header {
+	
+		padding:1.5em;
+	
+	}
+
 		.hentry {
 			background-color: $white;
 			margin-bottom: 1.5em 1em;
 
 			header {
-				padding: 1.5em; //1em;
+				padding: 1.5em 0; //1em;
 			}
 
 			footer {
@@ -455,6 +461,7 @@ POSTS & CONTENT STYLES
 			}
 
 		} /* end .hentry */
+		
 
 		.single-title,
 		//.page-title,
@@ -492,7 +499,7 @@ POSTS & CONTENT STYLES
 		/* entry content */
 		.entry-content {
 		
-			padding: 0 1.5em;
+			padding: 0 1em;
 			word-wrap: break-word;
 			font-size: 1.125em;
 			letter-spacing: 0.01rem;
@@ -749,23 +756,37 @@ POSTS & CONTENT STYLES
 	.tags {
 		margin: 1em 0;
 		
+		p {
+		
+		margin:1em 0 !important;
+		
+		}
 		
 		a {
 		
-			padding:6px 12px;
+			background-color: #bebebe;
+			border-radius: 3px;
+			color: #fff;
+			margin: 0 5px;
+			padding: 2px 8px;
+			text-transform: capitalize;
+			transition: all 0.3s ease-in-out 0s;
+	
+			/*padding:6px 12px;
 			background-color:#95a5a6;
 			border-radius:6px;
-			color:#fff;
+			color:#fff;*/
 			
 			&:hover {
 			
-				background-color:#7f8c8d;
-				text-decoration:none;
-				color:#fff;
+				background-color: #3fb8e8;
+				color: #fff;
+				text-decoration: none;
 			
 			}
 		
 		}
+	
 	}
 
 /******************************************************************
