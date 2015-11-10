@@ -60,7 +60,7 @@
 						<a href="<?php echo home_url(); ?>">
 							
 							<span class="headerpic" itemscope itemtype="http://schema.org/Organization">
-							<img src="<? echo THEME_IMAGES ?>leonite_logo.jpg" alt="leonite.ru" title="<?php bloginfo('name'); ?>"/>
+							<img src="<? echo THEME_IMAGES ?>leonite_logo.png" alt="leonite.ru" title="<?php bloginfo('name'); ?>"/>
 							</span>
 						
 						</a>
@@ -90,7 +90,7 @@
 						
 						<a href="<?php echo home_url(); ?>">
 							
-							<div class="logom"><img src="<? echo THEME_IMAGES ?>logom.jpg" alt="leonite.ru" title="<?php bloginfo('name'); ?>"/></div>
+							<div class="logom"><img src="<? echo THEME_IMAGES ?>logom.png" alt="leonite.ru" title="<?php bloginfo('name'); ?>"/></div>
 						
 						</a>
 						

@@ -9,3 +9,55 @@ on larger screens.
 
 ******************************************************************/
 
+//gallery
+
+.gallery-size-medium {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 75%;
+				
+					}
+			
+				}
+			
+			}
+			
+		.gallery-size-thumbnail {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 35%;
+				
+					}
+			
+				}
+			
+			}
+			
+		.gallery-size-large {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 100%;
+				
+					}
+			
+				}
+			
+			}

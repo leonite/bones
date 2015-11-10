@@ -146,6 +146,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 		&:hover, &:active {
 		
 			text-decoration:none;
+			outline: none;
 		
 		}
 	
@@ -158,10 +159,11 @@ h1, .h1 {
 	line-height: $fs3;
 	font-family: "PT Serif",Helvetica,Arial,sans-serif;
 	
-	a:visited {
+	a:visited,a:active {
 	
 	color:#337ab7;
 	text-decoration:none;
+	outline: none;
 	
 	}
 	
@@ -236,7 +238,7 @@ HEADER STYLES
 .logom {
 
 	margin: 0 25% auto;
-    padding: 15px;
+    padding: 15px 0;
     position: absolute;
     text-align: center;
     top: 0;
@@ -398,7 +400,7 @@ and more scalable.
 
 } /* end .nav */
 
-@media (max-width: $grid-float-breakpoint) {
+@media (max-width: $grid-float-breakpoint-max) {
 
 //add arrow to menu
 		.nav:before {
@@ -455,7 +457,7 @@ POSTS & CONTENT STYLES
 
 	.article-header {
 	
-		padding:1.5em;
+		padding:1em;
 	
 	}
 
@@ -464,7 +466,7 @@ POSTS & CONTENT STYLES
 			margin-bottom: 1.5em 1em;
 
 			header {
-				padding: 1.5em 0; //1em;
+				padding: 1em; //1em;
 			}
 
 			footer {
@@ -635,7 +637,7 @@ POSTS & CONTENT STYLES
 				margin-left: 0;
 				font-size: 0.9em;
 				color: #787878;
-				margin-bottom: 1.5em;
+				margin: 0.5em 0;
 			}
 
 			img {
@@ -745,13 +747,49 @@ POSTS & CONTENT STYLES
 		} /* end .wp-caption */
 
 		/* image gallery styles */
+		
 		.gallery {
+		
+			line-height: 1;
+			margin: 0 auto;
+			overflow-x: hidden;
+			padding: 1.5em;
+			
+		
+		
+			.gallery-item {
+			
+				box-sizing: border-box;
+				float: left;
+				//margin: 0;
+				//padding: 0.5em;
+				text-align: center;
+				
+			
+			}
+			
+			.gallery-icon {
+			
+				//background:#f8f8f8;
+				//padding:0.5em;
+			
+			}
+
 
 			dl {
 
 				a {}
+				
+				
 
-				img {}
+				img {
+				
+					height: 100%;
+					margin: 0 auto;
+					text-align: center;
+					width: 50%;
+				
+				}
 
 			}
 
@@ -759,10 +797,83 @@ POSTS & CONTENT STYLES
 
 			dd {}
 
-		} /* end .gallery */
+		} 
+		
+		.gallery-item {
+		
+			text-align:center;
+		
+		}
+		
+		.gallery-columns-2 .gallery-item {
+		
+			width: 50%;
+		
+		}
+			
+		.gallery-columns-3 .gallery-item {
+		
+			width: 33.333%;
+		
+		}
+		
+		.gallery-size-medium {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 50%;
+				
+					}
+			
+				}
+			
+			}
+			
+		.gallery-size-thumbnail {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 25%;
+				
+					}
+			
+				}
+			
+			}
+			
+		.gallery-size-large {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 75%;
+				
+					}
+			
+				}
+			
+			}
+			
+			
 
 		/* gallery caption styles */
 		.gallery-caption {}
+		
+		/* end .gallery */
 
 		.size-full {}
 		.size-large {}
@@ -1078,7 +1189,7 @@ COMMENT FORM STYLES
 
 .comment-respond {
 	@extend .cf;
-	padding: 1.5em;
+	padding: 3em;
 	/*margin: 1.5em;
 	border: 1px solid transparent; //$light-gray;
 	background: #f7f7f7 none repeat scroll 0 0;
@@ -1449,6 +1560,12 @@ FOOTER STYLES
     text-align: center;
     width: 100%;
 
+	label {
+	
+	margin-bottom:10px;
+	
+	}
+	
 }
 
 .search-top {
@@ -1468,5 +1585,22 @@ FOOTER STYLES
 .label {
 
 	margin:5px;
+
+}
+
+
+//admin
+#wpadminbar {
+
+top: auto;
+bottom:0px;
+opacity:0.5;
+
+
+	&:hover {
+	
+		opacity:1;
+	
+	}
 
 }

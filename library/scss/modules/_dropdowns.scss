@@ -92,8 +92,12 @@
 		font-weight: normal;
 		line-height: $line-height-base;
 		font-size: 0.889em;
-		margin:1em;
-		padding:0;
+		
+		 margin: 1em 0;
+		padding: 1em;
+		
+		//margin:1em;
+		//padding:0;
 		border-raduis:0;
 		//color: $dropdown-link-color;
 		
@@ -140,7 +144,7 @@
 .dropdown-menu > li > a {
   &:hover,
   &:focus {
-    text-decoration: underline;
+    text-decoration: none;
     color: #55606c; //$dropdown-link-hover-color;
     background-color: rgba(202, 206, 209, 0.5);
 	background-image: none;

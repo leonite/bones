@@ -13,7 +13,7 @@ body {
 
 .hentry header {
 
-	padding: 0.5em;
+	padding: 1.5em;
 
 }
 
@@ -73,3 +73,63 @@ LAYOUT & GRID STYLES
 	width:90%;
 
 }
+
+//gallery
+
+.gallery-size-medium {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 100%;
+				
+					}
+			
+				}
+			
+			}
+			
+		.gallery-size-thumbnail {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 100%;
+				
+					}
+			
+				}
+			
+			}
+			
+		.gallery-size-large {
+			
+				dl {
+			
+					img {
+				
+						height: 100%;
+						margin: 0 auto;
+						text-align: center;
+						width: 100%;
+				
+					}
+			
+				}
+			
+			}
+			
+			.gallery-icon {
+			
+				//background:#f8f8f8;
+				padding:0.5em;
+			
+			}
