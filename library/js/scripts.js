@@ -180,28 +180,16 @@ jQuery(document).ready(function($) {
 	
 	$("#search-primary-toggle").click(function() {
 		
-		
-		
-		/*if $(this).hasClass("opened") {
-			
-			$(this).removeClass("opened");
-			
-		} else {
-			
-			$(this).addClass("opened");
-			
-		}*/
 		$(this).toggleClass("opened");
-		
 		
 		
 		$("#search-container-top").slideToggle("fast");
 		
 		if ($(this).hasClass("opened")) {
 			
-			var search = $("#sq");
+			//var search = 
 			
-			search.focus();
+			$("#sq").focus();
 			
 		}
 		
@@ -209,36 +197,20 @@ jQuery(document).ready(function($) {
 	
 	});
 	
-	$("#content").mouseup(function (e)
-{
-    var container = $("#search-container-top");
-
-    if (!container.is(e.target) // if the target of the click isn't the container...
-        && container.has(e.target).length === 0) // ... nor a descendant of the container
-    {
-        container.slideToggle("fast");
-    }
-})
 	
-   
-	 /*$("#search-primary-toggle").on("click", function () {
-                    
-		$("#search-container-top").slideToggle();
-		return false;
+	$("body").click(function() {
 	
-	}); */
-	
-	/*
-	var hamburger = $('#hamburger-icon');
-	
-	hamburger.click(function() {
-		
-		hamburger.toggleClass('active');
-		return false;
+		$("#search-primary-toggle").removeClass("opened");
+		$("#search-container-top").fadeOut("fast");
 	
 	});
-	*/
 
+	$('#search-container-top').click(function(event){
+	
+		event.stopPropagation();
+	
+	});
+	
 
 	/*
 	* Let's fire off the gravatar function
@@ -247,7 +219,6 @@ jQuery(document).ready(function($) {
 	
 	loadGravatars();
 
-  
 	//anchors links
 		
 	anchors.options = {

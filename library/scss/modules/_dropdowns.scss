@@ -38,7 +38,7 @@
 	//display: none; // none by default, but block on "open" of the menu
 	float: left;
 	
-	padding: 15px;
+	padding: 1em;
 	margin: 2px 0 0; // override default ul
 	list-style: none;
 	text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
@@ -85,19 +85,24 @@
   }
 
   // Links within the dropdown menu
-  > li > a {
-    display: block;
-    padding: 10px 20px;
-	margin: 5px 0;
-    clear: both;
-    font-weight: normal;
-    line-height: $line-height-base;
-	font-size: 0.889em;
-	border-radius:4px;
-    //color: $dropdown-link-color;
+	> li > a {
 	
+		display: block;
+		clear: both;
+		font-weight: normal;
+		line-height: $line-height-base;
+		font-size: 0.889em;
+		margin:1em;
+		padding:0;
+		border-raduis:0;
+		//color: $dropdown-link-color;
+		
 	@media (min-width: $grid-float-breakpoint) {
-    
+		
+		padding: 10px 20px;
+		//margin: 5px 0;
+		//border-radius:0;
+		
 		//white-space: nowrap; // prevent links from randomly breaking onto new lines
 	
 	}
@@ -154,6 +159,7 @@
     outline: 0;
     background-color: #95a5a6;
 	border-radius:4px;
+	//padding:1em;
   }
 }
 

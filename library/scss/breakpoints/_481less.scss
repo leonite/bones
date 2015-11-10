@@ -11,6 +11,12 @@ body {
 
 }
 
+.hentry header {
+
+	padding: 0.5em;
+
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -55,6 +61,14 @@ LAYOUT & GRID STYLES
 }
 
 .copyright {
+
+	width:90%;
+
+}
+
+//search
+
+.searchform-top {
 
 	width:90%;
 
