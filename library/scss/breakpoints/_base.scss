@@ -102,7 +102,7 @@ LINK STYLES
 
 a, a:visited {
 	transition: color 0.5s linear 0s;
-	//color: $link-color;
+	color: $link-color;
 
 	/* on hover */
 	&:hover, &:focus {
@@ -524,6 +524,12 @@ POSTS & CONTENT STYLES
 			letter-spacing: 0.01rem;
 			line-height: 1.602em;
 			
+			a {
+			
+				text-decoration:underline;
+			
+			}
+			
 			p {
 				
 				margin: 0.5em 0;
@@ -722,6 +728,7 @@ POSTS & CONTENT STYLES
 				margin: 1.5em 0;
 				border-radius: 0;
 			}
+			
 
 		} /* end .entry-content */
 
@@ -882,40 +889,95 @@ POSTS & CONTENT STYLES
 
 	// the tag output
 	.tags {
-		margin: 1em 0;
+	
+		display: inline-block;
+		margin: 0 1em 0;
 		
 		p {
 		
-		margin:1em 0 !important;
+			margin:1em 0 !important;
+		
+		}
+		
+		ul {
+		
+			
+		
+		}
+		
+		li {
+		
+			float: left;
+			position: relative;
 		
 		}
 		
 		a {
 		
-			background-color: #bebebe;
-			border-radius: 3px;
+			background: #3fb8e8 none repeat scroll 0 0;
+			border-bottom-right-radius: 3px;
+			border-top-right-radius: 3px;
 			color: #fff;
-			margin: 0 5px;
-			padding: 2px 8px;
-			text-transform: capitalize;
-			transition: all 0.3s ease-in-out 0s;
-	
-			/*padding:6px 12px;
-			background-color:#95a5a6;
-			border-radius:6px;
-			color:#fff;*/
+			display: inline-block;
+			font-size: 1em;
+			font-weight: bold;
+			margin: 0 16px;
+			padding: 4px 10px;
+			position: relative;
+			text-decoration: none;
+			text-transform: uppercase;
+			transition: all .25s linear;
 			
 			&:hover {
 			
-				background-color: #3fb8e8;
+				background-color: #3498db;
 				color: #fff;
 				text-decoration: none;
+				transition: all .25s linear;
 			
 			}
-		
+			
+			&:hover::before {
+				
+				border-color: transparent #3498db transparent transparent;
+				transition: all .25s linear;
+			
+			}
+			
+			&:before {
+				
+				border-color: transparent #3fb8e8 transparent transparent;
+				border-style: solid;
+				border-width: 16px 16px 16px 0;
+				content: "";
+				height: 0;
+				left: -16px;
+				position: absolute;
+				top: 0;
+				width: 0;
+				transition: all .25s linear;
+				
+			}
+			
+			&:after {
+				
+				background: #fff none repeat scroll 0 0;
+				border-radius: 50%;
+				content: "";
+				float: left;
+				height: 5px;
+				left: 0;
+				position: absolute;
+				top: 14px;
+				width: 5px;
+				transition: all .25s linear;
+				
+			}
+			
 		}
-	
+		
 	}
+
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -1386,6 +1448,7 @@ FOOTER STYLES
 		transition: all .25s linear;
 		color:#2980b9;
 		padding-left: 1.1em !important;
+		text-decoration: none !important;
 	
 	}
 	

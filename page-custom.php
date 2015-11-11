@@ -65,7 +65,11 @@
 
 								<footer class="article-footer">
 
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'leonitetheme' ) . '</span> ', ', ', '</p>' ); ?>
+                  <?php // the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'leonitetheme' ) . '</span> ', ', ', '</p>' ); ?>
+				  
+				  <?php the_tags( '<ul class="tags"><li>', '</li><li>', '</li></ul>' ); ?>
+				  
+				  
 
 								</footer>
 
