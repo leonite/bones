@@ -190,6 +190,8 @@
 	**/
 	function L_sendSms ($msg, $id, $numberto) {
 		
+		$result = false;
+		
 		$ch = curl_init("http://sms.ru/sms/send");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
@@ -204,7 +206,9 @@
 		$body = curl_exec($ch);
 		curl_close($ch);
 		
-		($body = false) ? return false : return true;
+		($body != false) ? $result = true : $result = false;
+		
+		return $result;
 		
 	}
 	
@@ -259,6 +263,40 @@
 		
 		return empty($value) && !is_numeric($value);
 		
+	}
+	
+	/**
+	* L_GetPostCats - get the all categories of current post, but not uncategorized
+	* @return categories in HTML markup or false
+	**/
+	
+	function L_GetPostCats() {
+		
+		global $post;
+		
+		$cats = get_the_category();
+		$result = null;
+				
+				if ( sizeOf ( $cats ) > 0 ) {
+				
+					foreach( $cats as $category ) {
+					
+						if ( $category->cat_ID != 1 ) {
+												
+							$result .= '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
+						
+						}
+					
+					}
+					
+					return $result;
+				
+				} else {
+					
+					return false;
+					
+				}
+				
 	}
 
 ?>

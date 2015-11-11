@@ -26,6 +26,9 @@
 	// load core functions
 	require_once( 'library/core.php' );
 	
+	//load misc functions
+	require_once( 'library/functions/misc-functions.php' );
+	
 	// load backend functions
 	require_once( 'library/backend/backend-functions.php' );
 	
