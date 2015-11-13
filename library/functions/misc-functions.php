@@ -311,7 +311,7 @@
 		$tags = get_the_tags();
 		$result = null;
 				
-				if ( sizeOf ( $tags ) > 0 ) {
+				if ($tags != false) {
 				
 					foreach( $tags as $tag ) {
 					

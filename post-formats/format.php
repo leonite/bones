@@ -60,6 +60,12 @@
                 </section> <?php // end article section ?>
 
                 <footer class="article-footer">
+				
+				<div class="share-this">
+				
+					<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="large" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div>
+				
+				</div>
 
 				<?php
 				
@@ -68,7 +74,7 @@
 				
 				if ( $cats != false ) {
 					
-					echo "<div class='post-categories'>" . $cats . "</div>";
+					echo "<div class='post-categories'><span class='glyphicon glyphicon-bookmark cat-glyph'></span>" . $cats . "</div>";
 					
 				}
 				
@@ -77,19 +83,30 @@
 				
 				if ( $tags != false ) {
 					
-					echo "<div class='tags'>" . $tags . "</div>";
+					echo "<div class='tags'><span class='glyphicon glyphicon-tags tags-glyph'></span>" . $tags . "</div>";
 					
 				}
 				  
 				?>
+				  
+				<div class="post-author-vcard">
 				
-				<div class="share-this">
-				
-				<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div>
+					<div class="author-image">
+
+						<a href="<?php the_author_meta('user_url'); ?>"><?php echo get_avatar( get_the_author_meta('user_email'), '80', '' ); ?></a>
+
+
+					</div>   
+
+					<div class="author-bio">
+
+						<h4>Written by <a href="**Author Website**">**Author Name**</a></h4>
+
+						<p>Товарищи! реализация намеченных плановых заданий играет важную роль в формировании модели развития. Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке дальнейших направлений развития. Товарищи! новая модель организационной деятельности влечет за собой процесс внедрения и модернизации систем массового участия. Таким образом сложившаяся структура организации представляет собой интересный эксперимент проверки новых предложений.</p>
+
+					</div>
 				
 				</div>
-				  
-				<div class="post-author-vcard">author</div>
 
                 </footer> <?php // end article footer ?>
 

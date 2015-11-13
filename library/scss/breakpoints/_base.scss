@@ -527,7 +527,16 @@ POSTS & CONTENT STYLES
 			
 			a {
 			
-				text-decoration:underline;
+				//text-decoration:underline;
+				border-bottom: 1px solid #3fb8e8;
+			
+				&:hover {
+				
+				border-bottom: 1px solid #3498db;
+				text-decoration:none;
+				transition: all 0.2s ease 0s;
+				
+				}
 			
 			}
 			
@@ -893,7 +902,7 @@ POSTS & CONTENT STYLES
 	
 		width:100%;
 		display: inline-block;
-		margin:  0 0 0.5em;
+		margin:  0 0 1em;
 		
 		p {
 		
@@ -924,7 +933,7 @@ POSTS & CONTENT STYLES
 			display: inline-block;
 			font-size: 16px;
 			font-weight: bold;
-			margin: 0 16px;
+			margin: 5px 16px;
 			padding: 5px 10px;
 			position: relative;
 			text-decoration: none;
@@ -981,19 +990,28 @@ POSTS & CONTENT STYLES
 		
 	}
 	
+	
+	.tags-glyph, .cat-glyph {
+	
+	color: #ccc;
+    font-size: $fs3;
+    margin: 0 16px 0 0;
+    vertical-align: middle;
+	
+	}
 //post categories output
 
 .post-categories {
 
 	width:100%;
 	display:inline-block;
-    margin: 0 0 0.5em;
+    margin: 0 0 1em;
 	transition: all .25s linear;
 
 	a {
 	
 		background: #fafafa none repeat scroll 0 0;
-		float: left;
+		display: inline-block;
 		font-weight: 600;
 		margin: 0.5em 0.5em 0 0;
 		padding: 0.5em;
@@ -1016,10 +1034,19 @@ POSTS & CONTENT STYLES
 
 .share-this {
 
-	display: inline-block;
-    margin: 1.5em 0;
-    text-align: right;
-    width: 100%;
+	//display: inline-block;
+	float:right;
+    margin: 0 0 1em 0;
+    //text-align: right;
+    //width: 100%;
+
+}
+
+.b-share_theme_counter .b-share_type_small .b-share-icon {
+
+	 background-image: url("//yastatic.net/share/static/b-share_counter_large.png");
+	height:24px;
+	width:24px;
 
 }
 
@@ -1027,9 +1054,50 @@ POSTS & CONTENT STYLES
 
 .post-author-vcard {
 
-	width:100%;
-	display:inline-block;
-	margin: 0 0 0.5em;
+	border: 1px solid #f8f9fa;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 1em;
+    width: 100%;
+
+}
+
+.author-image {
+
+	float: left;
+    margin-right: 0.5em;
+    vertical-align: middle;
+
+}
+
+.author-bio {
+
+	vertical-align: middle;
+	
+	h4 {
+	
+		font-weight: 700;
+		margin-bottom: 0.5em;
+		margin-top: 0;
+	
+	}
+	
+	p {
+	
+		font-size: $fs1m;
+		margin: 0.5em 0 0;
+		line-height: $fs3;
+	
+	}
+
+}
+
+
+/*********THIRD PARTY*********/
+
+.syntaxhighlighter {
+
+	border: none !important;
 
 }
 

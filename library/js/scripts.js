@@ -232,6 +232,10 @@ jQuery(document).ready(function($) {
 	//anchors.add('h1');
 	anchors.add('h2');
 	
+	//adding css property to syntaxHighlighter
+	//var x = document.getElementsByClassName("syntaxhighlighter");
+	//$(x).css('border','none !important');
+	
 
 }); /* end of as page load scripts*/
 
