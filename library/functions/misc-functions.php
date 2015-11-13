@@ -272,7 +272,7 @@
 	
 	function L_GetPostCats() {
 		
-		global $post;
+		//global $post;
 		
 		$cats = get_the_category();
 		$result = null;
@@ -286,6 +286,40 @@
 							$result .= '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
 						
 						}
+					
+					}
+					
+					return $result;
+				
+				} else {
+					
+					return false;
+					
+				}
+				
+	}
+	
+	/**
+	* L_GetPostTags - get the all tags of current post
+	* @return tags in HTML markup or false
+	**/
+	
+	function L_GetPostTags() {
+		
+		//global $post;
+		
+		$tags = get_the_tags();
+		$result = null;
+				
+				if ( sizeOf ( $tags ) > 0 ) {
+				
+					foreach( $tags as $tag ) {
+					
+						//if ( $category->cat_ID != 1 ) {
+												
+							$result .= '<a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "View posts by tag: %s" ), $tag->name ) . '" ' . '>' . $tag->name.'</a>';
+						
+						//}
 					
 					}
 					

@@ -62,7 +62,7 @@
                 <footer class="article-footer">
 
 				<?php
-				  				
+				
 				//get the categories of post
 				$cats = L_GetPostCats();
 				
@@ -72,10 +72,22 @@
 					
 				}
 				
-				//get the post tags
-				the_tags( '<ul class="tags"><li>', '</li><li>', '</li></ul>' );
+				//get the tags of post
+				$tags = L_GetPostTags();
+				
+				if ( $tags != false ) {
+					
+					echo "<div class='tags'>" . $tags . "</div>";
+					
+				}
 				  
-				  ?>
+				?>
+				
+				<div class="share-this">
+				
+				<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div>
+				
+				</div>
 				  
 				<div class="post-author-vcard">author</div>
 
