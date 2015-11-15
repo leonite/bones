@@ -14,7 +14,7 @@ if ( post_password_required() ) {
 
   <?php if ( have_comments() ) : ?>
 
-    <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'leonitetheme' ), __( '<span>One</span> Comment', 'leonitetheme' ), __( '<span>%</span> Comments', 'leonitetheme' ) );?></h3>
+    <h3 id="comments-title" class="h2"><span class="glyphicon glyphicon-comment tags-glyph"></span><?php comments_number( __( '<span>No</span> Comments', 'leonitetheme' ), __( '<span>One</span> Comment', 'leonitetheme' ), __( '<span>%</span> Comments', 'leonitetheme' ) );?></h3>
 
     <section class="commentlist">
       <?php

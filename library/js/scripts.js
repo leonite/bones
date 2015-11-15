@@ -236,6 +236,11 @@ jQuery(document).ready(function($) {
 	//var x = document.getElementsByClassName("syntaxhighlighter");
 	//$(x).css('border','none !important');
 	
+	
+	//mobile pagination
+	  $('#paginationpageselectcontrol').change(function(){
+        window.location = $('#paginationpageselectcontrol').val();
+    });
 
 }); /* end of as page load scripts*/
 

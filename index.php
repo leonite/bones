@@ -45,7 +45,7 @@
 
 							<?php endwhile; ?>
 
-									<?php leonite_page_navi(); ?>
+									<?php kriesi_pagination(); leonite_page_navi(); ?>
 
 							<?php else : ?>
 

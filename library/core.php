@@ -475,7 +475,8 @@ function leonite_theme_support() {
 	/*********************
 	PAGE NAVI
 	*********************/
-
+	
+	/*
 	// Numeric Page Navi (built into the theme by default)
 	function leonite_page_navi() {
 		
@@ -503,13 +504,53 @@ function leonite_theme_support() {
 		echo '</nav>';
 	
 	}
-
-	/*
+	*/
 	
-	function inffi_page_navi() {
+	function kriesi_pagination($pages = '', $range = 1)
+{  
+     $showitems = ($range * 2)+1;  
+
+     global $paged;
+     if(empty($paged)) $paged = 1;
+
+     if($pages == '')
+     {
+         global $wp_query;
+         $pages = $wp_query->max_num_pages;
+         if(!$pages)
+         {
+             $pages = 1;
+         }
+     }   
+
+     if(1 != $pages)
+     {
+         echo "<nav class='pagination'>";
+         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
+         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
+
+         for ($i=1; $i <= $pages; $i++)
+         {
+             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+             {
+                 echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
+             }
+         }
+
+         if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";  
+         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
+         echo "</nav>\n";
+     }
+}
+
+	
+	
+	function leonite_page_navi() {
 	
 	global $wp_query;
 	$total = $wp_query->max_num_pages;
+	$detect = new Mobile_Detect();
+	
 	
 	// only bother with the rest if we have more than 1 page!
 	if ( $total > 1 )  {
@@ -526,7 +567,7 @@ function leonite_theme_support() {
 	//if ( $wp_query->max_num_pages <= 1 )
 	//	return;
 	
-	if (is_handheld()) {
+	if ($detect->isMobile()) {
 		
 		// structure of "format" depends on whether we're using pretty permalinks
 		$format = 'page/%#%/';
@@ -559,7 +600,14 @@ function leonite_theme_support() {
 		
 		}
 	
-		echo '<div class="pagination_search" style="width: 100%; text-align: center">';
+		echo '<div class="pagination_search">';
+		//echo _e( 'Page', 'leonite' ) . $current_page . _e( ' of ', 'leonite' ) . $total;
+		
+		$message = _e( 'Page ', 'leonite' ) . $current_page;
+		$message .= _e( ' of ', 'leonite' ) . $total;
+		
+		echo $message;
+		
 		echo '<select id="paginationpageselectcontrol" name="paginationpageselectcontrol" data-placeholder="Перейти" class="selectpicker show-tick show-menu-arrow" data-hidden="true" data-live-search="true" date-size="auto" data-width="50%" data-none-selected-text="Страница" data-header="Перейти на страницу" title="Страница">' . "\n";
 		
 		$pagecounter = 1;
@@ -572,7 +620,7 @@ function leonite_theme_support() {
 		}
 		
 		echo '</select>' . "\n";
-		echo _e( ' of ', 'inffi' ) . $total . '</div>';
+		echo '</div>';
 		
 	} else {
 	
@@ -585,8 +633,8 @@ function leonite_theme_support() {
 			'format' 		=> $format,
 			'current' 		=> max( 1, get_query_var('paged') ),
 			'total' 		=> $total,
-			'prev_text' 	=> '',
-			'next_text' 	=> '',
+			'prev_text'    => '&larr;',
+			'next_text'    => '&rarr;',
 			'type'			=> 'list',
 			'end_size'		=> 2,
 			'mid_size'		=> 2
@@ -601,7 +649,7 @@ function leonite_theme_support() {
 	
 	}
 	
-	*/
+	
 
 
 	/* end page navi */

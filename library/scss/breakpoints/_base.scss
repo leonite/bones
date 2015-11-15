@@ -474,6 +474,7 @@ POSTS & CONTENT STYLES
 				//margin-top:1.5em;
 				padding: 1.5em;
 				border-top: 1px solid #f8f9fa;
+				border-bottom: 1px solid #f8f9fa;
 
 				p {
 					margin: 0.5em 0;
@@ -1036,7 +1037,7 @@ POSTS & CONTENT STYLES
 
 	//display: inline-block;
 	float:right;
-    margin: 0 0 1em 0;
+    margin: 0 0 1.5em;
     //text-align: right;
     //width: 100%;
 
@@ -1108,7 +1109,7 @@ PAGE NAVI STYLES
 
 .pagination,
 .wp-prev-next {
-	margin: 1.5em 0;
+	margin: 1em 0;
 }
 	.pagination{
     text-align: center;
@@ -1118,6 +1119,7 @@ PAGE NAVI STYLES
       background-color: $white;
       white-space: nowrap;
       padding: 0;
+	  border: 1px solid #f3f4f5;
       clear: both;
       border-radius: 3px;
     }
@@ -1128,8 +1130,24 @@ PAGE NAVI STYLES
       float: left;
       display: inline;
       overflow: hidden;
-      border-right: 1px solid $gray;
-    }
+      border-right: 1px solid #f3f4f5;
+		
+		&:first-child {
+		
+			border-top-left-radius: 3px;
+			border-bottom-left-radius:3px;
+		
+		}
+		
+		&:last-child {
+		
+			border:0 none;
+			border-top-right-radius:3px;
+			border-bottom-right-radius: 3px;
+		
+		}
+	
+	}
 
     a, span {
       margin: 0;
@@ -1138,24 +1156,26 @@ PAGE NAVI STYLES
       line-height: 1em;
       font-size: 1em;
       font-weight: normal;
-      padding: 0.75em;
+      padding: 1em;
       min-width: 1em;
       display: block;
       color: $blue;
+	  transition:none 0s ease 0s ;
 
       &:hover, &:focus {
-      	background-color: $blue;
+      	background-color: #3498db; //$blue;
       	color: $white;
       }
     }
 
     .current{
     	cursor: default;
-    	color: $text-color;
+    	color: #fff;
+		background:#2980b9;
 
     	&:hover, &:focus {
-    		background-color: $white;
-    		color: $text-color;
+    		//background-color: $white;
+    		//color: $text-color;
     	}
     }
 
@@ -1175,6 +1195,25 @@ PAGE NAVI STYLES
 		}
 
 	} /* end .wp-prev-next */
+	
+	//mobile pagination
+	
+	.pagination_search {
+	
+		margin: 1em;
+		text-align: center;
+		width: 100%;
+		font-weight:600;
+	
+	}
+	
+	#paginationpageselectcontrol {
+	
+		padding:8px;
+		margin:1em auto;
+		height:auto;
+	
+	}
 
 /******************************************************************
 COMMENT STYLES
@@ -1184,7 +1223,7 @@ COMMENT STYLES
 #comments-title {
 	padding: 0.75em;
 	margin: 0;
-	border-top: 1px solid $light-gray;
+	//border-top: 1px solid $light-gray;
 	//float:left;
 
 	/* number of comments span */
@@ -1375,7 +1414,7 @@ COMMENT FORM STYLES
 
 .comment-respond {
 	@extend .cf;
-	padding: 2em;
+	padding: 3em;
 	/*margin: 1.5em;
 	border: 1px solid transparent; //$light-gray;
 	background: #f7f7f7 none repeat scroll 0 0;
@@ -1486,7 +1525,7 @@ FOOTER STYLES
 	color: #999;//$light-gray;
 	border-top: 1px solid #e8e8e8;
 	padding: 2em;
-	margin-top:1.5em;
+	//margin-top:1.5em;
 
 	.p {
 	
@@ -1573,6 +1612,7 @@ FOOTER STYLES
 		color:#2980b9;
 		padding-left: 1.1em !important;
 		text-decoration: none !important;
+		border: none !important;
 	
 	}
 	
