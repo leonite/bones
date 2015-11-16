@@ -103,10 +103,13 @@ LINK STYLES
 a, a:visited {
 	transition: color 0.5s linear 0s;
 	color: $link-color;
+	border-bottom: 1px solid #b2ccf0;
 
 	/* on hover */
 	&:hover, &:focus {
 		color: $link-hover;
+		border-bottom: 1px solid #f0b2b2;
+		text-decoration:none;
 		
 	}
 
@@ -142,11 +145,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	a {
 	
 		text-decoration: none;
+		border: 0;
 		
 		&:hover, &:active {
 		
 			text-decoration:none;
 			outline: none;
+			border: 0;
 		
 		}
 	
@@ -232,6 +237,12 @@ HEADER STYLES
 
 	float:left;
 	width:auto;
+	
+	a {
+	
+	border-bottom:0;
+	
+	}
 
 }
 
@@ -341,6 +352,7 @@ and more scalable.
 			//padding: 0.75em;
 			font-weight: 600;
 			text-shadow: none;
+			border-bottom: 3px solid #b2ccf0;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -460,9 +472,16 @@ POSTS & CONTENT STYLES
 		padding:1em;
 	
 	}
+	
+	.main-header {
+	
+	position:absolute;
+	width:100%;
+	
+	}
 
 		.hentry {
-			background-color: $white;
+			//background-color: $white;
 			margin-bottom: 1.5em 1em;
 
 			header {
@@ -529,11 +548,11 @@ POSTS & CONTENT STYLES
 			a {
 			
 				//text-decoration:underline;
-				border-bottom: 1px solid #3fb8e8;
+				//border-bottom: 1px solid #3fb8e8;
 			
 				&:hover {
 				
-				border-bottom: 1px solid #3498db;
+				//border-bottom: 1px solid #3498db;
 				text-decoration:none;
 				transition: all 0.2s ease 0s;
 				
@@ -927,6 +946,7 @@ POSTS & CONTENT STYLES
 		
 		a {
 		
+			border-bottom:0;
 			background: #3fb8e8 none repeat scroll 0 0;
 			border-bottom-right-radius: 3px;
 			border-top-right-radius: 3px;
@@ -1149,35 +1169,95 @@ PAGE NAVI STYLES
 	
 	}
 
-    a, span {
+    a {
       margin: 0;
       text-decoration: none;
       padding: 0;
       line-height: 1em;
       font-size: 1em;
       font-weight: normal;
-      padding: 1em;
+      padding: 1em 1.5em;
       min-width: 1em;
-      display: block;
+      display: inline-block;
       color: $blue;
 	  transition:none 0s ease 0s ;
-
+	  border-right: 1px solid #f3f4f5;
+	  border-bottom:0;
+	  
       &:hover, &:focus {
       	background-color: #3498db; //$blue;
       	color: $white;
       }
+	  
+	  &:first-child {
+		
+			border-top-left-radius: 3px;
+			border-bottom-left-radius:3px;
+		
+		}
+		
+		&:last-child {
+		
+			border:0 none;
+			border-top-right-radius:3px;
+			border-bottom-right-radius: 3px;
+		
+		}
+	  
     }
-
-    .current{
-    	cursor: default;
-    	color: #fff;
-		background:#2980b9;
+	
+	.span-pagination {
+	
+		display: inline-block;
+		background-color: $white;
+		white-space: nowrap;
+		padding: 0;
+		border: 1px solid #f3f4f5;
+		clear: both;
+		border-radius: 3px;
+		margin:2em;
+		
+		 .current{
+		 
+			margin: 0;
+			text-decoration: none;
+			padding: 0;
+			line-height: 1em;
+			font-size: 1em;
+			font-weight: normal;
+			padding: 1em 1.5em;
+			min-width: 1em;
+			display: inline-block;
+			transition:none 0s ease 0s ;
+			cursor: default;
+			color: #fff;
+			background:#2980b9;
 
     	&:hover, &:focus {
     		//background-color: $white;
     		//color: $text-color;
     	}
+		
+		 &:first-child {
+		
+			border-top-left-radius: 3px;
+			border-bottom-left-radius:3px;
+		
+		}
+		
+		&:last-child {
+		
+			border:0 none;
+			border-top-right-radius:3px;
+			border-bottom-right-radius: 3px;
+		
+		}
+		
     }
+	
+	}
+
+   
 
   } /* end .bones_page_navi */
 
@@ -1200,9 +1280,10 @@ PAGE NAVI STYLES
 	
 	.pagination_search {
 	
-		margin: 1em;
+		margin: 2em auto;
+		padding:0 2em;
 		text-align: center;
-		width: 100%;
+		//width: 100%;
 		font-weight:600;
 	
 	}
@@ -1280,7 +1361,7 @@ COMMENT STYLES
 				text-decoration: none;
 
 				&:hover {
-					text-decoration: underline;
+					text-decoration: none; //underline;
 				}
 
 			}
@@ -1558,7 +1639,7 @@ FOOTER STYLES
 				
 					//font-size:$fs1m;
 					line-height:1.5em;
-					padding: 2px 0;
+					padding: 5px 0;
 					
 					
 					a {
@@ -1831,3 +1912,140 @@ opacity:0.5;
 	}
 
 }
+
+
+//timeline
+
+.cbp_tmtimeline {
+	//margin: 30px 0 0 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+} 
+
+/* The line */
+.cbp_tmtimeline:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 10px;
+	background: #afdcf8;
+	left: 20%;
+	margin-left: -10px;
+	margin-bottom:10%;
+}
+
+.cbp_tmtimeline > li {
+	position: relative;
+}
+
+/* The date/time */
+.cbp_tmtimeline > li .cbp_tmtime {
+	display: block;
+	width: 25%;
+	padding-right: 100px;
+	position: absolute;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span {
+	display: block;
+	text-align: right;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+	font-size: 0.9em;
+	color: #bdd0db;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+	font-size: 2.9em;
+	color: #3594cb;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+	color: #6cbfee;
+}
+
+/* Right content */
+.cbp_tmtimeline > li .cbp_tmlabel {
+	margin: 0 0 15px 25%;
+	background: #fafafa; //#3594cb;
+	//color: #fff;
+	padding: 1em 2em;
+	//font-size: 1.2em;
+	//font-weight: 300;
+	//line-height: 1.4;
+	position: relative;
+	border-radius: 3px;
+}
+
+//.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+//	background: #6cbfee;
+//}
+
+.cbp_tmtimeline > li .cbp_tmlabel h2 { 
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* The triangle */
+.cbp_tmtimeline > li .cbp_tmlabel:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: #fafafa; //#3594cb;
+	border-width: 10px;
+	top: 10px;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+	border-right-color: #fafafa; //#6cbfee;
+}
+
+/* The icons */
+.cbp_tmtimeline > li .cbp_tmicon {
+	width: 40px;
+	height: 40px;
+	font-family: 'ecoico';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: 1.4em;
+	line-height: 40px;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	color: #fff;
+	background: #46a4da;
+	border-radius: 50%;
+	box-shadow: 0 0 0 8px #afdcf8;
+	text-align: center;
+	left: 20%;
+	top: 0;
+	margin: 0 0 0 -25px;
+}
+
+.cbp_tmicon-phone:before {
+	content: "\e000";
+}
+
+.cbp_tmicon-screen:before {
+	content: "\e001";
+}
+
+.cbp_tmicon-mail:before {
+	content: "\e002";
+}
+
+.cbp_tmicon-earth:before {
+	content: "\e003";
+}
+
+//end of timeline

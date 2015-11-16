@@ -506,45 +506,119 @@ function leonite_theme_support() {
 	}
 	*/
 	
-	function kriesi_pagination($pages = '', $range = 1)
-{  
-     $showitems = ($range * 2)+1;  
+	function leonite_pagination($pages = '', $range = 2) {  
+    
+		$showitems = ($range * 2)+1;  
 
-     global $paged;
-     if(empty($paged)) $paged = 1;
+		global $paged;
+		$detect = new Mobile_Detect();
+		
+		if(empty($paged)) $paged = 1;
+		
+		// get the current page
+		if ( !$current_page = get_query_var('paged') ) {
+		
+			$current_page = 1;
+    
+		}   
 
-     if($pages == '')
-     {
-         global $wp_query;
-         $pages = $wp_query->max_num_pages;
-         if(!$pages)
-         {
-             $pages = 1;
-         }
-     }   
+			if ($pages == '') {
+			
+				global $wp_query;
+				$pages = $wp_query->max_num_pages;
+				
+				if (!$pages) {
+					
+					$pages = 1;
+				
+				}
+			
+			}
 
-     if(1 != $pages)
-     {
-         echo "<nav class='pagination'>";
-         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
-         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
+		if (!$detect->isMobile()) {
+			
+			// structure of "format" depends on whether we're using pretty permalinks
+			$bignum = 9999999;
+			$format = 'page/%#%/';
+			$linkarray = paginate_links(array(
+			
+				'base' => str_replace( 'page/9999999/', '%_%', esc_url( get_pagenum_link( $bignum ) ) ),
+				'format' => $format,
+				'current' => 0,
+				'show_all' => True,
+				'total' => $pages,
+				'mid_size' => 4,
+				'prev_next' => False,
+				'type' => 'array',
+			
+			));
+	
+			$urlarray = array();
+	
+			foreach($linkarray as $value) {
+			
+				$pieces = explode('\'',$value);
+			
+				foreach($pieces as $piece){
+				
+					if (substr(strtolower($piece),0,4) == 'http') {
+				
+						$urlarray[] = $piece;
+					
+					}
+				
+				}
+		
+			}
+	
+			echo '<div class="pagination_search">';
+			printf( __( 'Page %1$s of %2$s.', 'leonite' ), $current_page, $pages );
+		
+			echo '<select id="paginationpageselectcontrol" name="paginationpageselectcontrol" data-placeholder="Перейти" class="selectpicker show-tick show-menu-arrow" data-hidden="true" data-live-search="true" date-size="auto" data-width="50%" data-none-selected-text="Страница" data-header="Перейти на страницу" title="Страница">' . "\n";
+		
+			$pagecounter = 1;
+		
+			foreach($urlarray as $url) {
+		
+				echo '<option value="' .  $url . '"' . (($pagecounter == $current_page)?' selected':'') . '>' . $pagecounter . '</option>' . "\n";
+				$pagecounter = $pagecounter + 1;
+		
+			}
+		
+			echo '</select>' . "\n";
+			echo '</div>';
+			
+		} else {
+			
+			if (1 != $pages) {
+			
+				echo "<nav class='pagination'><span class='span-pagination'>";
+		 
+				if ($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
+				if ($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
 
-         for ($i=1; $i <= $pages; $i++)
-         {
-             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
-             {
-                 echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
-             }
-         }
+				for ($i=1; $i <= $pages; $i++) {
+				
+					if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
+					
+						echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
+				
+					}
+			
+				}
 
-         if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";  
-         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
-         echo "</nav>\n";
-     }
-}
+				if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";  
+				if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
+				echo "</span></nav>\n";
+		
+			}
+	
+		}
+	
+	}
 
 	
-	
+/*	
 	function leonite_page_navi() {
 	
 	global $wp_query;
@@ -632,12 +706,13 @@ function leonite_theme_support() {
 			'base' 			=> str_replace( 'page/9999999/', '%_%', esc_url( get_pagenum_link( $bignum ) ) ),
 			'format' 		=> $format,
 			'current' 		=> max( 1, get_query_var('paged') ),
+			'show_all'  	=> False,
 			'total' 		=> $total,
 			'prev_text'    => '&larr;',
 			'next_text'    => '&rarr;',
 			'type'			=> 'list',
-			'end_size'		=> 2,
-			'mid_size'		=> 2
+			'end_size'		=> 3,
+			'mid_size'		=> 3,
 		
 		) );
 		
@@ -648,7 +723,7 @@ function leonite_theme_support() {
 	}
 	
 	}
-	
+	*/
 	
 
 
