@@ -473,12 +473,19 @@ POSTS & CONTENT STYLES
 	
 	}
 	
-	.main-header {
+	.article-desc {
 	
-	position:absolute;
-	width:100%;
+	font-size: $fs1m;
+	
+		p {
+	
+			padding:0;
+	
+		}
 	
 	}
+	
+	
 
 		.hentry {
 			//background-color: $white;
@@ -501,6 +508,25 @@ POSTS & CONTENT STYLES
 			}
 
 		} /* end .hentry */
+		
+		.main-header {
+		
+		
+			header {
+	
+				//position:absolute;
+				//width:100%;
+				padding:0;
+			
+			}
+	
+		}
+		
+		.article-footer-main {
+	
+		border:0;
+	
+	}
 		
 
 		.single-title,
@@ -1935,11 +1961,11 @@ opacity:0.5;
 .cbp_tmtimeline:before {
 	content: '';
 	position: absolute;
-	top: 0;
+	top: 7px;
 	bottom: 0;
 	width: 10px;
-	background: #afdcf8;
-	left: 20%;
+	background: #f1c40f;
+	left: 5%;
 	margin-left: -10px;
 	margin-bottom:10%;
 }
@@ -1950,10 +1976,15 @@ opacity:0.5;
 
 /* The date/time */
 .cbp_tmtimeline > li .cbp_tmtime {
-	display: block;
-	width: 25%;
-	padding-right: 100px;
-	position: absolute;
+background: #ecf0f1 none repeat scroll 0 0;
+    font-size: 1em;
+    left: -110px;
+	min-width:150px;
+    padding: 4px 12px;
+    position: absolute;
+    top: 22px;
+	border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span {
@@ -1977,10 +2008,11 @@ opacity:0.5;
 
 /* Right content */
 .cbp_tmtimeline > li .cbp_tmlabel {
-	margin: 0 0 15px 25%;
-	background: #fafafa; //#3594cb;
+	margin: 1em 0 12% 12%;
+	background: #ecf0f1; //#3594cb;
+	border:1px solid #bdc3c7;
 	//color: #fff;
-	padding: 1em 2em;
+	padding: 0 1em;
 	//font-size: 1.2em;
 	//font-weight: 300;
 	//line-height: 1.4;
@@ -2007,9 +2039,24 @@ opacity:0.5;
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-	border-right-color: #fafafa; //#3594cb;
+	border-right-color: #ecf0f1; //#3594cb;
 	border-width: 10px;
 	top: 10px;
+}
+
+//border
+
+.cbp_tmtimeline > li .cbp_tmlabel:before {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: #bdc3c7; //#3594cb;
+	border-width: 11px;
+	top: 9px;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
@@ -2018,9 +2065,9 @@ opacity:0.5;
 
 /* The icons */
 .cbp_tmtimeline > li .cbp_tmicon {
-	width: 40px;
-	height: 40px;
-	font-family: 'ecoico';
+	width: 80px;
+	height: 80px;
+	//font-family: 'ecoico';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -2031,13 +2078,61 @@ opacity:0.5;
 	-webkit-font-smoothing: antialiased;
 	position: absolute;
 	color: #fff;
-	background: #46a4da;
+	background: #f1c40f;
 	border-radius: 50%;
-	box-shadow: 0 0 0 8px #afdcf8;
+	box-shadow: 0 0 0 8px #f39c12;
 	text-align: center;
-	left: 20%;
+	left: 5%;
 	top: 0;
-	margin: 0 0 0 -25px;
+	margin: 0 0 0 -45px;
+	
+	img {
+	
+		width:80px;
+		height:80px;
+		border-radius:100%;
+	
+	}
+
+}
+
+//footer
+
+/* Right content */
+.cbp_tmtimeline > li .cbp_tmfooter {
+	margin: 1em 0 15px 10%;
+	background: #fafafa; //#3594cb;
+	//color: #fff;
+	padding: 0 1em;
+	//font-size: 1.2em;
+	//font-weight: 300;
+	//line-height: 1.4;
+	position: relative;
+	border-radius: 3px;
+}
+
+//.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+//	background: #6cbfee;
+//}
+
+.cbp_tmtimeline > li .cbp_tmfooter h2 { 
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* The triangle */
+.cbp_tmtimeline > li .cbp_tmfooter:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: #fafafa; //#3594cb;
+	border-width: 10px;
+	top: 10px;
 }
 
 .cbp_tmicon-phone:before {

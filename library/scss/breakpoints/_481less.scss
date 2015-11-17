@@ -145,3 +145,37 @@ LAYOUT & GRID STYLES
 	width: 100%;
 
 }
+
+
+//timeline
+
+.cbp_tmtimeline > li .cbp_tmicon {
+			
+				left:0;
+				margin:0 0 1em 1em;
+				position: relative;
+				height:40px;
+				width:40px;
+				box-shadow: 0 0 0 3px #f39c12;
+			
+			}
+			
+.cbp_tmtimeline {
+
+background:none;
+
+	&:before {
+	
+	background:none;
+	
+	}
+
+}
+			
+.cbp_tmtimeline > li .cbp_tmlabel {
+
+margin: 1em 0 12% 0;
+
+}
+
+
