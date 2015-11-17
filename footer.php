@@ -54,9 +54,10 @@
 				</div>
 				
 				<div class="copyright">
-					
-						<p>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. Legal notices</p>
-						
+				
+						<div class="footer-bottom"><p>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. Legal notices</p></div>
+						<div class="footer-bottom">123</div>
+				
 				</div>
 
 			</footer>

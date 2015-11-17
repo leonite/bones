@@ -535,7 +535,7 @@ function leonite_theme_support() {
 			
 			}
 
-		if (!$detect->isMobile()) {
+		if ($detect->isMobile()) {
 			
 			// structure of "format" depends on whether we're using pretty permalinks
 			$bignum = 9999999;
