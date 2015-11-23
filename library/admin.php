@@ -613,4 +613,21 @@ function l_breadcrumbs() {
 */
 	
 	
+	//remove post_class classes/class
+	
+	function theme_slug_post_classes( $classes ) {
+		
+		if (is_home()) {
+		
+    $class_key = array_search( 'hentry', $classes );
+ 
+    if ( false !== $class_key ) {
+        unset( $classes[ $class_key ] );
+    }
+ 
+		}
+    return $classes;
+}
+add_filter( 'post_class', 'theme_slug_post_classes' );
+	
 ?>

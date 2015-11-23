@@ -5,49 +5,43 @@
 				<div id="inner-content" class="wrap cf">
 
 						<main id="main" class="m-all t-2of3 d-5of7m cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-						
-						<ul class="cbp_tmtimeline">
 
+						<div class="grid-container">
+						
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							
-								<li>
-								
-								
+								<div class="t-c">
 
-									<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
-									
-									<?php echo '<time class="updated entry-time cbp_tmtime" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'; ?>
-																		
-											<div class="cbp_tmicon"><?php the_post_thumbnail( 'leonite-thumb-80' ); ?></div>
-											
-											<!--<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>-->
-									
+							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
+
+								<header class="article-header-main">
 								
+									<div class="article-header-image">
+								
+										 <?php the_post_thumbnail( 'leonite-thumb-60' ); ?>
+								
+									</div>
 									
-										<div class="cbp_tmlabel">
-										
-										<header class="main-header">
-			
-											<h1 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-											
-											
-											<?php 
+									<div class="article-header-info">
 
-											/* the time the post was published */
-                       						echo '<div class="byline entry-meta vcard article-desc"><span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span></div>';
-											
-											
-											echo '</header>';
-											echo '<section class="entry-content cf">';
-											
-											//the_content();
-											the_excerpt();
-											
-											echo '</section>';
+									<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+									<p class="byline entry-meta vcard">
+                                    
+									<?php echo "<time class='updated entry-time' datetime='" . get_the_time('Y-m-d') . "' itemprop='datePublished'>" . get_the_time(get_option('date_format')) . "</time>" . "&nbsp;/&nbsp;" . "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'>" . get_the_author_link( get_the_author_meta( 'ID' ) ) . "</span>";
 
-											?>
-										
-										<footer class="article-footer-main cf">
+									?>
+									
+									</p>
+									
+									</div>
+
+								</header>
+
+								<section class="entry-content-main cf">
+									<?php the_excerpt(); ?>
+								</section>
+
+								<footer class="article-footer-main cf">
 									
 											<p class="footer-comment-count">
 										
@@ -84,19 +78,13 @@
 
 										</footer>
 
-										</div>							
-								
-									
-
-									</article>
-									
-									</li>
-									
-								
+							</article>
+							
+							</div>
 
 							<?php endwhile; ?>
 							
-							</ul>
+							</div>
 
 									<?php leonite_pagination(); ?>
 
