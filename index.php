@@ -16,13 +16,15 @@
 
 								<header class="article-header-main">
 								
-									<div class="article-header-image">
 								
-										 <?php the_post_thumbnail( 'leonite-thumb-60' ); ?>
-								
-									</div>
 									
 									<div class="article-header-info">
+									
+										<div class="article-header-image">
+								
+										<?php the_post_thumbnail( 'leonite-thumb-60' ); ?>
+								
+									</div>
 
 									<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 									<p class="byline entry-meta vcard">
