@@ -16,8 +16,6 @@
 
 								<header class="article-header-main">
 								
-								
-									
 									<div class="article-header-info">
 									
 										<div class="article-header-image">
@@ -27,29 +25,44 @@
 									</div>
 
 									<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-									<p class="byline entry-meta vcard">
+									
+									</div>
+
+								</header>
+								
+								<section class="entry-article-info">
+								
+								<p class="byline entry-meta vcard">
                                     
-									<?php echo "<time class='updated entry-time' datetime='" . get_the_time('Y-m-d') . "' itemprop='datePublished'>" . get_the_time(get_option('date_format')) . "</time>" . "&nbsp;/&nbsp;" . "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'>" . get_the_author_link( get_the_author_meta( 'ID' ) ) . "</span>";
+									<?php 
+									//$comments_count = get_comments_number( get_the_ID() );
+									//echo the_ID();
+									
+									echo "<time class='updated entry-time' datetime='" . get_the_time('Y-m-d') . "' itemprop='datePublished'>" . get_the_time(get_option('date_format')) . "</time>" . "&nbsp;/&nbsp;" . "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'>" . get_the_author_link( get_the_author_meta( 'ID' ) ) . "</span>";
 
 									?>
 									
 									</p>
 									
-									</div>
+									<p class="byline entry-meta vcard">
+									
+									<?php 
+									$comments_count = get_comments_number( get_the_ID() );
+									//echo the_ID();
+									
+									echo "<span class='glyphicon glyphicon-comment' style='margin-right:4px;'></span>" . $comments_count;
 
-								</header>
+									?>
+									
+									</p>
+								
+								</section>
 
 								<section class="entry-content-main cf">
 									<?php the_excerpt(); ?>
 								</section>
 
 								<footer class="article-footer-main cf">
-									
-											<p class="footer-comment-count">
-										
-												<?php comments_number( __( '<span>No</span> Comments', 'leonitetheme' ), __( '<span>One</span> Comment', 'leonitetheme' ), __( '<span>%</span> Comments', 'leonitetheme' ) );?>
-									
-											</p>
 											
 											<?php
 				

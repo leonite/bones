@@ -224,6 +224,7 @@ them however you see fit.
   .d-5of7m {
     @include grid-col;
     width: 71.4285715%;
+	padding:0;
   }
 
   .d-6of7 {

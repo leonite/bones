@@ -201,7 +201,13 @@ jQuery(document).ready(function($) {
 	$("body").click(function() {
 	
 		$("#search-primary-toggle").removeClass("opened");
-		$("#search-container-top").fadeOut("fast");
+		
+		$( "#search-container-top" ).slideUp( "fast", function() {
+			
+			// Animation complete.
+		});
+		
+		//$("#search-container-top").fadeOut("fast");
 	
 	});
 
