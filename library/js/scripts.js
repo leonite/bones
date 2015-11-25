@@ -125,38 +125,98 @@ function loadGravatars() {
 */
 jQuery(document).ready(function($) {
 	
-	var w = $( window ).width();
+	/*
+	*
+	*Equal height function
+	*Uses for main page articles columns
+	*
+	*/
 	
-	var h = ($('#header').innerHeight() / 16);// - 32;
-		$('#content').css('margin-top',h + 'em');
-	
-	$( window ).resize( function() {
+	equalheight = function(container) {
+
+	var currentTallest = 0,
+	currentRowStart = 0,
+	rowDivs = new Array(),
+	$el,
+	topPosition = 0;
 		
+	$(container).each(function() {
+
+		$el = $(this);
+		$($el).height('auto')
+		topPostion = $el.position().top;
+
+		if (currentRowStart != topPostion) {
+     
+			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+			
+				rowDivs[currentDiv].height(currentTallest);
+			
+			}
+     
+		rowDivs.length = 0; // empty the array
+		currentRowStart = topPostion;
+		currentTallest = $el.height();
+		rowDivs.push($el);
+	
+		} else {
+    
+		rowDivs.push($el);
+		currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+		
+		}
+		
+		for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+			
+			rowDivs[currentDiv].height(currentTallest);
+		
+		}
+	
+	});
+	
+}
+	
+	//load equal heights when page load
+	$(window).load(function() {
+		
+		//change margin top of content
+		var w = $(window).width();
+		var h = ($('#header').innerHeight() / 16);
+		$('#content').css('margin-top',h + 'em');
+		
+		equalheight('.grid-container .t-c');
+	
+	});
+
+	$(window).resize( function() {
+	
 		var w = $( window ).width();
 		
 		if ( w >= 481 ) {  
 		
 			//set main
-			var h = ($('#header').innerHeight() / 16);// - 32;
+			var h = ($('#header').innerHeight() / 16);
 			$('#content').css('margin-top',h + 'em');
 		
 		} else {
 			
 			//set main
-			var h = ($('#header').innerHeight() / 16);// - 32;
+			var h = ($('#header').innerHeight() / 16);
 			$('#content').css('margin-top',h + 1+ 'em');
 			
 		}
-	
+
+	//resize when window resize
+	equalheight('.grid-container .t-c');
+		
 	});
 	
 	//headroom js here
-	var hheight = $("#header").height();
-	//console.log(hheight);
+	var headerHeight = $("#header").height();
 	
 	$("#header").headroom({
 	
-		"offset": hheight,
+		"offset": headerHeight,
 		"tolerance": 20,
 		"classes": {
     
@@ -169,7 +229,6 @@ jQuery(document).ready(function($) {
 	});
 	
 	//hamburder primary menu
-	
 	$(".navbar-toggle").on("click", function () {
 	
 		$(this).toggleClass("active");
@@ -177,17 +236,12 @@ jQuery(document).ready(function($) {
 	});
 	
 	//search primary menu
-	
 	$("#search-primary-toggle").click(function() {
 		
 		$(this).toggleClass("opened");
-		
-		
 		$("#search-container-top").slideToggle("fast");
 		
 		if ($(this).hasClass("opened")) {
-			
-			//var search = 
 			
 			$("#sq").focus();
 			
@@ -201,23 +255,18 @@ jQuery(document).ready(function($) {
 	$("body").click(function() {
 	
 		$("#search-primary-toggle").removeClass("opened");
-		
 		$( "#search-container-top" ).slideUp( "fast", function() {
-			
-			// Animation complete.
+		// Animation complete.
 		});
-		
-		//$("#search-container-top").fadeOut("fast");
 	
 	});
 
-	$('#search-container-top').click(function(event){
+	$('#search-container-top').click(function(event) {
 	
 		event.stopPropagation();
 	
 	});
 	
-
 	/*
 	* Let's fire off the gravatar function
 	* You can remove this if you don't need it
@@ -248,5 +297,16 @@ jQuery(document).ready(function($) {
         window.location = $('#paginationpageselectcontrol').val();
     });
 
-}); /* end of as page load scripts*/
+}); 
+
+
+
+
+
+
+
+
+
+
+/* end of as page load scripts*/
 
