@@ -21,28 +21,27 @@
 										<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 									
 									</div>
+									
+									<p class="byline entry-meta vcard">
+                                    
+										<?php 
+											
+											//$comments_count = get_comments_number( get_the_ID() );
+											//echo the_ID();
+									
+											echo "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'><a href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "'>" . _e( 'Автор: ', 'leonite' ) . get_the_author() . "</a></span>" . "&nbsp;&#8226;&nbsp;" . "<time class='updated entry-time' datetime='" . get_the_time(' Y/m/d g:i') . "' itemprop='datePublished'>" . get_the_time('Y/m/d') . _e( 'в' , 'leonite') . get_the_time ('g:i') . "</time>";
+
+										?>
+									
+									</p>
 
 								</header>
 								
 								<section class="entry-article-info">
-								
-								<p class="byline entry-meta vcard">
-                                    
-									<?php 
-									//$comments_count = get_comments_number( get_the_ID() );
-									//echo the_ID();
-									
-									echo "<time class='updated entry-time' datetime='" . get_the_time(' Y/m/d g:i') . "' itemprop='datePublished'>" . get_the_time('Y/m/d @ g:i') . "</time>" . "&nbsp;&#8226;&nbsp;" . "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'><a href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "'>" . get_the_author() . "</a></span>";
-
-									?>
-									
-									</p>
-									
-									
 									
 									<div class="article-header-image">
 								
-										<?php the_post_thumbnail( 'main-thumbnail lazy' ); ?>
+										<?php the_post_thumbnail( 'main-thumbnail' ); ?>
 								
 									</div>
 								

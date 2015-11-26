@@ -205,7 +205,7 @@ HEADER STYLES
 
 .header {
 	background-color: $white;
-	border-bottom:1px solid #e8e8e8;
+	border-bottom:1px solid #f3f4f5; //#e8e8e8;
 	padding: 20px 0;
 }
 
@@ -492,7 +492,7 @@ POSTS & CONTENT STYLES
 			margin-bottom: 1.5em 1em;
 
 			header {
-				padding: 1em; //1em;
+				padding: 2em; //1em;
 			}
 
 			footer {
@@ -585,7 +585,7 @@ POSTS & CONTENT STYLES
 		.article-header-main {
 		
 			float: left;
-			padding: 1em 1em 0;
+			padding: 1em;
 			width: 100%;
 		
 		}
@@ -593,7 +593,7 @@ POSTS & CONTENT STYLES
 		.article-header-image {
 		
 			float: left;
-			margin: 1em 0 0;
+			//margin: 1em 0 0;
 		
 		img {
 		
@@ -604,6 +604,14 @@ POSTS & CONTENT STYLES
 			//border: 3px solid rgb(232, 232, 232);
 			//border-radius: 100%;
 			//margin-left: 1em;
+			
+			&:hover {
+			
+			opacity:0.9;
+			transition:all 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0ms;
+			cursor:pointer;
+			
+			}
 		
 		}
 		
@@ -642,7 +650,7 @@ POSTS & CONTENT STYLES
 		
 		.entry-content {
 		
-			padding: 0 1em 1em;
+			padding: 0 2em;
 			word-wrap: break-word;
 			font-size: 1.125em;
 			letter-spacing: 0.01rem;
@@ -1712,7 +1720,8 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $footerbg;
+	//background-color: $footerbg;
+	background: rgba(0, 0, 0, 0) url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/symphony.png") repeat scroll 0 0;
 	color: #999;//$light-gray;
 	border-top: 1px solid #e8e8e8;
 	padding: 2em;
@@ -1721,6 +1730,12 @@ FOOTER STYLES
 	.p {
 	
 		font-size:$fs1m;
+	
+	}
+	
+	a {
+	
+		background:#fff;
 	
 	}
 }
@@ -2279,10 +2294,10 @@ background: #ecf0f1 none repeat scroll 0 0;
 
 .grid-container{
 	
-	 border-bottom: 1px solid #e8e8e8;
-    border-left: 1px solid #e8e8e8;
+	 border-bottom: 1px solid #f3f4f5; //#e8e8e8;
+    border-left: 1px solid #f3f4f5; //#e8e8e8;
     border-radius: 3px;
-    border-right: 1px solid #e8e8e8;
+    border-right: 1px solid #f3f4f5; //#e8e8e8;
     overflow: hidden;
 	
 }
@@ -2329,8 +2344,8 @@ float: left;
   width: 50%;
   //background: #ccc;
   padding: 2%;
-  border-right: 1px solid #e8e8e8;
-  border-bottom: 1px solid #e8e8e8;
+  border-right: 1px solid #f3f4f5; //#e8e8e8;
+  border-bottom: 1px solid #f3f4f5; //#e8e8e8;
 
 	&:nth-child(2n) {
 	
@@ -2347,6 +2362,13 @@ float: left;
 	&:nth-last-child(2) {
 	
 	border-bottom: none;
+	
+	}
+	
+	&:hover {
+	
+		background:#fafafa;
+		transition: all 0.5s ease 0s;
 	
 	}
 	//float: left;
