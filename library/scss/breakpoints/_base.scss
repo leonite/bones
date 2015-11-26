@@ -1669,6 +1669,9 @@ SIDEBARS & ASIDES
 	.widgettitle {}
 
 	.widget {
+	
+	margin:0;
+	padding:0;
 
 		ul {
 
@@ -2271,10 +2274,11 @@ background: #ecf0f1 none repeat scroll 0 0;
 
 .grid-container{
 	
-	border-left: 1px solid #f8f8f8;
-    //margin: 2em 0;
+	 border-bottom: 1px solid #ddecf2;
+    border-left: 1px solid #ddecf2;
+    border-radius: 3px;
+    border-right: 1px solid #ddecf2;
     overflow: hidden;
-    //padding: 1em;
 	
 }
 
@@ -2317,12 +2321,16 @@ Grid
 .t-c {
 
 float: left;
-  width: 48%;
+  width: 50%;
   //background: #ccc;
-  margin: 10px 1%;
-  padding: 1%;
+  padding: 2%;
+  border-right: 1px solid #ddecf2;
 
-
+	&:nth-child(2n) {
+	
+		border-right: none;
+	
+	}
 	//float: left;
     //margin: 1%;
     //width: 48%;
