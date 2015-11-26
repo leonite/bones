@@ -166,6 +166,7 @@ add_action( 'after_setup_theme', 'setup_images' );
 
 function setup_images() {
  
+	add_image_size( 'main-thumbnail', 600, 300 );
     add_image_size( 'thumb-600', 600, 150, true );
 	add_image_size( 'thumb-300', 300, 100, true );
 	add_image_size( 'thumb-150', 150, 150, true );

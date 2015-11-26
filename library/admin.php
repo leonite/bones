@@ -629,5 +629,18 @@ function l_breadcrumbs() {
     return $classes;
 }
 add_filter( 'post_class', 'theme_slug_post_classes' );
+
+	
+	/*Prevent long comments, from https://gist.github.com/kovshenin/2393e3da32ac3ba379fa*/
+
+	add_filter( 'pre_comment_content', function( $content ) {
+	
+		if ( strlen( $content ) > 64000 )
+			
+			wp_die( 'Invalid comment.' );
+		
+		return $content;
+		
+	});
 	
 ?>

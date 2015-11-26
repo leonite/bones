@@ -9,8 +9,8 @@
 						<div class="grid-container">
 						
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-							
-								<div class="t-c">
+
+							<div class="t-c">
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
 
@@ -18,13 +18,7 @@
 								
 									<div class="article-header-info">
 									
-										<div class="article-header-image">
-								
-										<?php the_post_thumbnail( 'leonite-thumb-60' ); ?>
-								
-									</div>
-
-									<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+										<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 									
 									</div>
 
@@ -38,23 +32,19 @@
 									//$comments_count = get_comments_number( get_the_ID() );
 									//echo the_ID();
 									
-									echo "<time class='updated entry-time' datetime='" . get_the_time('Y-m-d') . "' itemprop='datePublished'>" . get_the_time(get_option('date_format')) . "</time>" . "&nbsp;/&nbsp;" . "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'>" . get_the_author_link( get_the_author_meta( 'ID' ) ) . "</span>";
+									echo "<time class='updated entry-time' datetime='" . get_the_time(' Y/m/d g:i') . "' itemprop='datePublished'>" . get_the_time('Y/m/d @ g:i') . "</time>" . "&nbsp;&#8226;&nbsp;" . "<span class='entry-author author' itemprop='author' itemscope itemptype='http://schema.org/Person'><a href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "'>" . get_the_author() . "</a></span>";
 
 									?>
 									
 									</p>
 									
-									<p class="byline entry-meta vcard">
 									
-									<?php 
-									$comments_count = get_comments_number( get_the_ID() );
-									//echo the_ID();
 									
-									echo "<span class='glyphicon glyphicon-comment' style='margin-right:4px;'></span>" . $comments_count;
-
-									?>
-									
-									</p>
+									<div class="article-header-image">
+								
+										<?php the_post_thumbnail( 'main-thumbnail lazy' ); ?>
+								
+									</div>
 								
 								</section>
 
@@ -63,17 +53,23 @@
 								</section>
 
 								<footer class="article-footer-main cf">
+								
+								
+								<p class="byline entry-meta vcard">
+									
+									<?php 
+									
+									 echo L_GetPostCats(True);
+									//$comments_count = get_comments_number( get_the_ID() );
+									//echo the_ID();
+									
+									//echo "<span class='glyphicon glyphicon-comment' style='margin-right:4px;'></span>" . $comments_count;
+
+									?>
+									
+									</p>
 											
 											<?php
-				
-												//get the categories of post
-												$cats = L_GetPostCats();
-				
-												if ( $cats != false ) {
-					
-												echo "<div class='post-categories'><span class='glyphicon glyphicon-bookmark cat-glyph'></span>" . $cats . "</div>";
-					
-												}
 				
 												//get the tags of post
 												$tags = L_GetPostTags();

@@ -266,36 +266,48 @@
 	}
 	
 	/**
-	* L_GetPostCats - get the all categories of current post, but not uncategorized
-	* @return categories in HTML markup or false
+	* L_GetPostCats - get all categories of current post, but not uncategorized.
+	* @param bool $usedelimeter - if true return categories with delimeters.
+	* @param string $delimeter - delimeter as any string.
+	* @return categories in HTML markup or false.
 	**/
 	
-	function L_GetPostCats() {
+	function L_GetPostCats($usedelimeter = false, $delimeter = "&nbsp;&#8226;&nbsp;") {
 		
 		//global $post;
 		
 		$cats = get_the_category();
 		$result = null;
 				
-				if ( sizeOf ( $cats ) > 0 ) {
-				
-					foreach( $cats as $category ) {
+			if ( sizeOf ( $cats ) > 0 ) {
 					
-						if ( $category->cat_ID != 1 ) {
-												
+				$last = end($cats);
+				
+				foreach( $cats as $category ) {
+					
+					if ( $category->cat_ID != 1 ) {
+							
+						if (!$usedelimeter or $category->name == $last->name) {			
+														
 							$result .= '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
-						
+							
+						} else {
+								
+							$result .= '<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>' . $delimeter;
+								
 						}
-					
+						
 					}
-					
-					return $result;
-				
-				} else {
-					
-					return false;
-					
+							
 				}
+					
+				return $result;
+				
+			} else {
+					
+				return false;
+					
+			}
 				
 	}
 	
