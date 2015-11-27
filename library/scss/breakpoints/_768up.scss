@@ -264,7 +264,22 @@ mobile. Make sure to double check these!
 			
 			.t-c {
 	
-				width:98%;
+				width:100%;
+				border-right: none;
 	
 			}
+			
+	//widget section
+	
+	.widget {
+	
+		padding:0;
+	
+	}
+	
+	.d-2of7 {
+    float: left;
+    padding: 3%;
+    //width: 26%;
+}
 

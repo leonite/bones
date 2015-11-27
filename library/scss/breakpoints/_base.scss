@@ -601,13 +601,14 @@ POSTS & CONTENT STYLES
 			//height:80px;
 			height: auto;
 			width: 100%;
+			transition: all 0.5s ease-out;
 			//border: 3px solid rgb(232, 232, 232);
 			//border-radius: 100%;
 			//margin-left: 1em;
 			
 			&:hover {
 			
-			opacity:0.9;
+			opacity:0.7;
 			transition:all 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0ms;
 			cursor:pointer;
 			
@@ -2294,10 +2295,12 @@ background: #ecf0f1 none repeat scroll 0 0;
 
 .grid-container{
 	
-	 border-bottom: 1px solid #f3f4f5; //#e8e8e8;
-    border-left: 1px solid #f3f4f5; //#e8e8e8;
-    border-radius: 3px;
-    border-right: 1px solid #f3f4f5; //#e8e8e8;
+	border:1px solid #f3f4f5;
+	//border-bottom: 1px solid #f3f4f5; //#e8e8e8;
+    //border-left: 1px solid #f3f4f5; //#e8e8e8;
+    border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+    //border-right: 1px solid #f3f4f5; //#e8e8e8;
     overflow: hidden;
 	
 }
@@ -2340,13 +2343,14 @@ Grid
 
 .t-c {
 
-float: left;
-  width: 50%;
-  //background: #ccc;
-  padding: 2%;
-  border-right: 1px solid #f3f4f5; //#e8e8e8;
-  border-bottom: 1px solid #f3f4f5; //#e8e8e8;
-
+	float: left;
+	width: 50%;
+	//background: #ccc;
+	padding: 2%;
+	border-right: 1px solid #f3f4f5; //#e8e8e8;
+	border-bottom: 1px solid #f3f4f5; //#e8e8e8;
+	transition: background-color 0.2s ease;
+	
 	&:nth-child(2n) {
 	
 		border-right: none;
@@ -2368,7 +2372,7 @@ float: left;
 	&:hover {
 	
 		background:#fafafa;
-		transition: all 0.5s ease 0s;
+		transition: background-color 0.2s ease-out;
 	
 	}
 	//float: left;
