@@ -9,9 +9,8 @@ class jQueryLazyLoadInf {
 	function __construct() {
 		add_action('wp_head', array($this, 'action_header'));
 		//add_action('wp_enqueue_scripts', array($this, 'action_enqueue_scripts'));
-		add_filter('the_content', array($this, 'filter_the_content'));
-		//add_filter('the_excerpt', array($this, 'filter_the_content'));
-		//add_filter('after_body', array($this, 'filter_the_content'));
+		add_action('the_content', array($this, 'filter_the_content'));
+		add_filter('after_body', array($this, 'filter_the_content'));
 		add_filter('wp_get_attachment_link', array($this, 'filter_the_content'));
 		add_action('wp_footer', array($this, 'action_footer'));
 	}

@@ -128,6 +128,12 @@ FOOTER STYLES
 
 }
 
+.social {
+	
+		width:100%;
+	
+	}
+
 /*
 check your menus here. do they look good?
 do they need tweaking?
@@ -210,6 +216,16 @@ margin: 1em 0 12% 0;
 
 .t-c {
 	
-	width:98%;
+	width:100%;
+	border-right: none;
+	
+	}
+	
+	
+	//widget section
+	
+	.widget {
+	
+		padding:2em 1em;
 	
 	}

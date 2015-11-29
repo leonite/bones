@@ -617,7 +617,7 @@ function l_breadcrumbs() {
 	
 	function theme_slug_post_classes( $classes ) {
 		
-		if (is_home()) {
+		if ( (is_home()) or (is_404()) ) {
 		
     $class_key = array_search( 'hentry', $classes );
  

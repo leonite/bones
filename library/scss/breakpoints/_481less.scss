@@ -66,6 +66,12 @@ LAYOUT & GRID STYLES
 
 }
 
+.social {
+	
+		width:100%;
+	
+	}
+
 //search
 
 .searchform-top {
@@ -187,7 +193,17 @@ margin: 1em 0 12% 0;
 	
 	.t-c {
 	
-	width:98%;
+	width:100%;
+	border-right: none;
+	
+	}
+	
+	
+	//widget section
+	
+	.widget {
+	
+		padding:2em 1em;
 	
 	}
 
