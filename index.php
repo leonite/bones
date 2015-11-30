@@ -34,7 +34,7 @@
 									
 										<span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">
 										
-											<?php _e( "Автор", 'leonite' ); ?>&nbsp;<a href="<?php echo $author_url ?>"><?php echo $author; ?></a>
+											<?php _e( "Автор", 'leonite' ); ?>&nbsp;<a href="<?php echo $author_url ?>" title="<?php _e('Показать все публикации автора','leonite') ?>"><?php echo $author; ?></a>
 										
 										</span>
 										
