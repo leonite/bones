@@ -12,9 +12,10 @@
                  * Again, If you want to remove post formats, just delete the post-formats
                  * folder and replace the function below with the contents of the "format.php" file.
                 */
-              ?>
-
-              <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+              ?>12312546
+			<div style="height: 100px; padding: 2em; vertical-align: middle; margin: 0px auto; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);">123</div>
+            
+			<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
                 <header class="article-header entry-header">
 

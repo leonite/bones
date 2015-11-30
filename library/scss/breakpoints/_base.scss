@@ -352,7 +352,7 @@ and more scalable.
 			//padding: 0.75em;
 			font-weight: 600;
 			text-shadow: none;
-			border-bottom: 3px solid #b2ccf0;
+			border-bottom: none; //3px solid #b2ccf0;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -527,6 +527,7 @@ POSTS & CONTENT STYLES
 		border:none;
 		padding:1em;
 		float:left;
+		width: 100%;
 	
 	}
 		
@@ -563,6 +564,15 @@ POSTS & CONTENT STYLES
 
 			time {}
 		}
+		
+		.entrycats {
+		
+			float: left;
+			margin-top: 1em;
+			font-size: $fs1m;
+			width:100%;
+		
+		}
 
 		/* entry content */
 		.entry-content-main {
@@ -594,6 +604,12 @@ POSTS & CONTENT STYLES
 		
 			float: left;
 			//margin: 1em 0 0;
+			
+			a {
+			
+			border-bottom:none;
+			
+			}
 		
 		img {
 		
@@ -683,23 +699,24 @@ POSTS & CONTENT STYLES
 
 			ul {
 			
-			
+				list-style-type: disc;
 				padding:0 1em;
-				list-style: none;
+				//list-style: none;
 
 					li { 
 					
 						padding:2px 0;	
 						
 						
-						&:before {
+						/*&:before {
 						
-							content: "\f192";
-							font-family: FontAwesome;
-							color: #3a4145; /* or whatever color you prefer */
+							//content: "\f192";
+							content: "•";
+							//font-family: FontAwesome;
+							color: #3a4145; 
 							margin-right: 4px;
 						
-						}
+						}*/
 						
 					}
 
@@ -1036,6 +1053,12 @@ POSTS & CONTENT STYLES
 		display: inline-block;
 		margin:  0 0 1em;
 		
+		.main {
+		
+			margin:0;
+		
+		}
+		
 		p {
 		
 			margin:1em 0 !important;
@@ -1066,8 +1089,8 @@ POSTS & CONTENT STYLES
 			display: inline-block;
 			font-size: 16px;
 			font-weight: bold;
-			margin: 5px 16px;
-			padding: 5px 10px;
+			margin: 4px 12px;
+			padding: 2px 8px;
 			position: relative;
 			text-decoration: none;
 			text-transform: uppercase;
@@ -1093,10 +1116,10 @@ POSTS & CONTENT STYLES
 				
 				border-color: transparent #3fb8e8 transparent transparent;
 				border-style: solid;
-				border-width: 17px 16px 17px 0;
+				border-width: 14px 12px 14px 0;
 				content: "";
 				height: 0;
-				left: -16px;
+				left: -12px;
 				position: absolute;
 				top: 0;
 				width: 0;
@@ -1113,7 +1136,7 @@ POSTS & CONTENT STYLES
 				height: 5px;
 				left: 0;
 				position: absolute;
-				top: 14px;
+				top: 12px;
 				width: 5px;
 				transition: all .25s linear;
 				
@@ -1743,8 +1766,8 @@ FOOTER STYLES
 
 .footer-bottom {
 
-	text-align: center;
-	display: inline-block;
+	text-align: left;
+	//display: inline-block;
 	//width: 50%;
 
 	}
@@ -1797,17 +1820,27 @@ FOOTER STYLES
 
 	.copyright {
 	
-		border-top:1px solid #e8e8e8;
+		//border-top:1px solid #e8e8e8;
 		font-size:$fs1m;
 		margin:1em auto;
 		width:75%;
+		color:#767676;
 	
 	 p {
 	 
 		margin-top:2em;
-		text-align:center;
+		//text-align:center;
 	 
 	 }
+	
+	}
+	
+	.social {
+	
+		margin:1em;
+		//padding:1.5em;
+		float:right;
+		width:auto;
 	
 	}
 	
@@ -1874,7 +1907,7 @@ FOOTER STYLES
 .headroom--not-top {
 
 	padding:10px; //5px 0;
-	border-bottom: 1px solid #f7f7f7;
+	border-bottom: 1px solid #f3f4f5;
     box-shadow: 0 0 2px #999;
 	
 
@@ -2380,5 +2413,87 @@ Grid
     //width: 48%;
 
 }
+
+
+//back to top css
+/*
+.cd-top {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background: rgba(232, 98, 86, 0.8) url(../img/cd-top-arrow.svg) no-repeat center 50%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+}
+*/
+
+  
+
+.cd-top {
+
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	overflow: hidden;
+	//text-indent: 100%;
+	border-radius:100%;
+	border-bottom:none;
+	padding:0.5em;
+	text-align:center;
+	color:#fff;
+	white-space: nowrap;
+	background: #1abc9c none repeat scroll 0 0;
+	visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+
+}
+
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+	
+	/*-webkit-transition: opacity .3s 0s, visibility 0s 0s;
+	-moz-transition: opacity .3s 0s, visibility 0s 0s;
+	transition: opacity .3s 0s, visibility 0s 0s;*/
+	background-color: #48c9b0 none repeat scroll 0 0;
+}
+
+.cd-top.cd-is-visible {
+	
+	/* the button becomes visible */
+	visibility: visible;
+	opacity: 1;
+
+}
+
+.cd-top.cd-fade-out {
+
+	/* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+	opacity: .5;
+
+	}
+.no-touch .cd-top:hover {
+
+	background: #48c9b0 none repeat scroll 0 0;
+	opacity: 1;
+	color:#fff;
+	border-bottom:none;
+
+}
+//end of back to top
 
 

@@ -49,14 +49,25 @@
 						
 					</nav>
 
+					<div class="social">
 					
+						<img src="https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697032-vkontakte-64.png">
+						<img src="https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697067-instagram-64.png">
+						<img src="https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697061-github-64.png">
+						<img src="https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697035-wordpress-64.png">
+					
+					</div>
 
 				</div>
 				
 				<div class="copyright">
 				
 						<div class="footer-bottom"><p>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. Legal notices</p></div>
-						<div class="footer-bottom">123</div>
+						<div class="footer-bottom">
+						
+							
+						
+						</div>
 				
 				</div>
 
