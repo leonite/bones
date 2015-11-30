@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 			<div id="content">
+			
+				<div class="share"><div style="width:75%;margin:0 auto;">123</div></div>
 
 				<div id="inner-content" class="wrap cf">
 				

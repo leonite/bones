@@ -234,6 +234,17 @@ function leonite_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 	
+	//sedebar 2
+	register_sidebar(array(
+		'id' => 'sidebar2',
+		'name' => __( 'Sidebar 2', 'leonite' ),
+		'description' => __( 'The second (primary) sidebar.', 'leonite' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+	
 	//footer sidebar menu links #1
 	register_sidebar(array(
 		'id' => 'footer-links-1',

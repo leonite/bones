@@ -603,6 +603,7 @@ POSTS & CONTENT STYLES
 		.article-header-image {
 		
 			float: left;
+			min-height: auto; //230px;
 			//margin: 1em 0 0;
 			
 			a {
@@ -1747,7 +1748,7 @@ FOOTER STYLES
 	//background-color: $footerbg;
 	background: rgba(0, 0, 0, 0) url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/symphony.png") repeat scroll 0 0;
 	color: #999;//$light-gray;
-	border-top: 1px solid #e8e8e8;
+	border-top: 3px solid #e8e8e8;
 	padding: 2em;
 	//margin-top:1.5em;
 
@@ -1841,6 +1842,15 @@ FOOTER STYLES
 		//padding:1.5em;
 		float:right;
 		width:auto;
+	
+	}
+	
+	.share {
+	
+	padding: 2em;
+	vertical-align: middle;
+	margin: 0px auto;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	
 	}
 	
@@ -2461,6 +2471,12 @@ Grid
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
   -moz-transition: opacity .3s 0s, visibility 0s .3s;
   transition: opacity .3s 0s, visibility 0s .3s;
+  
+  a, a:visited {
+  
+	color:#fff;
+  
+  }
 
 }
 
@@ -2477,6 +2493,7 @@ Grid
 	/* the button becomes visible */
 	visibility: visible;
 	opacity: 1;
+	color:#fff;
 
 }
 

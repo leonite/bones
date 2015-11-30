@@ -1,4 +1,5 @@
 /******************************************************************
+/******************************************************************
 Site Name:
 Author:
 
@@ -33,8 +34,14 @@ over your project's layout.
 
 // the last column
 .last-col {
-  float: right;
-  padding-right: 0 !important;
+	
+	float: right;
+	//padding-right: 0 !important;
+	background: #f8f8f8 none repeat scroll 0 0;
+	border-bottom: 1px solid #f3f4f5;
+	border-right: 1px solid #f3f4f5;
+	border-top: 1px solid #f3f4f5;
+
 }
 
 
@@ -222,7 +229,7 @@ them however you see fit.
 
   .d-5of7 {
     @include grid-col;
-    width: 71.4285715%;
+    width: 75%; //71.4285715%;
 	border-left: 1px solid #f3f4f5;
   }
   

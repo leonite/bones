@@ -11,6 +11,8 @@
 						<div class="grid-container">
 						
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+							
+							<?php //the_content(); ?>
 
 							<div class="t-c">
 
@@ -33,12 +35,8 @@
 									?>
 									
 										<span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">
-										
-<<<<<<< HEAD
-											<?php _e( "Автор", 'leonite' ); ?>&nbsp;<a href="<?php echo $author_url ?>"><?php echo $author; ?></a>
-=======
+
 											<?php _e( "Автор", 'leonite' ); ?>&nbsp;<a href="<?php echo $author_url ?>" title="<?php _e('Показать все публикации автора','leonite') ?>"><?php echo $author; ?></a>
->>>>>>> 504695a795ba2d0f9d9b0b95db627ab63c6a7f38
 										
 										</span>
 										
@@ -142,11 +140,17 @@
 
 						</main>
 
-					<?php get_sidebar(); ?>
+						<?php
+						
+						get_sidebar();
+
+get_sidebar('2'); 
+
+						?>
 
 				</div>
 				
-				<img width="600" height="300" alt="b3277872d719e894f7f9e5dfa9624196" class="attachment-main-thumbnail wp-post-image" src="http://www.test1.ru/wpdb/wp-content/uploads/2015/11/b3277872d719e894f7f9e5dfa9624196.jpg">
+				
 
 			</div>
 

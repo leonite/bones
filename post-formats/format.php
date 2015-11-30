@@ -12,9 +12,7 @@
                  * Again, If you want to remove post formats, just delete the post-formats
                  * folder and replace the function below with the contents of the "format.php" file.
                 */
-              ?>12312546
-			<div style="height: 100px; padding: 2em; vertical-align: middle; margin: 0px auto; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);">123</div>
-            
+              ?>         
 			<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
                 <header class="article-header entry-header">
@@ -23,13 +21,38 @@
 
                   <p class="byline entry-meta vcard">
 
-                    <?php printf( __( 'Posted1', 'bonestheme' ).' %1$s %2$s',
-                       /* the time the post was published */
-                       '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>',
-                       /* the author of the post */
-                       '<span class="by">'.__( 'by', 'bonestheme' ).'</span> <span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span>'
-                    ); ?>
+					<?php 
 
+						$author_url = get_author_posts_url( get_the_author_meta( 'ID' ) );
+						$author = get_the_author();
+									
+					?>
+									
+					<span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">
+
+						<?php _e( "Автор", 'leonite' ); ?>&nbsp;<a href="<?php echo $author_url ?>" title="<?php _e('Показать все публикации автора','leonite') ?>"><?php echo $author; ?></a>
+										
+					</span>
+										
+					&nbsp;&#8226;&nbsp;
+										
+					<?php //_e( "Опубликовано ", 'leonite' ); ?><time class="updated entry-time" datetime="<?php echo get_the_time(' Y/m/d g:i')  ?>" itemprop="datePublished"><?php echo get_the_time('F j, Y g:i') ?></time>
+					
+					&nbsp;&#8226;&nbsp;
+					
+				
+					
+					<?php 
+					
+					//<span class="glyphicon glyphicon-comment" style="color:#ccc;"></span>
+											
+						$comments_count = get_comments_number( get_the_ID() );
+						
+						_e( "Комметнариев: {$comments_count}", 'leonite' );
+						//echo $comments_count;
+
+					?>
+					
                   </p>
 
                 </header> <?php // end article header ?>

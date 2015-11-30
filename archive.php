@@ -36,21 +36,6 @@
 									<?php the_excerpt(); ?>
 
 								</section>
-								
-								<div class="section group">
-	<div class="col span_1_of_4">
-	1 of 4
-	</div>
-	<div class="col span_1_of_4">
-	1 of 4
-	</div>
-	<div class="col span_1_of_4">
-	1 of 4
-	</div>
-	<div class="col span_1_of_4">
-	1 of 4
-	</div>
-</div>
 
 								<footer class="article-footer">
 

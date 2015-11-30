@@ -353,7 +353,7 @@ jQuery(document).ready(function($) {
 		window.location = $('#paginationpageselectcontrol').val();
 	
 	});
-
+	
 }); 
 
 /* end of as page load scripts*/
