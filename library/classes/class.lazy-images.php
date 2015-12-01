@@ -12,7 +12,7 @@ class jQueryLazyLoadInf {
 		add_action('wp_head', array($this, 'action_header'));
 		//add_action('wp_enqueue_scripts', array($this, 'action_enqueue_scripts'));
 		add_action('the_content', array($this, 'filter_the_content'));
-		//add_filter('post_thumbnail_html', array($this, 'filter_the_content'));
+		add_filter('post_thumbnail_html', array($this, 'filter_the_content'));
 		
 		add_filter('wp_get_attachment_link', array($this, 'filter_the_content'));
 		add_action('wp_footer', array($this, 'action_footer'));
@@ -75,7 +75,7 @@ EOF;
 
 		// add noscript fallback with original img tag inside
 		$replacement .= '<noscript>' . $matches[0] . '</noscript>';
-		
+			
 		return $replacement;
 	
 	}
@@ -90,7 +90,9 @@ EOF;
 	echo <<<EOF
 	<script type="text/javascript">
 	(function($){
+	
 	$("img.lazy").show().lazyload({effect: "fadeIn"});
+	
 	})(jQuery);
 	</script>
 

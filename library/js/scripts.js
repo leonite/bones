@@ -1,6 +1,6 @@
 /*
- * Bones Scripts File
- * Author: Eddie Machado
+ * Main script file
+ * Author: leonite <leonitebelov@gmail.com>
  *
  * This file should contain any js scripts you want to add to the site.
  * Instead of calling it in the header or throwing it inside wp_head()
@@ -11,6 +11,27 @@
  * need any of it, just remove it. They are meant to be helpers and are
  * not required. It's your world baby, you can do whatever you want.
 */
+
+//skip link focus fix
+( function() {
+	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
+	    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
+	    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
+
+	if ( ( is_webkit || is_opera || is_ie ) && 'undefined' !== typeof( document.getElementById ) ) {
+		var eventMethod = ( window.addEventListener ) ? 'addEventListener' : 'attachEvent';
+		window[ eventMethod ]( 'hashchange', function() {
+			var element = document.getElementById( location.hash.substring( 1 ) );
+
+			if ( element ) {
+				if ( ! /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) )
+					element.tabIndex = -1;
+
+				element.focus();
+			}
+		}, false );
+	}
+})();
 
 
 /*
@@ -242,6 +263,20 @@ jQuery(document).ready(function($) {
 		equalheight('.grid-container .t-c');
 	
 	});
+	
+	//update grid on main page
+	if( typeof is_home === "undefined" ) var is_home = $('body').hasClass('home');
+		
+		if( is_home ) {
+			
+			$(window).scroll(function() {
+		
+				//console.log('equalheight is working');
+				equalheight('.grid-container .t-c');
+	
+			});
+	
+		}
 
 	$(window).resize( function() {
 	
