@@ -43,9 +43,19 @@ LAYOUT & GRID STYLES
 			}
 			
 			
-			.d-2of7 {
+			//grid system
 			
-				padding:2em;
+			//content
+			.t-2of3 {
+			
+				width: 75%;
+			
+			}
+			
+			//sidebar
+			.d-2of7 {
+				
+				width: 25%;
 			
 			}
 

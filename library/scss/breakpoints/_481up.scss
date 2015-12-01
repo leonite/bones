@@ -131,6 +131,9 @@ FOOTER STYLES
 .social {
 	
 		width:100%;
+		float:none;
+		margin:1em;
+		margin:1em;
 	
 	}
 
@@ -229,3 +232,22 @@ margin: 1em 0 12% 0;
 		padding:2em 1em;
 	
 	}
+	
+	//grid system
+	
+	
+	//content
+	.t-2of3 {
+	
+		width:65%;
+	
+	}
+
+	//sidebar
+	.d-2of7 {
+	
+		width:35%;
+		padding:1em;
+	
+	}
+	
