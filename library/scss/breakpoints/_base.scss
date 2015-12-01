@@ -437,10 +437,9 @@ BREADCRUMBS
 
 #breadcrumbs {
 
+	color: #9fa6b4;
 	margin: 0 auto;
-    padding: 1.5em 0 0;
-	font-size: $fs1m;
-	color:#9fa6b4;
+	padding: 0 0 1em 0;
 	
 	a  {
 	
@@ -460,6 +459,13 @@ BREADCRUMBS
 /*********************
 POSTS & CONTENT STYLES
 *********************/
+
+#inner-content {
+
+	//border-right: 1px solid #f3f4f5;
+	padding: 2em 0 0;
+
+}
 
 #content {
 	

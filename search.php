@@ -45,7 +45,7 @@
 
 						<?php endwhile; ?>
 
-								<?php leonite_page_navi(); ?>
+								<?php leonite_pagination(); ?>
 
 							<?php else : ?>
 
