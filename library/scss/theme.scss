@@ -113,6 +113,19 @@ you can add resource intensive styles.
 } // end of media query
 
 /*********************
+ANOTHER TABLET & SMALLER LAPTOPS
+This is the average viewing window. So Desktops, Laptops, and
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*********************/
+@media only screen and (min-width: 961px) {
+
+	// styles in 961up.scss
+	@import "breakpoints/961up";
+
+} // end of media query
+
+/*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where

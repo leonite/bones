@@ -3,12 +3,16 @@
 			<div id="content">
 			
 				<div id="inner-content" class="wrap cf">
+				
+				<div id="slider-main">
+				This is test of slider on main page.
+				</div>
 
-						<main id="main" class="m-all t-2of3 d-5of7 ld-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="m-all t-2of3 d-5of7 ld-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
+						<?php //top pagination //leonite_pagination(); ?>
 						
-						
-						<div class="grid-container">
+							<div class="grid-container">
 						
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							
@@ -138,7 +142,7 @@
 							<?php endif; ?>
 
 
-						</main>
+					</main>
 						
 						<?php
 						

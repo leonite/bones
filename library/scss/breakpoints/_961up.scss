@@ -13,50 +13,16 @@ be seen on the Desktop.
 LAYOUT & GRID STYLES
 *********************/
 
-.wrap {
-	width: 90%;
-}
-
-.copyright {
-
-	width:75%;
-
-}
-
-/*.social {
+	.wrap {
 	
-		width:auto;
+		width: 95%;
 	
-	}*/
+	}
 
-#content {
+	.t-c {
 	
-	//margin-top: 5em;
+		width:50%;
+		border-right: 1px solid #f3f4f5; //#e8e8e8;
 	
-}
+	}
 
-.t-c {
-	
-				width:50%;
-				border-right: 1px solid #f3f4f5; //#e8e8e8;
-	
-			}
-			
-			/*
-			//grid system
-			
-			//content
-			.t-2of3 {
-			
-				width: 75%;
-			
-			}*/
-			
-			//sidebar
-			.d-2of7 {
-				
-				width: 25%;
-			
-			}
-
-//timeline
