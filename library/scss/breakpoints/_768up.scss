@@ -30,6 +30,17 @@ body {
 }
 
 /*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#breadcrumbs {
+
+	padding:0;
+	line-height: 1.602em;
+
+}
+
+/*********************
 LAYOUT & GRID STYLES
 *********************/
 
@@ -194,6 +205,8 @@ mobile. Make sure to double check these!
 	
 		width:100%;
 		float:none;
+		margin:1em auto;
+		padding:0;
 	
 	}
 
@@ -267,7 +280,17 @@ mobile. Make sure to double check these!
 			}
 			
 			
+			/*
 			//grid
+			
+			//article
+	
+			.d-2of7-article {
+	
+				width:60%;
+	
+			}
+			*/
 			
 			.t-c {
 	
@@ -279,8 +302,8 @@ mobile. Make sure to double check these!
 	//widget section
 	
 	.widget {
-	
-		padding:0;
+    
+		padding: 2em 1em;
 	
 	}
 

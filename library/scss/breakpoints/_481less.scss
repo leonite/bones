@@ -5,6 +5,17 @@ body {
 
 }
 
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#breadcrumbs {
+
+	padding:0 1em;
+	line-height: 1.602em;
+
+}
+
 .entry-content {
 
 	padding: 0 0.5em;
@@ -70,7 +81,8 @@ LAYOUT & GRID STYLES
 	
 		width:100%;
 		margin: 1em auto;
-		float:none;
+		float:right;
+		padding:1em;
 	
 	}
 
@@ -203,9 +215,28 @@ margin: 1em 0 12% 0;
 	
 	//widget section
 	
-	.widget {
+	.widgettitle {
 	
-		padding:2em 1em;
+	font-size:$fs1;
 	
 	}
+	
+	.widget {
+	
+		padding:2em;
+		
+		ul {
+		
+		
+		
+			li {
+			
+				  margin-bottom: 0.75em;
+			
+			}
+		
+		}
+	
+	}
+	
 

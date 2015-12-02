@@ -88,6 +88,13 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 
+#breadcrumbs {
+
+	padding:0 2em;
+	line-height: 1.602em;
+
+}
+
 /* entry content */
 .entry-content {
 
@@ -131,9 +138,9 @@ FOOTER STYLES
 .social {
 	
 		width:100%;
-		float:none;
-		margin:1em;
-		margin:1em;
+		float:right;
+		margin:1em auto;
+		padding:1em;
 	
 	}
 
@@ -227,27 +234,56 @@ margin: 1em 0 12% 0;
 	
 	//widget section
 	
-	.widget {
+	.tagcloud {
 	
-		padding:2em 1em;
+	word-wrap:break-word;
 	
 	}
 	
+	.widget {
+	
+		padding:2em 1em;
+		
+		ul {
+		
+		
+		
+			li {
+			
+				  margin-bottom: 0.75em;
+			
+			}
+		
+		}
+	
+	}
+	
+	
+	/*
 	//grid system
 	
 	
 	//content
 	.t-2of3 {
 	
-		width:65%;
+		width:60%;
 	
 	}
 
 	//sidebar
 	.d-2of7 {
 	
-		width:35%;
-		padding:1em;
+		width:40%;
+		padding:0em;
 	
 	}
+	
+	//article
+	
+	.d-2of7-article {
+	
+	width:100%;
+	
+	}
+	*/
 	

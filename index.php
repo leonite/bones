@@ -4,7 +4,7 @@
 			
 				<div id="inner-content" class="wrap cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7m cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="m-all t-2of3 d-5of7 ld-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						
 						
@@ -119,7 +119,7 @@
 							
 							</div>
 
-									<?php leonite_pagination(); ?>
+								<?php leonite_pagination(); ?>
 
 							<?php else : ?>
 
@@ -139,14 +139,18 @@
 
 
 						</main>
-
+						
 						<?php
 						
-						get_sidebar();
+							get_sidebar();
 
-get_sidebar('2'); 
+							get_sidebar('2'); 
 
 						?>
+						
+						
+
+						
 
 				</div>
 				
