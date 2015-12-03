@@ -63,7 +63,7 @@
 					<div class="copyright">
 				
 						<div class="footer-bottom"><p>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. Legal notices</p></div>
-						<div class="footer-bottom"></div>
+						<div class="footer-bottom"><?php echo L_PageLoadTime(); ?></div>
 				
 					</div>
 

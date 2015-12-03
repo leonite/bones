@@ -554,14 +554,14 @@ POSTS & CONTENT STYLES
 		
 
 		.single-title,
-		//.page-title,
+		.page-title,
 		.entry-title {
 			margin: 0;
 		}
 
 		.single-title {}
 
-		.page-title { 
+		.archive-page-title { 
 		
 			background: #fafafa none repeat scroll 0 0;
 			margin: 0;
@@ -662,7 +662,14 @@ POSTS & CONTENT STYLES
 		
 		}
 		
-		.article-header-info {
+		.article-header-archive {
+		
+		float:right;
+		width:70%;
+		
+		}
+		
+		.article-header-info, .article-header-archive {
 		
 			vertical-align:middle;
 			word-wrap: break-word;

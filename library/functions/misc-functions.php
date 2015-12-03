@@ -345,4 +345,37 @@
 				
 	}
 
+	/**
+	* L_PageLoadTime - time to page loading
+	* @return page load time
+	**/
+	
+	function L_PageLoadTime() {
+	
+	/*
+		$time = microtime();
+		$time = explode(' ', $time);
+		$time = $time[1] + $time[0];
+		$finish = $time;
+		$total_time = round(($finish - $start), 4);
+		
+	*/
+	
+	/*
+		$end_time = microtime(TRUE);
+		$time_taken = $end_time - $start_time;
+		$time_taken = round($time_taken,5);
+		
+	*/
+	
+		// Start of code
+		$time = microtime(true); // Gets microseconds
+
+		// End of code
+		$time_taken = (microtime(true) - $time);
+		
+		return _e('Page generated in ' . $time_taken . ' seconds.','leonite');
+
+	}
+	
 ?>
