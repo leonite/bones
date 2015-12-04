@@ -563,8 +563,8 @@ POSTS & CONTENT STYLES
 
 		.archive-page-title { 
 		
-			background: #fafafa none repeat scroll 0 0;
-			margin: 0;
+			/*background: #fafafa none repeat scroll 0 0;
+			margin: 0;*/
 			padding: 1em;
 		
 		}
@@ -662,10 +662,27 @@ POSTS & CONTENT STYLES
 		
 		}
 		
+		.article-number {
+		
+			color:#ccc;
+			width:30%;
+			float:left;
+			padding:2em;
+			text-align:center;
+			border-right:1px solid #f3f4f5;
+			
+			.number {
+		
+			font-size:$fs7;
+		
+		}
+		
+		}
+		
 		.article-header-archive {
 		
-		float:right;
-		width:70%;
+			float:right;
+			width:70%;
 		
 		}
 		
@@ -687,6 +704,18 @@ POSTS & CONTENT STYLES
 			
 				margin:8px 0 0;
 			
+			}
+		
+		}
+		
+		.archive-grid {
+		
+		padding:1em;
+		
+			&:nth-child(2n) {
+		
+				background:#fafafa;
+		
 			}
 		
 		}
