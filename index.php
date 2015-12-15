@@ -143,14 +143,21 @@
 
 
 					</main>
+					
+					
+					<!--<div class="sticky-block">
+	<div class="inner">-->
 						
 						<?php
 						
 							get_sidebar();
 
-							get_sidebar('2'); 
+							//get_sidebar('2'); 
 
 						?>
+						
+						<!--</div>
+						</div>-->
 						
 						
 

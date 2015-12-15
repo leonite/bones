@@ -12,6 +12,9 @@
  * not required. It's your world baby, you can do whatever you want.
 */
 
+( function( $ ) {
+	
+
 //skip link focus fix
 ( function() {
 	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
@@ -119,8 +122,8 @@ function loadGravatars() {
   viewport = updateViewportDimensions();
   // if the viewport is tablet or larger, we load in the gravatars
   if (viewport.width >= 768) {
-  jQuery('.comment img[data-gravatar]').each(function(){
-    jQuery(this).attr('src',jQuery(this).attr('data-gravatar'));
+  $('.comment img[data-gravatar]').each(function(){
+    $(this).attr('src',jQuery(this).attr('data-gravatar'));
   });
 	}
 } // end function
@@ -139,12 +142,23 @@ function loadGravatars() {
 	}
 	
 	
+	
+	
 
 
 /*
  * Put all your regular jQuery in here.
 */
-jQuery(document).ready(function($) {
+	$( document ).ready( function() {
+		
+		// set the viewport using the function above
+		viewport = updateViewportDimensions();
+		
+		if (viewport.width >= 768) {
+		
+		$("#sidebar1").stick_in_parent({ "offset_top" : $("#header").height() } );
+		
+		}
 	
 	/*
 	*
@@ -217,6 +231,10 @@ jQuery(document).ready(function($) {
 	//grab the "back to top" link
 	$back_to_top = $('.cd-top');
 
+	
+	//show hide subnav depending on scroll direction
+    var position = $(window).scrollTop();
+	
 	//hide or show the "back to top" link
 	$(window).scroll(function() {
 	
@@ -227,8 +245,93 @@ jQuery(document).ready(function($) {
 			$back_to_top.addClass('cd-fade-out');
 		
 		}
+		
+		
+		/*
+	//sticky block
+	var block_padding = 0; //отступ после блока
+	var footer_height = $("#footer").outerHeight(); // высота подвала
 	
-	});
+	var sidebar = $("#sidebar1"); // блок который перемещается
+	var sidebar_height = sidebar.outerHeight(); // высота блока в пикселях
+	
+	var sticky_position = sidebar.offset().top + sidebar.outerHeight(); //) - $(window).height(); // позиция после которой блок становится плавающим
+	var scroll_top = $(window).scrollTop(); // текущее положение скролла в пикселях
+	var dh = $(document).height();
+	
+		var overall_height = (dh - scroll_top) - $(window).height(); //сколько осталось до дна в пикселях
+		var overall_height_from_top = (dh - overall_height) - $(window).height(); //сколько прошло в пикселях от верха
+	
+	//var sb = $(".sticky-block");
+	//var sbi = $(".sticky-block .inner");
+	//var sb_ot = sb.offset().top;
+	//var sbi_ot = sbi.offset().top;
+	
+	//console.log(scroll_top + $(window).height());
+	
+	//console.log(overall_height_from_top + $(window).height());	
+		
+	  var scroll = $(window).scrollTop();
+	  
+	
+
+			if (scroll > position) { //scroll down
+			
+			
+				//calculate scroll bottom position
+				var scroll_bottom = Math.round($( window ).scrollTop() + $( window ).height());
+			
+				//position when sidebar stop
+				var stop_position = Math.round($( document ).height() - footer_height);
+				
+				
+					
+					//enable sticky block while scroll top > sidebar 
+					if ( scroll_top +	$(window).height() >= sticky_position + block_padding )  {
+						
+						var ff = Math.abs(sticky_position -  scroll_bottom);
+				//var df = Math.abs($(window).height() - ff);
+						var tt = Math.abs(ff - sidebar.offset().top);
+						
+						var dd = ff + Math.abs(sticky_position -  scroll_bottom);
+				//console.log( Math.abs(sticky_position -  scroll_bottom));
+				console.log ( ff +" " + tt + " " + dd + " " + scroll_bottom + " " + sticky_position ) 
+						
+						//handle stop position when footer is right near
+						if ( scroll_bottom <= stop_position ) { //if ( sidebar_height + $(document).scrollTop() + footer_height < $(document).height() ) {
+		
+							console.log("WORK");
+							console.log("STICKY ENABLED");
+							
+							//console.log( "test: " + Math.round( sidebar.offset().top + sidebar.outerHeight() ) );
+							var h = Math.abs(sticky_position -  scroll_bottom);
+							
+							sidebar.css( { "padding-top" : ff } );
+					
+						} else {
+			
+							console.log("STOP");
+							console.log("STICKY DISABLED");
+							
+						}
+					
+					}
+		
+
+			} else { //scroll up
+         
+			//sidebar.css( {"paddingTop" : 0} );
+			//console.log("scroll to top : " + Math.round( $( document ).height() - $(window).scrollTop() ) );
+		
+   
+			}
+	
+			position = scroll;
+		
+
+	//end sticky block*/
+	
+	}); //scroll end function
 
 	//smooth scroll to top
 	$back_to_top.on('click', function(event) {
@@ -280,9 +383,10 @@ jQuery(document).ready(function($) {
 
 	$(window).resize( function() {
 	
-		var w = $( window ).width();
+		// set the viewport using the function above
+		viewport = updateViewportDimensions();
 		
-		if ( w >= 481 ) {  
+		if (viewport.width >= 481) {
 		
 			//set main
 			var h = ($('#header').innerHeight() / 16);
@@ -293,6 +397,16 @@ jQuery(document).ready(function($) {
 			//set main
 			var h = ($('#header').innerHeight() / 16);
 			$('#content').css('margin-top',h + 1+ 'em');
+			
+		}
+		
+		if (viewport.width >= 768) {
+		
+			$("#sidebar1").stick_in_parent({ "offset_top" : $("#header").height() } );
+
+		} else {
+			
+			$("#sidebar1").trigger("sticky_kit:detach");
 			
 		}
 
@@ -389,6 +503,8 @@ jQuery(document).ready(function($) {
 	
 	});
 	
-}); 
+	} ); // End DOM READY
+
+} )( jQuery );
 
 /* end of as page load scripts*/
