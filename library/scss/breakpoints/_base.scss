@@ -45,6 +45,12 @@ body {
 
 }
 
+//remove a dotted outline ff
+
+input::-moz-focus-inner { 
+  border: 0; 
+}
+
 
 /********************
 WORDPRESS BODY CLASSES
@@ -439,7 +445,7 @@ BREADCRUMBS
 
 	color: #9fa6b4;
 	margin: 0 auto;
-	padding: 0 0 1em 0;
+	padding: 1em 0;
 	
 	a  {
 	
@@ -1905,6 +1911,13 @@ FOOTER STYLES
 		//padding:1.5em;
 		float:right;
 		width:auto;
+		
+		a {
+		
+		background: none;
+		border-bottom:0px;
+		
+		}
 	
 	}
 	
@@ -1913,7 +1926,8 @@ FOOTER STYLES
 	padding: 2em;
 	vertical-align: middle;
 	margin: 0px auto;
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	color:#fff;
+	background: #3498db none repeat scroll 0 0;
 	
 	}
 	
@@ -2488,29 +2502,7 @@ Grid
 }
 
 
-//back to top css
-/*
-.cd-top {
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  position: fixed;
-  bottom: 40px;
-  right: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
-  background: rgba(232, 98, 86, 0.8) url(../img/cd-top-arrow.svg) no-repeat center 50%;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
-  -moz-transition: opacity .3s 0s, visibility 0s .3s;
-  transition: opacity .3s 0s, visibility 0s .3s;
-}
-*/
-
-  
+//back to top css  
 
 .cd-top {
 
@@ -2521,6 +2513,7 @@ Grid
 	bottom: 50px;
 	right: 50px;
 	overflow: hidden;
+	outline: 0;
 	//text-indent: 100%;
 	border-radius:100%;
 	border-bottom:none;
@@ -2539,6 +2532,13 @@ Grid
   a, a:visited {
   
 	color:#fff;
+	outline: 0;
+	
+  }
+  
+  a:hover, a:focus, a:active {
+  
+  outline:0;
   
   }
 
@@ -2546,10 +2546,11 @@ Grid
 
 .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
 	
-	/*-webkit-transition: opacity .3s 0s, visibility 0s 0s;
+	-webkit-transition: opacity .3s 0s, visibility 0s 0s;
 	-moz-transition: opacity .3s 0s, visibility 0s 0s;
-	transition: opacity .3s 0s, visibility 0s 0s;*/
+	transition: opacity .3s 0s, visibility 0s 0s;
 	background-color: #48c9b0 none repeat scroll 0 0;
+	outline: 0;
 }
 
 .cd-top.cd-is-visible {
@@ -2558,6 +2559,7 @@ Grid
 	visibility: visible;
 	opacity: 1;
 	color:#fff;
+	outline: 0;
 
 }
 
@@ -2565,6 +2567,7 @@ Grid
 
 	/* if the user keeps scrolling down, the button is out of focus and becomes less visible */
 	opacity: .5;
+	outline: 0;
 
 	}
 .no-touch .cd-top:hover {
@@ -2573,6 +2576,7 @@ Grid
 	opacity: 1;
 	color:#fff;
 	border-bottom:none;
+	outline: 0;
 
 }
 //end of back to top

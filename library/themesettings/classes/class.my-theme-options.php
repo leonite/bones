@@ -25,10 +25,11 @@
 			$this->settings = array();
 			$this->get_settings();
 		
-			$this->sections['general']      = __( 'General Settings' );
-			$this->sections['appearance']   = __( 'Appearance' );
-			$this->sections['reset']        = __( 'Reset to Defaults' );
-			$this->sections['about']        = __( 'About' );
+			$this->sections['general']		= __( 'General Settings' );
+			$this->sections['appearance']		= __( 'Appearance' );
+			$this->sections['social']		= __('Social Bar');
+			$this->sections['reset']		= __( 'Reset to Defaults' );
+			$this->sections['about']		= __( 'About' );
 		
 			add_action( 'admin_menu', array( &$this, 'add_pages' ) );
 			add_action( 'admin_init', array( &$this, 'register_settings' ) );
@@ -202,7 +203,7 @@
 		public function display_about_section() {
 		
 			// This displays on the "About" tab. Echo regular HTML here, like so:
-			echo '<p>Copyright ' . date('Y') . ' Leonite</p>';
+			echo '<p>Copyright ' . date('Y') . ' Bravissimo by Leonite</p>';
 		
 		}
 	
@@ -340,6 +341,25 @@
 			'type'    => 'heading'
 		);
 		
+		//Queries and page load time
+		
+		$this->settings['Page loading time'] = array(
+			'section' => 'general',
+			'title'   => '', // Not used for headings.
+			'desc'    => 'Show queries and page loading time in footer',
+			'type'    => 'heading'
+		);
+		
+		$this->settings['pageloadtime_checkbox'] = array(
+			'section' => 'general',
+			'title'   => __( 'Show queries and page load time' ),
+			'desc'    => __( 'Page load time will shown in footer if this setting is enabled.' ),
+			'type'    => 'checkbox',
+			'std'     => 1 // Set to 1 to be checked by default, 0 to be unchecked by default.
+		);
+		
+		
+		
 		$this->settings['example_radio'] = array(
 			'section' => 'general',
 			'title'   => __( 'Example Radio' ),
@@ -392,6 +412,33 @@
 			'type'    => 'textarea',
 			'section' => 'appearance',
 			'class'   => 'code'
+		);
+		
+		/* Social Bar
+		===========================================*/
+		
+		$this->settings['vk'] = array(
+			'section' => 'social',
+			'title'   => __( 'Vkontakte' ),
+			'desc'    => __( 'Enter the name of your vk profile' ),
+			'type'    => 'text',
+			'std'     => ''
+		);
+		
+		$this->settings['instagram'] = array(
+			'section' => 'social',
+			'title'   => __( 'Instagram' ),
+			'desc'    => __( 'Enter the name of your instagram profile' ),
+			'type'    => 'text',
+			'std'     => ''
+		);
+		
+		$this->settings['github'] = array(
+			'section' => 'social',
+			'title'   => __( 'Github' ),
+			'desc'    => __( 'Enter the name of your github profile' ),
+			'type'    => 'text',
+			'std'     => ''
 		);
 				
 		/* Reset
